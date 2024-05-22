@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{814E687F-5B9C-433C-89C3-36508E4119B1}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ProductStore</RootNamespace>
+    <AssemblyName>ProductStore</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controler\Cliente\ClienteControler.cs" />
+    <Compile Include="Controler\Cliente\SexoControler.cs" />
+    <Compile Include="Controler\Cliente\TrabalhoControler.cs" />
+    <Compile Include="Controler\Endereco\BairroControler.cs" />
+    <Compile Include="Controler\Endereco\CepControler.cs" />
+    <Compile Include="Controler\Endereco\CidadeControler.cs" />
+    <Compile Include="Controler\Endereco\RuaControler.cs" />
+    <Compile Include="Controler\Endereco\UfControler.cs" />
+    <Compile Include="Controler\Login\LoginControler.cs" />
+    <Compile Include="Controler\Produto\ImagemControler.cs" />
+    <Compile Include="Controler\Produto\MarcaControler.cs" />
+    <Compile Include="Controler\Produto\ProdutoControler.cs" />
+    <Compile Include="Controler\Produto\TipoControler.cs" />
+    <Compile Include="Controler\Telefone\ItensTelefoneClienteControler.cs" />
+    <Compile Include="Controler\Telefone\OperadoraControler.cs" />
+    <Compile Include="Controler\Telefone\TelefoneControler.cs" />
+    <Compile Include="DAO\Cliente\ClienteDao.cs" />
+    <Compile Include="DAO\Cliente\TrabalhoDao.cs" />
+    <Compile Include="DAO\ConfiguraBD.cs" />
+    <Compile Include="DAO\Endereco\BairroDAO.cs" />
+    <Compile Include="DAO\Endereco\CepDAO.cs" />
+    <Compile Include="DAO\Endereco\CidadeDao.cs" />
+    <Compile Include="DAO\Endereco\RuaDAO.cs" />
+    <Compile Include="DAO\Endereco\UfDao.cs" />
+    <Compile Include="DAO\Login\LoginDAO.cs" />
+    <Compile Include="DAO\Cliente\SexoDAO.cs" />
+    <Compile Include="DAO\Produto\ImagemDAo.cs" />
+    <Compile Include="DAO\Produto\MarcaDAO.cs" />
+    <Compile Include="DAO\Produto\ProdutoDAO.cs" />
+    <Compile Include="DAO\Produto\TipoDAO.cs" />
+    <Compile Include="DAO\Telefone\ItensTelefoneClienteDAO.cs" />
+    <Compile Include="DAO\Telefone\OperadoraDao.cs" />
+    <Compile Include="DAO\Telefone\TelefoneDao.cs" />
+    <Compile Include="Entidades\Cliente\ClienteEntidade.cs" />
+    <Compile Include="Entidades\Cliente\SexoEntidade.cs" />
+    <Compile Include="Entidades\Cliente\TrabalhoEntidade.cs" />
+    <Compile Include="Entidades\Endereco\BairroEntidade.cs" />
+    <Compile Include="Entidades\Endereco\CepEntidade.cs" />
+    <Compile Include="Entidades\Endereco\CidadeEntidade.cs" />
+    <Compile Include="Entidades\Endereco\RuaEntidade.cs" />
+    <Compile Include="Entidades\Endereco\UfEntidade.cs" />
+    <Compile Include="Entidades\Login\LoginEntidade.cs" />
+    <Compile Include="Entidades\Produto\ImagemEntidade.cs" />
+    <Compile Include="Entidades\Produto\MarcaEntidade.cs" />
+    <Compile Include="Entidades\Produto\ProdutoEntidade.cs" />
+    <Compile Include="Entidades\Produto\TipoEntidade.cs" />
+    <Compile Include="Entidades\Telefone\ItensTelefoneClienteEntidade.cs" />
+    <Compile Include="Entidades\Telefone\ItensTelefoneTrabalhoEntidade.cs" />
+    <Compile Include="Entidades\Telefone\OperadoraEntidade.cs" />
+    <Compile Include="Entidades\Telefone\TelefoneEntidade.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HomeScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeScreen.Designer.cs">
+      <DependentUpon>HomeScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginScreen.Designer.cs">
+      <DependentUpon>LoginScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Produto\Imagem\ImagemScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Produto\Imagem\ImagemScreen.Designer.cs">
+      <DependentUpon>ImagemScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Produto\Marca\MarcaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Produto\Marca\MarcaForm.Designer.cs">
+      <DependentUpon>MarcaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Produto\Marca\MarcaScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Produto\Marca\MarcaScreen.Designer.cs">
+      <DependentUpon>MarcaScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Produto\Produto\ProdutoFormulario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Produto\Produto\ProdutoFormulario.Designer.cs">
+      <DependentUpon>ProdutoFormulario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Produto\Produto\ProdutoScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Produto\Produto\ProdutoScreen.Designer.cs">
+      <DependentUpon>ProdutoScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Produto\Tipo\TipoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Produto\Tipo\TipoForm.Designer.cs">
+      <DependentUpon>TipoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Produto\Tipo\TipoScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Produto\Tipo\TipoScreen.Designer.cs">
+      <DependentUpon>TipoScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Usuario\UsuarioScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Usuario\UsuarioScreen.Designer.cs">
+      <DependentUpon>UsuarioScreen.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="HomeScreen.resx">
+      <DependentUpon>HomeScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginScreen.resx">
+      <DependentUpon>LoginScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Produto\Imagem\ImagemScreen.resx">
+      <DependentUpon>ImagemScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Produto\Marca\MarcaForm.resx">
+      <DependentUpon>MarcaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Produto\Marca\MarcaScreen.resx">
+      <DependentUpon>MarcaScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Produto\Produto\ProdutoFormulario.resx">
+      <DependentUpon>ProdutoFormulario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Produto\Produto\ProdutoScreen.resx">
+      <DependentUpon>ProdutoScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Produto\Tipo\TipoForm.resx">
+      <DependentUpon>TipoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Produto\Tipo\TipoScreen.resx">
+      <DependentUpon>TipoScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Usuario\UsuarioScreen.resx">
+      <DependentUpon>UsuarioScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
