@@ -5738,7 +5738,7 @@ create table funcao(
 	nomefuncao varchar(80) not null unique
 );
 
-insert into funcao(nomefuncao) values(upper('Super user'));
+insert into funcao(nomefuncao) values(upper('Gerente'));
 
 
 
@@ -5813,7 +5813,7 @@ create table acesso(
 	nomeacesso varchar(80) not null unique
 );
 
-insert into acesso(nomeacesso) values (upper('Super aceso'));
+insert into acesso(nomeacesso) values (upper('Super aceso')); --- esse vai vim no banco
 
 --ITENSACESSOLOGIN = {CODACESSOFK, CODLOGINFK}
 create table itensacessologin(
@@ -5920,8 +5920,8 @@ create table situacao (
 );
 
 insert into situacao(nomesituacao) values (upper('em aberto'));
-insert into situacao(nomesituacao) values (upper('vencido'));
-insert into situacao(nomesituacao) values (upper('pago'));
+
+insert into situacao(nomesituacao) values (upper('pago')); -- esse vai vim do banco
 
 
 --PARCELACOMPRA = {CODPARCELACOMPRA, DATAVENCIMENTO, VALOR,CODSITUACAOFK, CODCOMPRAFK}
