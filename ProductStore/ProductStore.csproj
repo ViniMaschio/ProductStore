@@ -54,12 +54,15 @@
     <Compile Include="Controler\Endereco\CidadeControler.cs" />
     <Compile Include="Controler\Endereco\RuaControler.cs" />
     <Compile Include="Controler\Endereco\UfControler.cs" />
+    <Compile Include="Controler\Funcionario\FuncaoControler.cs" />
+    <Compile Include="Controler\Funcionario\LojaControler.cs" />
     <Compile Include="Controler\Login\LoginControler.cs" />
     <Compile Include="Controler\Produto\ImagemControler.cs" />
     <Compile Include="Controler\Produto\MarcaControler.cs" />
     <Compile Include="Controler\Produto\ProdutoControler.cs" />
     <Compile Include="Controler\Produto\TipoControler.cs" />
     <Compile Include="Controler\Telefone\ItensTelefoneClienteControler.cs" />
+    <Compile Include="Controler\Telefone\ItensTelefoneTrabalhoControler.cs" />
     <Compile Include="Controler\Telefone\OperadoraControler.cs" />
     <Compile Include="Controler\Telefone\TelefoneControler.cs" />
     <Compile Include="DAO\Cliente\ClienteDao.cs" />
@@ -70,6 +73,9 @@
     <Compile Include="DAO\Endereco\CidadeDao.cs" />
     <Compile Include="DAO\Endereco\RuaDAO.cs" />
     <Compile Include="DAO\Endereco\UfDao.cs" />
+    <Compile Include="DAO\Funcionario\FuncaoDAO.cs" />
+    <Compile Include="DAO\Funcionario\FuncionarioDAO.cs" />
+    <Compile Include="DAO\Funcionario\LojaDAO.cs" />
     <Compile Include="DAO\Login\LoginDAO.cs" />
     <Compile Include="DAO\Cliente\SexoDAO.cs" />
     <Compile Include="DAO\Produto\ImagemDAo.cs" />
@@ -77,6 +83,7 @@
     <Compile Include="DAO\Produto\ProdutoDAO.cs" />
     <Compile Include="DAO\Produto\TipoDAO.cs" />
     <Compile Include="DAO\Telefone\ItensTelefoneClienteDAO.cs" />
+    <Compile Include="DAO\Telefone\ItensTelefoneTrabalhoDAO.cs" />
     <Compile Include="DAO\Telefone\OperadoraDao.cs" />
     <Compile Include="DAO\Telefone\TelefoneDao.cs" />
     <Compile Include="Entidades\Cliente\ClienteEntidade.cs" />
@@ -87,6 +94,9 @@
     <Compile Include="Entidades\Endereco\CidadeEntidade.cs" />
     <Compile Include="Entidades\Endereco\RuaEntidade.cs" />
     <Compile Include="Entidades\Endereco\UfEntidade.cs" />
+    <Compile Include="Entidades\Funcionario\FuncaoEntidade.cs" />
+    <Compile Include="Entidades\Funcionario\FuncionarioEntidade.cs" />
+    <Compile Include="Entidades\Funcionario\LojaEntidade.cs" />
     <Compile Include="Entidades\Login\LoginEntidade.cs" />
     <Compile Include="Entidades\Produto\ImagemEntidade.cs" />
     <Compile Include="Entidades\Produto\MarcaEntidade.cs" />
