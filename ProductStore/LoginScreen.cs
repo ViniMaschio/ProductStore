@@ -25,28 +25,25 @@ namespace ProductStore.View
         private void bntEntrar_Click(object sender, EventArgs e)
         {
 
-           LoginControler loginControler = new LoginControler();
+            LoginControler loginControler = new LoginControler();
 
-            LoginEntidade loginEntidade = loginControler.VerificarLogin(txtUser.Text,txtPass.Text);
+            LoginEntidade loginEntidade = loginControler.VerificarLogin(txtUser.Text, txtPass.Text);
 
-            if(loginEntidade == null)
+            if (loginEntidade == null)
             {
                 MessageBox.Show("Digite um usuario e senha validos");
             }
-            else {
+            else
+            {
+                SalvarLogin(loginEntidade.Id);
+
                 this.Close();
+
                 newThread = new Thread(AbrirNovaJanela);
                 newThread.SetApartmentState(ApartmentState.STA);
                 newThread.Start();
-                
-            }
 
-            
-            
-            
-           
-                
-            
+            }
         }
 
         void AbrirNovaJanela()
@@ -56,6 +53,11 @@ namespace ProductStore.View
 
         }
 
+        void SalvarLogin(int LoginId)
+        {
+            ControleLogSistemaControler controleLogSistemaControler = new ControleLogSistemaControler();
+            controleLogSistemaControler.NovoLogin(LoginId);
+        }
 
 
 

@@ -33,6 +33,7 @@ namespace ProductStore.DAO.Funcionario
                 }
 
                 conn.Close();
+
             }
         }
 
