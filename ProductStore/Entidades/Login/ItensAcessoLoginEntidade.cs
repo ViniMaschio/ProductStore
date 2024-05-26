@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProductStore.Entidades.Login
 {
-    public class ItensLoginAcessoEntidade
+    public class ItensAcessoLoginEntidade
     {
-        public ItensLoginAcessoEntidade() { }
+        public ItensAcessoLoginEntidade() { }
 
         private int _codAcesso;
         private int _codLogin;

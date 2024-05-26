@@ -57,7 +57,9 @@
     <Compile Include="Controler\Funcionario\FuncaoControler.cs" />
     <Compile Include="Controler\Funcionario\FuncionarioControler.cs" />
     <Compile Include="Controler\Funcionario\LojaControler.cs" />
+    <Compile Include="Controler\Login\AcessoControler.cs" />
     <Compile Include="Controler\Login\ControleLogSistemaControler.cs" />
+    <Compile Include="Controler\Login\ItensAcessoLoginControler.cs" />
     <Compile Include="Controler\Login\LoginControler.cs" />
     <Compile Include="Controler\Produto\ImagemControler.cs" />
     <Compile Include="Controler\Produto\MarcaControler.cs" />
@@ -65,6 +67,7 @@
     <Compile Include="Controler\Produto\TipoControler.cs" />
     <Compile Include="Controler\Telefone\ItensTelefoneClienteControler.cs" />
     <Compile Include="Controler\Telefone\ItensTelefoneFuncionarioControler.cs" />
+    <Compile Include="Controler\Telefone\ItensTelefoneLojaControler.cs" />
     <Compile Include="Controler\Telefone\ItensTelefoneTrabalhoControler.cs" />
     <Compile Include="Controler\Telefone\OperadoraControler.cs" />
     <Compile Include="Controler\Telefone\TelefoneControler.cs" />
@@ -79,7 +82,9 @@
     <Compile Include="DAO\Funcionario\FuncaoDAO.cs" />
     <Compile Include="DAO\Funcionario\FuncionarioDAO.cs" />
     <Compile Include="DAO\Funcionario\LojaDAO.cs" />
+    <Compile Include="DAO\Login\AcessoDAO.cs" />
     <Compile Include="DAO\Login\ControleLogSistemaDAO.cs" />
+    <Compile Include="DAO\Login\ItensAcessoLoginDAO.cs" />
     <Compile Include="DAO\Login\LoginDAO.cs" />
     <Compile Include="DAO\Cliente\SexoDAO.cs" />
     <Compile Include="DAO\Produto\ImagemDAo.cs" />
@@ -88,6 +93,7 @@
     <Compile Include="DAO\Produto\TipoDAO.cs" />
     <Compile Include="DAO\Telefone\ItensTelefoneClienteDAO.cs" />
     <Compile Include="DAO\Telefone\ItensTelefoneFuncionarioDAO.cs" />
+    <Compile Include="DAO\Telefone\ItensTelefoneLojaDAO.cs" />
     <Compile Include="DAO\Telefone\ItensTelefoneTrabalhoDAO.cs" />
     <Compile Include="DAO\Telefone\OperadoraDao.cs" />
     <Compile Include="DAO\Telefone\TelefoneDao.cs" />
@@ -102,7 +108,9 @@
     <Compile Include="Entidades\Funcionario\FuncaoEntidade.cs" />
     <Compile Include="Entidades\Funcionario\FuncionarioEntidade.cs" />
     <Compile Include="Entidades\Funcionario\LojaEntidade.cs" />
+    <Compile Include="Entidades\Login\AcessoEntidade.cs" />
     <Compile Include="Entidades\Login\ControleLogSistemaEntidade.cs" />
+    <Compile Include="Entidades\Login\ItensAcessoLoginEntidade.cs" />
     <Compile Include="Entidades\Login\LoginEntidade.cs" />
     <Compile Include="Entidades\Produto\ImagemEntidade.cs" />
     <Compile Include="Entidades\Produto\MarcaEntidade.cs" />
@@ -110,6 +118,7 @@
     <Compile Include="Entidades\Produto\TipoEntidade.cs" />
     <Compile Include="Entidades\Telefone\ItensTelefoneClienteEntidade.cs" />
     <Compile Include="Entidades\Telefone\ItensTelefoneFuncionarioEntidade.cs" />
+    <Compile Include="Entidades\Telefone\ItensTelefoneLojaEntidade.cs" />
     <Compile Include="Entidades\Telefone\ItensTelefoneTrabalhoEntidade.cs" />
     <Compile Include="Entidades\Telefone\OperadoraEntidade.cs" />
     <Compile Include="Entidades\Telefone\TelefoneEntidade.cs" />

@@ -61,6 +61,7 @@ namespace ProductStore.Controler.Produto
 
             MessageBox.Show("Marca adicionado com sucesso!", "Adiciona Marca", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
         public void EditarMarca(MarcaEntidade marcaEntidade)
         {
             MarcaDAO marcaDAO = new MarcaDAO();
