@@ -42,7 +42,7 @@ namespace ProductStore.DAO.Compra
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
 
-                    cmd.CommandText = "delete itenscompraproduto where codcompra_fk = @codcompra_fk and codproduto_fk = @codproduto; " +
+                    cmd.CommandText = "delete from itenscompraproduto where codcompra_fk = @codcompra and codproduto_fk = @codproduto; " +
                         "update produto set quantidade = (quantidade - @quantidade) where codproduto = @codproduto;";
 
                     for (int i = 0; i < listItensCompraProdutoEntidade.Count; i++)
@@ -68,7 +68,7 @@ namespace ProductStore.DAO.Compra
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
 
-                    cmd.CommandText = "select * from itenscompraproduto where codcompra_fk = @codcompra_fk;";
+                    cmd.CommandText = "select * from itenscompraproduto where codcompra_fk = @codcompra;";
                     cmd.Parameters.AddWithValue("@codcompra", codCompra);
 
                     SqlDataReader reader = cmd.ExecuteReader();
