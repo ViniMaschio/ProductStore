@@ -259,8 +259,8 @@
             this.MinimizeBox = false;
             this.Name = "ProdutoFormulario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ProdutoFormulario";
-            this.Load += new System.EventHandler(this.ProdutoFormulario_Load);
+            this.Text = "7";
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 

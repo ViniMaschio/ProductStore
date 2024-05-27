@@ -2,20 +2,14 @@
 using ProductStore.Entidades.Produto;
 using ProductStore.View.Produto.Marca;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Produto.Produto
 {
     public partial class ProdutoFormulario : Form
     {
-        
+
         public ProdutoFormulario(ProdutoEntidade produtoEntidade)
         {
             InitializeComponent();
@@ -28,7 +22,7 @@ namespace ProductStore.View.Produto.Produto
                 txtCodigo.Text = produtoEntidade.Id.ToString();
             }
             else
-            {   
+            {
                 ProdutoControler produtoControler = new ProdutoControler();
 
                 produtoEntidade = produtoControler.BuscarPorId(produtoEntidade.Id);
@@ -39,17 +33,12 @@ namespace ProductStore.View.Produto.Produto
                 txtQuantidade.Text = produtoEntidade.Quantidade.ToString();
                 cbBoxMarca.SelectedValue = produtoEntidade.Codigomarca;
                 cbBoxTipo.SelectedValue = produtoEntidade.Codigotipo;
-            }  
-        }
-
-        private void ProdutoFormulario_Load(object sender, EventArgs e)
-        {
-            
+            }
         }
 
         private void CarregarMarca()
         {
-            //cbBoxMarca.Items.Clear();
+
 
             MarcaControler marcaControler = new MarcaControler();
             DataTable marca = marcaControler.BuscarTodosMarca();
@@ -73,13 +62,14 @@ namespace ProductStore.View.Produto.Produto
 
         private Boolean VerificaCampos()
         {
-            if(txtProduto.Text.Trim().Length == 0) {
+            if (txtProduto.Text.Trim().Length == 0)
+            {
 
                 MessageBox.Show("Digite o nome do produto!", "Adicionar Produto",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; 
+                return false;
             }
-            if(txtValor.Text.Trim().Length == 0)
+            if (txtValor.Text.Trim().Length == 0)
             {
                 MessageBox.Show("Digite o valor do produto!", "Adicionar Produto",
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -140,20 +130,24 @@ namespace ProductStore.View.Produto.Produto
 
         private void bntSalvar_Click(object sender, EventArgs e)
         {
-            
+
             if (VerificaCampos())
-            {   
-                
+            {
+
                 ProdutoControler produtoControler = new ProdutoControler();
 
-                ProdutoEntidade produtoEntidade = new ProdutoEntidade() {
+                ProdutoEntidade produtoEntidade = new ProdutoEntidade()
+                {
                     Id = int.Parse(txtCodigo.Text),
-                Nomeproduto = txtProduto.Text,Quantidade = double.Parse(txtQuantidade.Text),
-                Valor = double.Parse(txtValor.Text), Codigomarca =
-                int.Parse(cbBoxMarca.SelectedValue.ToString()), Codigotipo = 
+                    Nomeproduto = txtProduto.Text,
+                    Quantidade = double.Parse(txtQuantidade.Text),
+                    Valor = double.Parse(txtValor.Text),
+                    Codigomarca =
+                int.Parse(cbBoxMarca.SelectedValue.ToString()),
+                    Codigotipo =
                 int.Parse(cbBoxTipo.SelectedValue.ToString())
                 };
-                if(produtoEntidade.Id != 0)
+                if (produtoEntidade.Id != 0)
                 {
                     produtoControler.AlterarProduto(produtoEntidade);
                 }
@@ -161,7 +155,7 @@ namespace ProductStore.View.Produto.Produto
                 {
                     produtoControler.AdicionarProduto(produtoEntidade);
                 }
-                
+
 
                 this.Close();
             }
@@ -174,7 +168,7 @@ namespace ProductStore.View.Produto.Produto
 
         private void bntNovoMarca_Click(object sender, EventArgs e)
         {
-            MarcaEntidade marcaEntidade = new MarcaEntidade() {Id= 0, Marca ="" };
+            MarcaEntidade marcaEntidade = new MarcaEntidade() { Id = 0, Marca = "" };
 
             MarcaForm marcaForm = new MarcaForm(marcaEntidade);
 
@@ -188,8 +182,8 @@ namespace ProductStore.View.Produto.Produto
         {
             TipoEntidade tipoEntidade = new TipoEntidade() { Id = 0, Tipo = "" };
 
-            TipoForm tipoForm = new TipoForm(tipoEntidade); 
-            
+            TipoForm tipoForm = new TipoForm(tipoEntidade);
+
             tipoForm.ShowDialog();
 
             CarregarTipo();

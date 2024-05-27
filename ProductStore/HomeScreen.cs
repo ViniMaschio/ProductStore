@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProductStore.View.Cliente.Trabalho;
 using ProductStore.View.Produto;
 using ProductStore.View.Produto.Marca;
 using ProductStore.View.Produto.Produto;
@@ -38,13 +39,13 @@ namespace ProductStore.View
         private void usuarioToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
-            UsuarioScreen usuarioScreen = new UsuarioScreen();  
+            UsuarioScreen usuarioScreen = new UsuarioScreen();
             usuarioScreen.ShowDialog();
         }
 
         private void cadastroMarcaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MarcaScreen marcaScreen = new MarcaScreen();    
+            MarcaScreen marcaScreen = new MarcaScreen();
             marcaScreen.ShowDialog();
         }
 
@@ -53,5 +54,13 @@ namespace ProductStore.View
             ProdutoScreen produtoScreen = new ProdutoScreen();
             produtoScreen.ShowDialog();
         }
+
+        private void trabalhoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TrabalhoScreen trabalhoScreen = new TrabalhoScreen();
+            trabalhoScreen.ShowDialog();
+        }
+
+        
     }
 }

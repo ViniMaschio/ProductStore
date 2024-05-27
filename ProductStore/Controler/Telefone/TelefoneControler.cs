@@ -1,11 +1,7 @@
 ﻿using ProductStore.DAO.Telefone;
 using ProductStore.Entidades.Telefone;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.Controler.Telefone
@@ -38,7 +34,7 @@ namespace ProductStore.Controler.Telefone
 
             if (MessageBox.Show("Realmente deseja excluir o telefone\n" + telefoneEntidade.Id +
                 " - " + telefoneEntidade.Telefone, "Excluir Telefone", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
-                == DialogResult.Yes) 
+                == DialogResult.Yes)
             {
                 telefoneDao.Delete(telefoneEntidade.Id);
                 MessageBox.Show("Telefone Adicionado com sucesso!", "Adicionar Telefone", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -46,20 +42,21 @@ namespace ProductStore.Controler.Telefone
         }
 
         public DataTable BuscarTodosTelefone()
-        {   
+        {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID");
-            dataTable.Columns.Add("Telefone");
-            dataTable.Columns.Add("Cod Operadora");
+            dataTable.Columns.Add("ID", typeof(int));
+            dataTable.Columns.Add("Telefone", typeof(string));
+
 
             TelefoneDao telefoneDao = new TelefoneDao();
 
             List<TelefoneEntidade> listTelefoneEntidade = telefoneDao.BuscarTodosTelefone();
 
-            for (int i = 0; i< listTelefoneEntidade.Count && listTelefoneEntidade != null; i ++)
+            for (int i = 0; i < listTelefoneEntidade.Count; i++)
             {
-                dataTable.Rows.Add(listTelefoneEntidade[i].Id, listTelefoneEntidade[i].Telefone,
-                    listTelefoneEntidade[i].CodOperadora);
+                dataTable.Rows.Add(listTelefoneEntidade[i].Id,
+                    listTelefoneEntidade[i].Telefone
+                    );
             }
 
             return dataTable;
@@ -67,7 +64,7 @@ namespace ProductStore.Controler.Telefone
 
         public TelefoneEntidade BuscarTelefonePorID(int id)
         {
-            TelefoneDao telefoneDao=new TelefoneDao();
+            TelefoneDao telefoneDao = new TelefoneDao();
 
             return telefoneDao.BuscarTelefonePorId(id);
         }

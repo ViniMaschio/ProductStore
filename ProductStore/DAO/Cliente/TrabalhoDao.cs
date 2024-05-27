@@ -1,4 +1,5 @@
 ﻿using ProductStore.Entidades.Cliente;
+using ProductStore.Entidades.Produto;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -65,7 +66,7 @@ namespace ProductStore.DAO.Cliente
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "delete from tabalho where codtrabalho = @codtrabalho";
+                    cmd.CommandText = "delete from trabalho where codtrabalho = @codtrabalho";
                     cmd.Parameters.AddWithValue("@codtrabalho", id);
 
                     try
@@ -84,7 +85,7 @@ namespace ProductStore.DAO.Cliente
 
         public List<TrabalhoEntidade> BuscarTodosTrabalho()
         {
-            List<TrabalhoEntidade> listTrabalhoEntidade = null;
+            List<TrabalhoEntidade> listTrabalhoEntidade = new List<TrabalhoEntidade>();
 
             using(SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -118,7 +119,7 @@ namespace ProductStore.DAO.Cliente
 
         public TrabalhoEntidade BuscarTrabalhoPorId(int id)
         {
-            TrabalhoEntidade trabalhoEntidade = null;
+            TrabalhoEntidade trabalhoEntidade = new TrabalhoEntidade();
 
             using(SqlConnection conn =new SqlConnection(_stringconnetion))
             {

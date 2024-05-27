@@ -30,13 +30,15 @@ namespace ProductStore.Controler.Telefone
             }
         }
 
-        public DataTable BuscarTodosTelfonePorLoja(int idLoja)
+        public List<ItensTelefoneLojaEntidade> BuscarTodosTelfonePorLoja(int idLoja)
         {
-            DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("T", typeof(int));
+            
 
             ItensTelefoneLojaDAO itensTelefoneLojaDAO = new ItensTelefoneLojaDAO();
+
+
             
+            return itensTelefoneLojaDAO.BuscarTelefonePorLoja(idLoja);
         }
     }
 }

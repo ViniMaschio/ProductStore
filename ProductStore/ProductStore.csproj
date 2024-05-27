@@ -46,9 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controler\Boletos\ParcelaCompraControler.cs" />
+    <Compile Include="Controler\Boletos\ParcelaVendaControler.cs" />
+    <Compile Include="Controler\Boletos\SituacaoControler.cs" />
     <Compile Include="Controler\Cliente\ClienteControler.cs" />
     <Compile Include="Controler\Cliente\SexoControler.cs" />
     <Compile Include="Controler\Cliente\TrabalhoControler.cs" />
+    <Compile Include="Controler\Compra\CompraProdutoControler.cs" />
+    <Compile Include="Controler\Compra\FornecedorControler.cs" />
+    <Compile Include="Controler\Compra\ItensCompraProdutoControler.cs" />
     <Compile Include="Controler\Endereco\BairroControler.cs" />
     <Compile Include="Controler\Endereco\CepControler.cs" />
     <Compile Include="Controler\Endereco\CidadeControler.cs" />
@@ -66,13 +72,22 @@
     <Compile Include="Controler\Produto\ProdutoControler.cs" />
     <Compile Include="Controler\Produto\TipoControler.cs" />
     <Compile Include="Controler\Telefone\ItensTelefoneClienteControler.cs" />
+    <Compile Include="Controler\Telefone\ItensTelefoneFornecedorControler.cs" />
     <Compile Include="Controler\Telefone\ItensTelefoneFuncionarioControler.cs" />
     <Compile Include="Controler\Telefone\ItensTelefoneLojaControler.cs" />
     <Compile Include="Controler\Telefone\ItensTelefoneTrabalhoControler.cs" />
     <Compile Include="Controler\Telefone\OperadoraControler.cs" />
     <Compile Include="Controler\Telefone\TelefoneControler.cs" />
+    <Compile Include="Controler\Venda\ItensVendaProdutoControler.cs" />
+    <Compile Include="Controler\Venda\VendaProdutoControler.cs" />
+    <Compile Include="DAO\Boletos\ParcelaCompraDAO.cs" />
+    <Compile Include="DAO\Boletos\ParcelaVendaDAO.cs" />
+    <Compile Include="DAO\Boletos\SituacaoDAO.cs" />
     <Compile Include="DAO\Cliente\ClienteDao.cs" />
     <Compile Include="DAO\Cliente\TrabalhoDao.cs" />
+    <Compile Include="DAO\Compra\CompraProdutoDAO.cs" />
+    <Compile Include="DAO\Compra\FornecedorDAO.cs" />
+    <Compile Include="DAO\Compra\ItensCompraProdutoDAO.cs" />
     <Compile Include="DAO\ConfiguraBD.cs" />
     <Compile Include="DAO\Endereco\BairroDAO.cs" />
     <Compile Include="DAO\Endereco\CepDAO.cs" />
@@ -92,14 +107,23 @@
     <Compile Include="DAO\Produto\ProdutoDAO.cs" />
     <Compile Include="DAO\Produto\TipoDAO.cs" />
     <Compile Include="DAO\Telefone\ItensTelefoneClienteDAO.cs" />
+    <Compile Include="DAO\Telefone\ItensTelefoneFornecedorDAO.cs" />
     <Compile Include="DAO\Telefone\ItensTelefoneFuncionarioDAO.cs" />
     <Compile Include="DAO\Telefone\ItensTelefoneLojaDAO.cs" />
     <Compile Include="DAO\Telefone\ItensTelefoneTrabalhoDAO.cs" />
     <Compile Include="DAO\Telefone\OperadoraDao.cs" />
     <Compile Include="DAO\Telefone\TelefoneDao.cs" />
+    <Compile Include="DAO\Venda\ItensVendaProdutoDAO.cs" />
+    <Compile Include="DAO\Venda\VendaProdutoDAO.cs" />
+    <Compile Include="Entidades\Boletos\ParcelaCompraEntidade.cs" />
+    <Compile Include="Entidades\Boletos\ParcelaVendaEntidade.cs" />
+    <Compile Include="Entidades\Boletos\SituacaoEntidade.cs" />
     <Compile Include="Entidades\Cliente\ClienteEntidade.cs" />
     <Compile Include="Entidades\Cliente\SexoEntidade.cs" />
     <Compile Include="Entidades\Cliente\TrabalhoEntidade.cs" />
+    <Compile Include="Entidades\Compra\CompraProdutoEntidade.cs" />
+    <Compile Include="Entidades\Compra\FornecedorEntidade.cs" />
+    <Compile Include="Entidades\Compra\ItensCompraProdutoEntidade.cs" />
     <Compile Include="Entidades\Endereco\BairroEntidade.cs" />
     <Compile Include="Entidades\Endereco\CepEntidade.cs" />
     <Compile Include="Entidades\Endereco\CidadeEntidade.cs" />
@@ -117,11 +141,14 @@
     <Compile Include="Entidades\Produto\ProdutoEntidade.cs" />
     <Compile Include="Entidades\Produto\TipoEntidade.cs" />
     <Compile Include="Entidades\Telefone\ItensTelefoneClienteEntidade.cs" />
+    <Compile Include="Entidades\Telefone\ItensTelefoneFornecedorEntidade.cs" />
     <Compile Include="Entidades\Telefone\ItensTelefoneFuncionarioEntidade.cs" />
     <Compile Include="Entidades\Telefone\ItensTelefoneLojaEntidade.cs" />
     <Compile Include="Entidades\Telefone\ItensTelefoneTrabalhoEntidade.cs" />
     <Compile Include="Entidades\Telefone\OperadoraEntidade.cs" />
     <Compile Include="Entidades\Telefone\TelefoneEntidade.cs" />
+    <Compile Include="Entidades\Venda\ItensVendaProdutoEntidade.cs" />
+    <Compile Include="Entidades\Venda\VendaProdutoEntidade.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HomeScreen.cs">
@@ -135,6 +162,24 @@
     </Compile>
     <Compile Include="LoginScreen.Designer.cs">
       <DependentUpon>LoginScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Cliente\Trabalho\TelefoneTrabalhoScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cliente\Trabalho\TelefoneTrabalhoScreen.Designer.cs">
+      <DependentUpon>TelefoneTrabalhoScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Cliente\Trabalho\TrabalhoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cliente\Trabalho\TrabalhoForm.Designer.cs">
+      <DependentUpon>TrabalhoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Cliente\Trabalho\TrabalhoScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cliente\Trabalho\TrabalhoScreen.Designer.cs">
+      <DependentUpon>TrabalhoScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Produto\Imagem\ImagemScreen.cs">
       <SubType>Form</SubType>
@@ -199,6 +244,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Cliente\Trabalho\TelefoneTrabalhoScreen.resx">
+      <DependentUpon>TelefoneTrabalhoScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Cliente\Trabalho\TrabalhoForm.resx">
+      <DependentUpon>TrabalhoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Cliente\Trabalho\TrabalhoScreen.resx">
+      <DependentUpon>TrabalhoScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Produto\Imagem\ImagemScreen.resx">
       <DependentUpon>ImagemScreen.cs</DependentUpon>

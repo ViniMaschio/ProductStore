@@ -85,7 +85,7 @@ namespace ProductStore.DAO.Telefone
 
         public List<TelefoneEntidade> BuscarTodosTelefone()
         {
-            List<TelefoneEntidade> listTelefoneEntidade = null;
+            List<TelefoneEntidade> listTelefoneEntidade = new List<TelefoneEntidade>();
 
             using(SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -125,7 +125,7 @@ namespace ProductStore.DAO.Telefone
 
         public TelefoneEntidade BuscarTelefonePorId(int id)
         {
-            TelefoneEntidade telefoneEntidade = null;
+            TelefoneEntidade telefoneEntidade = new TelefoneEntidade();
 
             using(SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -134,10 +134,12 @@ namespace ProductStore.DAO.Telefone
                 using( SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select * from telefone where codtelefone = @codtelefone;";
-
+                    cmd.Parameters.AddWithValue("@codtelefone", id);
                     try
                     {
                         SqlDataReader reader = cmd.ExecuteReader();
+
+                        reader.Read();
 
                         telefoneEntidade = new TelefoneEntidade() {
                             Id = (int)reader["codtelefone"],

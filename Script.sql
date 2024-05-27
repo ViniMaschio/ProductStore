@@ -5813,7 +5813,12 @@ create table acesso(
 	nomeacesso varchar(80) not null unique
 );
 
-insert into acesso(nomeacesso) values (upper('Super aceso')); --- esse vai vim no banco
+insert into acesso(nomeacesso) values (upper('Super aceso')); 
+insert into acesso(nomeacesso) values (upper('Financeiro'));
+insert into acesso(nomeacesso) values (upper('venda'));
+insert into acesso(nomeacesso) values (upper('Compra'));
+insert into acesso(nomeacesso) values (upper('gerencia'));
+
 
 --ITENSACESSOLOGIN = {CODACESSOFK, CODLOGINFK}
 create table itensacessologin(
@@ -5926,7 +5931,7 @@ insert into situacao(nomesituacao) values (upper('pago')); -- esse vai vim do ba
 
 --PARCELACOMPRA = {CODPARCELACOMPRA, DATAVENCIMENTO, VALOR,CODSITUACAOFK, CODCOMPRAFK}
 create table parcelacompra (
-	codparcelacompra numeric(3) not null,
+	codparcelacompra integer not null,
 	datavencimento date not null, 
 	valor numeric(10,2) not null check(valor > 0),
 	codsituacao_fk integer not null references situacao(codsituacao) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -5958,7 +5963,7 @@ create table itensvendaproduto (
  
 --PARCELAVENDA={CODPARCELA, DATAVENCIMENTO, VALOR, CODSITUACAOFK,CODVENDAFK}
 create table parcelavenda (
-	codparcela numeric (3) not null,
+	codparcela integer not null,
 	datavencimento date not null,
 	valor numeric(10,2) not null check(valor > 0),
 	codsituacao_fk integer not null references situacao(codsituacao) ON DELETE CASCADE ON UPDATE CASCADE,

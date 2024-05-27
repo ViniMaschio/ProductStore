@@ -42,16 +42,18 @@ namespace ProductStore.Controler.Cliente
         public DataTable BuscarTodosTrabalho()
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID");
-            dataTable.Columns.Add("Trabalho");
+            dataTable.Columns.Add("ID",typeof(int));
+            dataTable.Columns.Add("Trabalho", typeof(string));
 
             TrabalhoDao trabalhoDao = new TrabalhoDao();
 
             List<TrabalhoEntidade> listTrabalhoEntidade = trabalhoDao.BuscarTodosTrabalho();
-
-            for(int i = 0; i<listTrabalhoEntidade.Count && listTrabalhoEntidade != null; i++)
+            if (listTrabalhoEntidade != null)
             {
-                dataTable.Rows.Add(listTrabalhoEntidade[i].Id, listTrabalhoEntidade[i].NomeTrabalho);
+                for (int i = 0; i < listTrabalhoEntidade.Count; i++)
+                {
+                    dataTable.Rows.Add(listTrabalhoEntidade[i].Id, listTrabalhoEntidade[i].NomeTrabalho);
+                }
             }
 
             return dataTable;
