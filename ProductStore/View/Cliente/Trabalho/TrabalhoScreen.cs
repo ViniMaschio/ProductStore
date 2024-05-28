@@ -1,4 +1,5 @@
 ﻿using ProductStore.Controler.Cliente;
+using ProductStore.Controler.Telefone;
 using ProductStore.Entidades.Cliente;
 using System;
 using System.Data;
@@ -10,8 +11,10 @@ namespace ProductStore.View.Cliente.Trabalho
     {
         public TrabalhoScreen()
         {
+            
             InitializeComponent();
             CarregarTrabalho();
+            
 
         }
 
@@ -22,7 +25,9 @@ namespace ProductStore.View.Cliente.Trabalho
             dGVTrabalho.DataSource = dataTable;
             dGVTrabalho.Columns[0].Width = 50;
             dGVTrabalho.Columns[1].Width = 270;
+            
         }
+
 
         private TrabalhoEntidade BuscarIdDaLinha()
         {
@@ -94,8 +99,9 @@ namespace ProductStore.View.Cliente.Trabalho
             {
                 TelefoneTrabalhoScreen telefoneTrabalhoScreen = new TelefoneTrabalhoScreen(trabalhoEntidade.Id);
                 telefoneTrabalhoScreen.ShowDialog();
-
+                
             }
         }
+
     }
 }

@@ -43,7 +43,7 @@
             this.dGvTelefone.AllowUserToAddRows = false;
             this.dGvTelefone.AllowUserToDeleteRows = false;
             this.dGvTelefone.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGvTelefone.Location = new System.Drawing.Point(34, 129);
+            this.dGvTelefone.Location = new System.Drawing.Point(12, 130);
             this.dGvTelefone.Name = "dGvTelefone";
             this.dGvTelefone.ReadOnly = true;
             this.dGvTelefone.Size = new System.Drawing.Size(274, 150);
@@ -60,7 +60,7 @@
             // 
             // bntAdicionar
             // 
-            this.bntAdicionar.Location = new System.Drawing.Point(344, 206);
+            this.bntAdicionar.Location = new System.Drawing.Point(301, 228);
             this.bntAdicionar.Name = "bntAdicionar";
             this.bntAdicionar.Size = new System.Drawing.Size(115, 36);
             this.bntAdicionar.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             // bntRemover
             // 
-            this.bntRemover.Location = new System.Drawing.Point(479, 206);
+            this.bntRemover.Location = new System.Drawing.Point(422, 228);
             this.bntRemover.Name = "bntRemover";
             this.bntRemover.Size = new System.Drawing.Size(115, 36);
             this.bntRemover.TabIndex = 3;
@@ -80,16 +80,18 @@
             // 
             // cbBoxTelefone
             // 
+            this.cbBoxTelefone.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbBoxTelefone.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbBoxTelefone.FormattingEnabled = true;
-            this.cbBoxTelefone.Location = new System.Drawing.Point(439, 143);
+            this.cbBoxTelefone.Location = new System.Drawing.Point(314, 165);
             this.cbBoxTelefone.Name = "cbBoxTelefone";
-            this.cbBoxTelefone.Size = new System.Drawing.Size(173, 31);
+            this.cbBoxTelefone.Size = new System.Drawing.Size(197, 31);
             this.cbBoxTelefone.TabIndex = 4;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(327, 146);
+            this.label2.Location = new System.Drawing.Point(310, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(106, 23);
             this.label2.TabIndex = 5;
@@ -97,7 +99,7 @@
             // 
             // bntSair
             // 
-            this.bntSair.Location = new System.Drawing.Point(226, 350);
+            this.bntSair.Location = new System.Drawing.Point(202, 341);
             this.bntSair.Name = "bntSair";
             this.bntSair.Size = new System.Drawing.Size(115, 36);
             this.bntSair.TabIndex = 6;
@@ -109,7 +111,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 419);
+            this.ClientSize = new System.Drawing.Size(550, 419);
             this.Controls.Add(this.bntSair);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbBoxTelefone);
