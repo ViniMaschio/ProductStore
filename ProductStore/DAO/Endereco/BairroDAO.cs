@@ -1,15 +1,11 @@
 ﻿using ProductStore.Entidades.Endereco;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.DAO.Endereco
 {
-    public class BairroDAO :ConfiguraBD
+    public class BairroDAO : ConfiguraBD
     {
         public BairroDAO() { }
 
@@ -87,7 +83,7 @@ namespace ProductStore.DAO.Endereco
 
         public List<BairroEntidade> BuscarTodosBairro()
         {
-            List<BairroEntidade> listaBairro = null;
+            List<BairroEntidade> listaBairro = new List<BairroEntidade>();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -99,15 +95,16 @@ namespace ProductStore.DAO.Endereco
                 {
                     cmd.CommandText = "select * from bairro";
 
-                    
+
 
                     try
                     {
                         SqlDataReader reader = cmd.ExecuteReader();
-                        
-                        while (reader.Read()) {
+
+                        while (reader.Read())
+                        {
                             listaBairro.Add(new BairroEntidade() { Id = (int)reader["codbairro"], Bairro = (string)reader["nomebairro"] });
-                         }
+                        }
 
                     }
                     catch (SqlException ex) { MessageBox.Show(ex.Message, "Buscar Bairro"); }
@@ -120,7 +117,7 @@ namespace ProductStore.DAO.Endereco
 
         public string BuscarPorID(int id)
         {
-            string bairro = null;
+            string bairro = "";
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -142,7 +139,7 @@ namespace ProductStore.DAO.Endereco
                         reader.Read();
 
                         bairro = (string)reader["nomebairro"];
-                          
+
 
                     }
                     catch (SqlException ex) { MessageBox.Show(ex.Message, "Buscar Bairro"); }

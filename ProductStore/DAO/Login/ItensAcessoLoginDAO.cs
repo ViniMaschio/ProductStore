@@ -1,15 +1,9 @@
 ﻿using ProductStore.Entidades.Login;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductStore.DAO.Login
 {
-    public class ItensAcessoLoginDAO :ConfiguraBD
+    public class ItensAcessoLoginDAO : ConfiguraBD
     {
         public ItensAcessoLoginDAO() { }
 
@@ -51,7 +45,7 @@ namespace ProductStore.DAO.Login
 
         public ItensAcessoLoginEntidade BuscarAcessoPorLogin(int idLogin)
         {
-            ItensAcessoLoginEntidade itensAcessoLoginEntidade = null;   
+            ItensAcessoLoginEntidade itensAcessoLoginEntidade = null;
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -61,7 +55,7 @@ namespace ProductStore.DAO.Login
                 {
                     cmd.CommandText = "select * from itensacessologin where codlogin_fk = @codlogin;";
                     cmd.Parameters.AddWithValue("@codlogin", itensAcessoLoginEntidade.CodLogin);
-                    
+
 
                     SqlDataReader reader = cmd.ExecuteReader();
 

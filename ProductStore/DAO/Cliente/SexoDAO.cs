@@ -1,16 +1,11 @@
 ﻿using ProductStore.Entidades.Cliente;
-using ProductStore.Entidades.Produto;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.DAO.Pessoa
 {
-    public class SexoDAO:ConfiguraBD
+    public class SexoDAO : ConfiguraBD
     {
         public SexoDAO() { }
 
@@ -79,7 +74,7 @@ namespace ProductStore.DAO.Pessoa
                 }
                 conn.Close();
 
-             }
+            }
 
             return nome;
         }

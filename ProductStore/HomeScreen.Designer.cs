@@ -107,6 +107,7 @@
             this.cadastroClienteToolStripMenuItem.Name = "cadastroClienteToolStripMenuItem";
             this.cadastroClienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cadastroClienteToolStripMenuItem.Text = "Cadastro Cliente";
+            this.cadastroClienteToolStripMenuItem.Click += new System.EventHandler(this.cadastroClienteToolStripMenuItem_Click);
             // 
             // usuarioToolStripMenuItem
             // 

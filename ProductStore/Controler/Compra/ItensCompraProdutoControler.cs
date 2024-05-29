@@ -2,12 +2,8 @@
 using ProductStore.DAO.Compra;
 using ProductStore.Entidades.Compra;
 using ProductStore.Entidades.Produto;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductStore.Controler.Compra
 {

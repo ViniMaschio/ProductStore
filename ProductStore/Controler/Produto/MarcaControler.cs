@@ -1,11 +1,7 @@
 ﻿using ProductStore.DAO.Produto;
 using ProductStore.Entidades.Produto;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.Controler.Produto
@@ -45,7 +41,7 @@ namespace ProductStore.Controler.Produto
 
         public void ExcluirMarca(MarcaEntidade marcaEntidade)
         {
-            MarcaDAO marcaDAO =new MarcaDAO();
+            MarcaDAO marcaDAO = new MarcaDAO();
             if (MessageBox.Show("Tem certeza que deseja excluir: \n " + marcaEntidade.Id + " - " + marcaEntidade.Marca, "Excluir Marca",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
@@ -56,7 +52,7 @@ namespace ProductStore.Controler.Produto
 
         public void AddMarca(MarcaEntidade marcaEntidade)
         {
-            MarcaDAO marcaDAO=new MarcaDAO();
+            MarcaDAO marcaDAO = new MarcaDAO();
             marcaDAO.Add(marcaEntidade.Marca);
 
             MessageBox.Show("Marca adicionado com sucesso!", "Adiciona Marca", MessageBoxButtons.OK, MessageBoxIcon.Information);

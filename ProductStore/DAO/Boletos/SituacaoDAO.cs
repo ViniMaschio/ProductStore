@@ -49,7 +49,7 @@ namespace ProductStore.DAO.Boletos
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select * from situacao where codsituacao = @codsituacao;";
-                    cmd.Parameters.AddWithValue("@codsituacao",codSituacao);
+                    cmd.Parameters.AddWithValue("@codsituacao", codSituacao);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 

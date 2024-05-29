@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProductStore.Entidades.Telefone
+﻿namespace ProductStore.Entidades.Telefone
 {
     public class ItensTelefoneFuncionarioEntidade
     {
-        public ItensTelefoneFuncionarioEntidade () { }
+        public ItensTelefoneFuncionarioEntidade() { }
 
         private int _codFuncionario;
         private int _codTelefone;

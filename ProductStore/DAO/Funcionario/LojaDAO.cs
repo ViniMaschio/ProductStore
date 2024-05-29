@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductStore.DAO.Funcionario
 {
@@ -65,11 +62,11 @@ namespace ProductStore.DAO.Funcionario
                         Console.WriteLine(ex.Message);
                     }
                 }
-                
+
                 conn.Close();
             }
 
-           
+
         }
 
         public void Deletar(int id)
@@ -81,7 +78,7 @@ namespace ProductStore.DAO.Funcionario
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "delete from loja where codloja = @codloja;";
-                    
+
                     cmd.Parameters.AddWithValue("@codloja", id);
 
                     try
@@ -110,12 +107,12 @@ namespace ProductStore.DAO.Funcionario
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select * from loja;";
-                    
+
 
                     try
                     {
                         SqlDataReader reader = cmd.ExecuteReader();
-                        while (reader.Read()) 
+                        while (reader.Read())
                         {
                             listLojaEntidade.Add(new LojaEntidade()
                             {

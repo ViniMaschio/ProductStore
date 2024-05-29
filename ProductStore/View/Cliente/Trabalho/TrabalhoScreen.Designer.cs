@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dGVTrabalho = new System.Windows.Forms.DataGridView();
             this.bntNovo = new System.Windows.Forms.Button();
             this.bntEditar = new System.Windows.Forms.Button();
@@ -43,9 +44,18 @@
             this.dGVTrabalho.AllowUserToAddRows = false;
             this.dGVTrabalho.AllowUserToDeleteRows = false;
             this.dGVTrabalho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dGVTrabalho.DefaultCellStyle = dataGridViewCellStyle1;
             this.dGVTrabalho.Location = new System.Drawing.Point(86, 85);
             this.dGVTrabalho.Name = "dGVTrabalho";
             this.dGVTrabalho.ReadOnly = true;
+            this.dGVTrabalho.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dGVTrabalho.Size = new System.Drawing.Size(370, 210);
             this.dGVTrabalho.TabIndex = 0;
             // 

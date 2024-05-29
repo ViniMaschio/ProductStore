@@ -2,13 +2,7 @@
 using ProductStore.Entidades.Produto;
 using ProductStore.View.Produto.Imagem;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Produto.Produto
@@ -19,7 +13,7 @@ namespace ProductStore.View.Produto.Produto
         {
             InitializeComponent();
         }
-        
+
         private void ProdutoScreen_Load(object sender, EventArgs e)
         {
             CarregarDadosDataGrid();
@@ -38,7 +32,7 @@ namespace ProductStore.View.Produto.Produto
             dGVProduto.Columns[3].Width = 70;
             dGVProduto.Columns[4].Width = 200;
             dGVProduto.Columns[5].Width = 200;
-            
+
 
 
         }
@@ -47,11 +41,11 @@ namespace ProductStore.View.Produto.Produto
         {
             ProdutoEntidade produtoEntidade = new ProdutoEntidade();
 
-            if(dGVProduto.Rows.Count > 0)
+            if (dGVProduto.Rows.Count > 0)
             {
                 produtoEntidade.Id = (int)dGVProduto.CurrentRow.Cells[0].Value;
 
-                produtoEntidade.Nomeproduto=  (string)dGVProduto.CurrentRow.Cells[1].Value;
+                produtoEntidade.Nomeproduto = (string)dGVProduto.CurrentRow.Cells[1].Value;
 
                 return produtoEntidade;
             }
@@ -62,13 +56,13 @@ namespace ProductStore.View.Produto.Produto
 
         private void bntNovo_Click(object sender, EventArgs e)
         {
-                ProdutoEntidade produtoEntidade = new ProdutoEntidade() { Id = 0 };
+            ProdutoEntidade produtoEntidade = new ProdutoEntidade() { Id = 0 };
 
-            
-                ProdutoFormulario produtoFormulario = new ProdutoFormulario(produtoEntidade);
-                produtoFormulario.ShowDialog();
-                CarregarDadosDataGrid();
-           
+
+            ProdutoFormulario produtoFormulario = new ProdutoFormulario(produtoEntidade);
+            produtoFormulario.ShowDialog();
+            CarregarDadosDataGrid();
+
         }
 
         private void bntEditar_Click(object sender, EventArgs e)
@@ -90,7 +84,7 @@ namespace ProductStore.View.Produto.Produto
         {
             ProdutoEntidade produtoEntidade = BuscarIdLinhaDataGrid();
 
-            if(produtoEntidade.Id != 0)
+            if (produtoEntidade.Id != 0)
             {
                 ProdutoControler produtoControler = new ProdutoControler();
                 produtoControler.RemoverProduto(produtoEntidade);
@@ -98,9 +92,9 @@ namespace ProductStore.View.Produto.Produto
             }
             else
             {
-                MessageBox.Show("Não tem produto para remover!", "Remover Produto",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Não tem produto para remover!", "Remover Produto", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
+
 
         }
 

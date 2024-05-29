@@ -118,7 +118,7 @@ namespace ProductStore.DAO.Compra
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select * from compraproduto where codcompra = @codcompra;";
-                    cmd.Parameters.AddWithValue("@codcompra",codCompra);
+                    cmd.Parameters.AddWithValue("@codcompra", codCompra);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 

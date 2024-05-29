@@ -2,12 +2,8 @@
 using ProductStore.DAO.Funcionario;
 using ProductStore.Entidades.Endereco;
 using ProductStore.Entidades.Funcionario;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.Controler.Funcionario
@@ -37,7 +33,8 @@ namespace ProductStore.Controler.Funcionario
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
 
             if (MessageBox.Show("Deseja excluir o funcionario: \n" + funcionarioEntidade.Id + " - " + funcionarioEntidade.NomeFuncionario,
-                "Excluir Funcionario",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes) {
+                "Excluir Funcionario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
                 funcionarioDAO.Deletar(funcionarioEntidade.Id);
                 MessageBox.Show("Funcionario Adicionado com sucesso!", "Adicionar Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -77,7 +74,7 @@ namespace ProductStore.Controler.Funcionario
                 cidadeEntidade = cidadeControler.BuscarCidadePorId(listFuncionarioEntidade[i].CodCidade);
 
                 dataTable.Rows.Add(listFuncionarioEntidade[i].Id,
-                    listFuncionarioEntidade[i].NomeFuncionario, 
+                    listFuncionarioEntidade[i].NomeFuncionario,
                     lojaEntidade.NomeLoja,
                     funcaoControler.BuscarFuncaoPorId(listFuncionarioEntidade[i].CodFuncao),
                     listFuncionarioEntidade[i].Salario,

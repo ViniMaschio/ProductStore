@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.DAO.Funcionario
@@ -19,7 +16,7 @@ namespace ProductStore.DAO.Funcionario
             {
                 conn.Open();
 
-                using (SqlCommand cmd = conn.CreateCommand()) 
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "insert into funcao(nomefuncao) values (upper(@nomefuncao));";
                     cmd.Parameters.AddWithValue("@nomefuncao", funcaoEntidade.NomeFuncao);
@@ -95,13 +92,13 @@ namespace ProductStore.DAO.Funcionario
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select * from funcao;";
-                    
+
 
                     try
                     {
                         SqlDataReader reader = cmd.ExecuteReader();
-                        
-                        while (reader.Read()) 
+
+                        while (reader.Read())
                         {
                             listFuncaoEntidade.Add(new FuncaoEntidade()
                             {
@@ -121,7 +118,7 @@ namespace ProductStore.DAO.Funcionario
 
         public FuncaoEntidade BuscarFuncaoPorId(int id)
         {
-            FuncaoEntidade funcaoEntidade=null;
+            FuncaoEntidade funcaoEntidade = null;
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -135,12 +132,12 @@ namespace ProductStore.DAO.Funcionario
 
                     try
                     {
-                        SqlDataReader reader=cmd.ExecuteReader();
+                        SqlDataReader reader = cmd.ExecuteReader();
 
                         reader.Read();
 
-                        funcaoEntidade = new FuncaoEntidade() 
-                        { 
+                        funcaoEntidade = new FuncaoEntidade()
+                        {
                             Id = (int)reader["codfuncao"],
                             NomeFuncao = (string)reader["nomefuncao"]
                         };

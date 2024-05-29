@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.DAO.Login
@@ -16,7 +13,7 @@ namespace ProductStore.DAO.Login
         public void Add(int codLogin)
         {
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
-            {   
+            {
                 conn.Open();
 
                 using (SqlCommand cmd = conn.CreateCommand())
@@ -31,7 +28,7 @@ namespace ProductStore.DAO.Login
                         cmd.ExecuteNonQuery();
                     }
                     catch (Exception ex) { MessageBox.Show(ex.Message); }
-                    
+
                 }
             }
         }
@@ -40,14 +37,14 @@ namespace ProductStore.DAO.Login
         {
             List<ControleLogSistemaEntidade> listControleLogSistemaEntidade = null;
 
-            using(SqlConnection conn = new SqlConnection(_stringconnetion))
+            using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
 
-                using (SqlCommand cmd = conn.CreateCommand()) 
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select * from controlelogsistema where codlogin_fk = @codlogin;";
-                    cmd.Parameters.AddWithValue("@codlogin",id);
+                    cmd.Parameters.AddWithValue("@codlogin", id);
 
                     try
                     {
@@ -64,7 +61,7 @@ namespace ProductStore.DAO.Login
                             });
                         }
                     }
-                    catch(SqlException ex)
+                    catch (SqlException ex)
                     {
                         MessageBox.Show(ex.Message);
                     }

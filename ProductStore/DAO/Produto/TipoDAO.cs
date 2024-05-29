@@ -1,11 +1,7 @@
 ﻿
 using ProductStore.Entidades.Produto;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.DAO.Produto
@@ -22,7 +18,7 @@ namespace ProductStore.DAO.Produto
                 conn.Open();
 
 
-                
+
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "insert into tipo(nometipo) values(upper(@tipo));";
@@ -32,7 +28,7 @@ namespace ProductStore.DAO.Produto
                     {
 
                         cmd.ExecuteNonQuery();
-                        
+
                     }
                     catch (SqlException ex)
                     {
@@ -52,21 +48,21 @@ namespace ProductStore.DAO.Produto
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
-               
+
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "update tipo set nometipo = upper(@tipo) where codtipo = @codtipo;";
 
-                    cmd.Parameters.AddWithValue("@tipo",tipo.Tipo);
-                    cmd.Parameters.AddWithValue("@codtipo",tipo.Id);
+                    cmd.Parameters.AddWithValue("@tipo", tipo.Tipo);
+                    cmd.Parameters.AddWithValue("@codtipo", tipo.Id);
 
                     try { cmd.ExecuteNonQuery(); }
                     catch (SqlException ex)
                     {
-                        MessageBox.Show(ex.Message,"Erro Alterar") ;
+                        MessageBox.Show(ex.Message, "Erro Alterar");
                     }
-                    
+
                 }
 
                 conn.Close();
@@ -78,7 +74,7 @@ namespace ProductStore.DAO.Produto
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
-                
+
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
@@ -104,7 +100,7 @@ namespace ProductStore.DAO.Produto
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
-                
+
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
@@ -128,7 +124,7 @@ namespace ProductStore.DAO.Produto
                         MessageBox.Show(ex.Message, "Erro Remover");
                     }
                 }
-                conn.Close ();
+                conn.Close();
             }
 
             return listaTipo;
@@ -143,7 +139,7 @@ namespace ProductStore.DAO.Produto
             {
                 conn.Open();
 
-              
+
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
@@ -159,25 +155,26 @@ namespace ProductStore.DAO.Produto
                         tipo.Id = (int)reader["codtipo"];
                         tipo.Tipo = (string)reader["nometipo"];
                     }
-                    catch(SqlException ex) { MessageBox.Show(ex.Message, "Erro Buscar por ID"); }
+                    catch (SqlException ex) { MessageBox.Show(ex.Message, "Erro Buscar por ID"); }
                 }
                 conn.Close();
             }
             return tipo;
         }
 
-        public int BuscarNameRetunId(string name) {
+        public int BuscarNameRetunId(string name)
+        {
             int id = 0;
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
 
-                
+
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select codtipo from tipo where nometipo = upper(@nometipo);";
-                    cmd.Parameters.AddWithValue("@nometipo",name);
+                    cmd.Parameters.AddWithValue("@nometipo", name);
                     try
                     {
                         SqlDataReader reader = cmd.ExecuteReader();
@@ -189,8 +186,8 @@ namespace ProductStore.DAO.Produto
                 }
                 conn.Close();
             }
-            
+
             return id;
-            }
+        }
     }
 }

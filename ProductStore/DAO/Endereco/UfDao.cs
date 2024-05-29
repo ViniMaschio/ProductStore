@@ -1,10 +1,6 @@
 ﻿using ProductStore.Entidades.Endereco;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.DAO.Endereco
@@ -15,7 +11,7 @@ namespace ProductStore.DAO.Endereco
 
         public List<UfEntidade> BuscarTodosUf()
         {
-            List < UfEntidade > listaUfEntidade = null;
+            List<UfEntidade> listaUfEntidade = new List<UfEntidade>();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -25,7 +21,7 @@ namespace ProductStore.DAO.Endereco
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "select * from uf";
+                    cmd.CommandText = "select * from uf order by coduf";
 
 
 
@@ -35,7 +31,7 @@ namespace ProductStore.DAO.Endereco
 
                         while (reader.Read())
                         {
-                            listaUfEntidade.Add(new UfEntidade() { Id = (int)reader["coduf"],Nomeuf = (string)reader["nomeuf"], Sigla = (string)reader["sigla"] });
+                            listaUfEntidade.Add(new UfEntidade() { Id = (int)reader["coduf"], Nomeuf = (string)reader["nomeuf"], Sigla = (string)reader["sigla"] });
                         }
 
                     }

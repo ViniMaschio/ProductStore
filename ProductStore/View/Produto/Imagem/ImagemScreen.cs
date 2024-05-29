@@ -1,15 +1,8 @@
 ﻿using ProductStore.Controler.Produto;
-using ProductStore.DAO.Produto;
 using ProductStore.Entidades.Produto;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Produto.Imagem
@@ -24,6 +17,7 @@ namespace ProductStore.View.Produto.Imagem
         }
 
         byte[] imagemCarregada;
+
         private void bntImagem_Click(object sender, EventArgs e)
         {
             Image Imagem = null;
@@ -37,9 +31,9 @@ namespace ProductStore.View.Produto.Imagem
 
         private void bntSalvar_Click(object sender, EventArgs e)
         {
-            ImagemEntidade imagemEntidade = new ImagemEntidade() 
-            { Descricao = txtDescricao.Text,Image = imagemCarregada, CodigoProduto = int.Parse(txtCodProduto.Text), Id = int.Parse(txtCodImagem.Text) };
-            
+            ImagemEntidade imagemEntidade = new ImagemEntidade()
+            { Descricao = txtDescricao.Text, Image = imagemCarregada, CodigoProduto = int.Parse(txtCodProduto.Text), Id = int.Parse(txtCodImagem.Text) };
+
             ImagemControler imagemControler = new ImagemControler();
             if (txtCodImagem.Text != "")
             {
@@ -51,8 +45,6 @@ namespace ProductStore.View.Produto.Imagem
             }
             this.Close();
         }
-
-       
 
         private void bntDeletar_Click(object sender, EventArgs e)
         {
@@ -74,7 +66,7 @@ namespace ProductStore.View.Produto.Imagem
         }
 
         private void CarregarImagem(int idProduto)
-        {   
+        {
             txtCodProduto.Text = idProduto.ToString();
 
             ImagemControler imagemControler = new ImagemControler();
@@ -88,6 +80,7 @@ namespace ProductStore.View.Produto.Imagem
                 //bntImagem.Enabled = false;
             }
         }
+
         private byte[] BuscarImage()
         {
             if (pictureBoxImagem.Image == null)

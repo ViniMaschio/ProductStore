@@ -1,10 +1,6 @@
 ﻿using ProductStore.Entidades.Telefone;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductStore.DAO.Telefone
 {
@@ -60,7 +56,7 @@ namespace ProductStore.DAO.Telefone
                 {
                     cmd.CommandText = "select * from itenstelefoneloja where codloja_fk = @coloja";
                     cmd.Parameters.AddWithValue("@codloja", idLoja);
-                    
+
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -71,12 +67,12 @@ namespace ProductStore.DAO.Telefone
                             CodTelefone = (int)reader["codtelefone_fk"]
                         });
                     }
-                    
+
                 }
                 conn.Close();
             }
 
             return listItensTelefoneLojaEntidades;
-        } 
+        }
     }
 }

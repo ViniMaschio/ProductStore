@@ -1,14 +1,10 @@
 ﻿using ProductStore.Entidades.Telefone;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductStore.DAO.Telefone
 {
-    public class ItensTelefoneFornecedorDAO :ConfiguraBD
+    public class ItensTelefoneFornecedorDAO : ConfiguraBD
     {
 
         public ItensTelefoneFornecedorDAO() { }
@@ -52,7 +48,7 @@ namespace ProductStore.DAO.Telefone
         public List<ItensTelefoneFornecedorEntidade> BuscarTodosTelefonePorFornecedor(int codFornecedor)
         {
 
-            List < ItensTelefoneFornecedorEntidade > listItensTelefoneFornecedorEntidade =  null;
+            List<ItensTelefoneFornecedorEntidade> listItensTelefoneFornecedorEntidade = null;
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -61,17 +57,18 @@ namespace ProductStore.DAO.Telefone
                 {
                     cmd.CommandText = "select *  from itenstelefonefornecedor where codfornecedor_fk = @codfornecedor;";
                     cmd.Parameters.AddWithValue("@codfornecedor", codFornecedor);
-                    
+
                     SqlDataReader reader = cmd.ExecuteReader();
-                    
+
                     while (reader.Read())
                     {
-                        listItensTelefoneFornecedorEntidade.Add(new ItensTelefoneFornecedorEntidade() {
+                        listItensTelefoneFornecedorEntidade.Add(new ItensTelefoneFornecedorEntidade()
+                        {
                             CodFornecedor = (int)reader["codfornecedor_fk"],
                             CodTelefone = (int)reader["codtelefone_fk"]
                         });
                     }
-                    
+
                 }
 
                 conn.Close();

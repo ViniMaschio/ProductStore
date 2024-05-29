@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.DAO.Telefone
@@ -13,11 +10,11 @@ namespace ProductStore.DAO.Telefone
     {
         public void Add(ItensTelefoneClienteEntidade itensTelefoneClienteEntidade)
         {
-            using(SqlConnection conn = new SqlConnection(_stringconnetion))
+            using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
 
-                using(SqlCommand cmd = conn.CreateCommand())
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "insert into itenstelefonecliente(codtelefone_fk,codcliente_fk) values (@codtelefone,@codcliente);";
                     cmd.Parameters.AddWithValue("@codcliente", itensTelefoneClienteEntidade.CodCliente);
@@ -31,7 +28,7 @@ namespace ProductStore.DAO.Telefone
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    
+
                 }
 
                 conn.Close();
@@ -77,7 +74,7 @@ namespace ProductStore.DAO.Telefone
                 {
                     cmd.CommandText = "select * from itenstelefonecliente where  codcliente_fk = @codcliente ;";
                     cmd.Parameters.AddWithValue("@codcliente", id);
-                    
+
 
                     try
                     {

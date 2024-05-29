@@ -1,12 +1,6 @@
 ﻿using ProductStore.Entidades.Produto;
-using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 using System.Windows.Forms;
 
 namespace ProductStore.DAO.Produto
@@ -15,28 +9,30 @@ namespace ProductStore.DAO.Produto
     {
         public ProdutoDAO() { }
 
-        public void AddProduto(ProdutoEntidade produtoEntidade) {
+        public void AddProduto(ProdutoEntidade produtoEntidade)
+        {
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
 
-                
+
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "insert into produto(nomeproduto,quantidade,valor,codmarca_fk,codtipo_fk) " +
                         "values(upper(@nomeproduto), @quantidade, @valor, @codmarca,@codtipo);";
 
-                    cmd.Parameters.AddWithValue("@nomeproduto",produtoEntidade.Nomeproduto);
+                    cmd.Parameters.AddWithValue("@nomeproduto", produtoEntidade.Nomeproduto);
                     cmd.Parameters.AddWithValue("@quantidade", produtoEntidade.Quantidade);
                     cmd.Parameters.AddWithValue("@valor", produtoEntidade.Valor);
-                    cmd.Parameters.AddWithValue("@codmarca",produtoEntidade.Codigomarca);
+                    cmd.Parameters.AddWithValue("@codmarca", produtoEntidade.Codigomarca);
                     cmd.Parameters.AddWithValue("@codtipo", produtoEntidade.Codigotipo);
                     try { cmd.ExecuteNonQuery(); }
-                    catch(SqlException ex) {
-                        MessageBox.Show(ex.Message,"Erro add produto");
+                    catch (SqlException ex)
+                    {
+                        MessageBox.Show(ex.Message, "Erro add produto");
                     }
-                    
+
                 }
                 conn.Close();
             }
@@ -49,9 +45,9 @@ namespace ProductStore.DAO.Produto
             {
                 conn.Open();
 
-                
 
-                using(SqlCommand cmd = conn.CreateCommand())
+
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "update produto set nomeproduto = upper('@nomeproduto'), quantidade = @quantidade, valor = @valor , codmarca_fk = @codmarca, codtipo_fk = @codtipo where codproduto = @codproduto";
                     cmd.Parameters.AddWithValue("nomeproduto", produtoEntidade.Nomeproduto);
@@ -68,9 +64,9 @@ namespace ProductStore.DAO.Produto
                     }
                 }
 
-               
 
-                conn.Close();   
+
+                conn.Close();
             }
         }
 
@@ -80,12 +76,12 @@ namespace ProductStore.DAO.Produto
             {
                 conn.Open();
 
-                
+
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "delete from produto where codproduto = @codproduto ";
-                    cmd.Parameters.AddWithValue("@codproduto",id);
+                    cmd.Parameters.AddWithValue("@codproduto", id);
                     try { cmd.ExecuteNonQuery(); }
                     catch (SqlException ex)
                     {
@@ -99,13 +95,13 @@ namespace ProductStore.DAO.Produto
 
         public List<ProdutoEntidade> BuscarTodosProdutos()
         {
-            List <ProdutoEntidade> produtoList = new List<ProdutoEntidade>();
+            List<ProdutoEntidade> produtoList = new List<ProdutoEntidade>();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
 
-                
+
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
@@ -146,28 +142,29 @@ namespace ProductStore.DAO.Produto
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
-                conn.Open( );
+                conn.Open();
 
-                
+
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select codproduto, nomeproduto from produto;";
 
-                    try { 
-                        
-                            SqlDataReader reader = cmd.ExecuteReader();
+                    try
+                    {
 
-                            while (reader.Read())
+                        SqlDataReader reader = cmd.ExecuteReader();
+
+                        while (reader.Read())
+                        {
+                            produtoList.Add(new ProdutoEntidade()
                             {
-                                produtoList.Add(new ProdutoEntidade()
-                                {
-                                    Id = (int)reader["codproduto"],
-                                    Nomeproduto = reader["nomeproduto"].ToString(),
+                                Id = (int)reader["codproduto"],
+                                Nomeproduto = reader["nomeproduto"].ToString(),
 
-                                });
-                            }
-                     }
+                            });
+                        }
+                    }
                     catch (SqlException ex)
                     {
                         MessageBox.Show(ex.Message, "Erro Buscar produto");
@@ -188,9 +185,9 @@ namespace ProductStore.DAO.Produto
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
-                conn.Open( );
+                conn.Open();
 
-                
+
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select * from produto where codproduto = @codproduto;";

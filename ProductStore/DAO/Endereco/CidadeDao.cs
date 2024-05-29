@@ -1,10 +1,6 @@
 ﻿using ProductStore.Entidades.Endereco;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.DAO.Endereco
@@ -15,7 +11,8 @@ namespace ProductStore.DAO.Endereco
 
         public List<CidadeEntidade> BuscarCidadesPorUf(int ufId)
         {
-            List < CidadeEntidade > listCidadeEntidade = null;
+            List<CidadeEntidade> listCidadeEntidade = new List<CidadeEntidade>();
+
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
@@ -25,7 +22,7 @@ namespace ProductStore.DAO.Endereco
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select * from cidade where coduf_fk = @coduf";
-                    cmd.Parameters.AddWithValue("@coduf",ufId);
+                    cmd.Parameters.AddWithValue("@coduf", ufId);
 
 
 

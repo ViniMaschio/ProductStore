@@ -1,11 +1,7 @@
 ﻿using ProductStore.DAO.Endereco;
 using ProductStore.Entidades.Endereco;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductStore.Controler.Endereco
 {
@@ -13,22 +9,23 @@ namespace ProductStore.Controler.Endereco
     {
         public UfControler() { }
 
-        public DataTable BuscarTodosUf() { 
+        public DataTable BuscarTodosUf()
+        {
 
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID");
-            dataTable.Columns.Add("UF");
+            dataTable.Columns.Add("ID", typeof(int));
+            dataTable.Columns.Add("UF", typeof(string));
 
             UfDao ufDao = new UfDao();
 
             List<UfEntidade> listUfEntidade = ufDao.BuscarTodosUf();
 
-            for(int i = 0; i < listUfEntidade.Count && listUfEntidade !=null;i++)
+            for (int i = 0; i < listUfEntidade.Count && listUfEntidade != null; i++)
             {
                 dataTable.Rows.Add(listUfEntidade[i].Id, listUfEntidade[i].Nomeuf + " - " + listUfEntidade[i].Sigla);
             }
-            
-            return  dataTable; 
+
+            return dataTable;
         }
 
         public UfEntidade BuscarUfPorId(int id)

@@ -1,11 +1,7 @@
 ﻿using ProductStore.DAO.Produto;
 using ProductStore.Entidades.Produto;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.Controler.Produto
@@ -24,13 +20,13 @@ namespace ProductStore.Controler.Produto
 
             tipo.Columns.Add("ID", typeof(int));
             tipo.Columns.Add("Tipo", typeof(string));
-            
-                int i = 0;
-                while (TipoEntidadeList != null && i < TipoEntidadeList.Count)
-                {
-                    tipo.Rows.Add(TipoEntidadeList[i].Id, TipoEntidadeList[i].Tipo);
-                    i++;
-                }
+
+            int i = 0;
+            while (TipoEntidadeList != null && i < TipoEntidadeList.Count)
+            {
+                tipo.Rows.Add(TipoEntidadeList[i].Id, TipoEntidadeList[i].Tipo);
+                i++;
+            }
 
             return tipo;
         }
@@ -45,15 +41,15 @@ namespace ProductStore.Controler.Produto
 
         public void RemoverTipo(TipoEntidade tipoEntidade)
         {
-            TipoDAO tipoDAO=new TipoDAO();
+            TipoDAO tipoDAO = new TipoDAO();
 
-            if(MessageBox.Show("Tem certeza que deseja excluir: \n " + tipoEntidade.Id + " - " + tipoEntidade.Tipo, "Excluir Tipo",
+            if (MessageBox.Show("Tem certeza que deseja excluir: \n " + tipoEntidade.Id + " - " + tipoEntidade.Tipo, "Excluir Tipo",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 tipoDAO.Remover(tipoEntidade.Id);
                 MessageBox.Show("Tipo Removido com sucesso!", "Remover Tipo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            
+
         }
 
         public void AlterarTipo(TipoEntidade tipoEntidade)
@@ -61,9 +57,9 @@ namespace ProductStore.Controler.Produto
             TipoDAO tipoDAO = new TipoDAO();
             tipoDAO.Alterar(tipoEntidade);
 
-            MessageBox.Show("Tipo alterado com sucesso!","Alterar Tipo",MessageBoxButtons.OK, MessageBoxIcon.Information);
-            
-            
+            MessageBox.Show("Tipo alterado com sucesso!", "Alterar Tipo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
         }
 
         public void Add(TipoEntidade tipoEntidade)

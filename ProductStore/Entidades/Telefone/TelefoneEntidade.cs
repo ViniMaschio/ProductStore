@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProductStore.Entidades.Telefone
+﻿namespace ProductStore.Entidades.Telefone
 {
     public class TelefoneEntidade
     {
@@ -16,6 +10,6 @@ namespace ProductStore.Entidades.Telefone
         public string Telefone { get => _Telefone; set => _Telefone = value; }
         public int CodOperadora { get => _codOperadora; set => _codOperadora = value; }
 
-        public TelefoneEntidade () { }
+        public TelefoneEntidade() { }
     }
 }

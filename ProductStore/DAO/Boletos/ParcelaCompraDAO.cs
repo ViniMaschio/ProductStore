@@ -45,7 +45,7 @@ namespace ProductStore.DAO.Boletos
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "delete from parcelacompra where codcompra_fk = @codcompra;";
-                    cmd.Parameters.AddWithValue("@codcompra",codCompra);
+                    cmd.Parameters.AddWithValue("@codcompra", codCompra);
 
                     cmd.ExecuteNonQuery();
 
@@ -164,7 +164,7 @@ namespace ProductStore.DAO.Boletos
                 {
                     cmd.CommandText = "update parcelacompra set codsituacao_fk = 2 where codcompra_fk = @codcompra and codparcelacompra = @codparcela;";
                     cmd.Parameters.AddWithValue("@codcompra", parcelaCompraEntidade.CodCompra);
-                    cmd.Parameters.AddWithValue("@codparcela",parcelaCompraEntidade.CodParcela);
+                    cmd.Parameters.AddWithValue("@codparcela", parcelaCompraEntidade.CodParcela);
 
                     cmd.ExecuteNonQuery();
 

@@ -1,11 +1,7 @@
 ﻿using ProductStore.DAO.Endereco;
 using ProductStore.Entidades.Endereco;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.Controler.Endereco
@@ -14,7 +10,8 @@ namespace ProductStore.Controler.Endereco
     {
         public BairroControler() { }
 
-        public void AddBairro(BairroEntidade bairroEntidade) {
+        public void AddBairro(BairroEntidade bairroEntidade)
+        {
 
             BairroDAO bairroDAO = new BairroDAO();
 
@@ -45,14 +42,15 @@ namespace ProductStore.Controler.Endereco
         public DataTable BuscarTodosBairro()
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID");
-            dataTable.Columns.Add("Bairro");
+            dataTable.Columns.Add("ID", typeof(int));
+            dataTable.Columns.Add("Bairro", typeof(string));
 
             BairroDAO bairoDAO = new BairroDAO();
 
             List<BairroEntidade> listaBairroEntidade = bairoDAO.BuscarTodosBairro();
 
-            for (int i = 0; i < listaBairroEntidade.Count && listaBairroEntidade != null; i++) {
+            for (int i = 0; i < listaBairroEntidade.Count && listaBairroEntidade != null; i++)
+            {
                 dataTable.Rows.Add(listaBairroEntidade[i].Id, listaBairroEntidade[i].Bairro);
             }
             return dataTable;

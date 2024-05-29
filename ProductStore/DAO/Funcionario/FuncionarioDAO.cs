@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.DAO.Funcionario
@@ -55,7 +52,7 @@ namespace ProductStore.DAO.Funcionario
                 {
                     cmd.CommandText = "update funcionario set nomefuncionario = @numerofuncionario, numerocasa = @numerocasa ,codrua_fk = @codrua,codbairro_fk = @codbairro, " +
                         "codcep_fk = @codcep ,codcidade_fk = @codcidade ,codfuncao_fk = @codfuncao ,salario = @salario ,codloja_fk = @codloja where codfuncionario = @codfuncionario;";
-                        
+
                     cmd.Parameters.AddWithValue("@nomefuncionario", funcionarioEntidade.NomeFuncionario);
                     cmd.Parameters.AddWithValue("@numerocasa", funcionarioEntidade.NumeroCasa);
                     cmd.Parameters.AddWithValue("@codrua", funcionarioEntidade.CodRua);
@@ -88,7 +85,7 @@ namespace ProductStore.DAO.Funcionario
                 {
                     cmd.CommandText = "delete from funcionario where codfuncionario = @codfuncionario;";
 
-                    
+
                     cmd.Parameters.AddWithValue("@codfuncionario", id);
 
                     try
@@ -107,7 +104,7 @@ namespace ProductStore.DAO.Funcionario
         public List<FuncionarioEntidade> BuscarTodosFuncionarios()
         {
 
-            List < FuncionarioEntidade > listFuncionarioEntidade = null;
+            List<FuncionarioEntidade> listFuncionarioEntidade = null;
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -117,13 +114,13 @@ namespace ProductStore.DAO.Funcionario
                 {
                     cmd.CommandText = "select * from funcionario;";
 
-                    
+
 
                     try
                     {
                         SqlDataReader reader = cmd.ExecuteReader();
 
-                        while (reader.Read()) 
+                        while (reader.Read())
                         {
                             listFuncionarioEntidade.Add(new FuncionarioEntidade()
                             {
@@ -161,7 +158,7 @@ namespace ProductStore.DAO.Funcionario
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select * from funcionario where codfuncionario = @codfuncionario;";
-                    cmd.Parameters.AddWithValue("@codfuncionario",id);
+                    cmd.Parameters.AddWithValue("@codfuncionario", id);
 
 
 

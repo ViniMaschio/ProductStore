@@ -1,13 +1,7 @@
 ﻿using ProductStore.Controler.Produto;
 using ProductStore.Entidades.Produto;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Produto
@@ -19,7 +13,7 @@ namespace ProductStore.View.Produto
             InitializeComponent();
         }
 
-        
+
 
         private void TipoScreen_Load(object sender, EventArgs e)
         {
@@ -46,7 +40,7 @@ namespace ProductStore.View.Produto
             dGVTipo.DataSource = table;
             dGVTipo.Columns[0].Width = 50;
             dGVTipo.Columns[1].Width = 370;
-            
+
         }
 
         private void bntDeletar_Click(object sender, EventArgs e)
@@ -68,17 +62,17 @@ namespace ProductStore.View.Produto
             }
         }
 
-       
+
 
         private void bntSair_Click(object sender, EventArgs e)
         {
             this.Close();
-            
+
         }
 
         private void bntEditar_Click(object sender, EventArgs e)
         {
-           
+
 
             TipoEntidade tipoEntidade = BuscarlinhaDataGrid();
 
@@ -90,7 +84,8 @@ namespace ProductStore.View.Produto
                 tipoForm.ShowDialog();
 
                 CarregarDataGrid();
-            }else
+            }
+            else
             {
                 MessageBox.Show("Não tem Tipo para editar", "Erro Tipo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

@@ -1,11 +1,7 @@
 ﻿using ProductStore.DAO.Boletos;
 using ProductStore.Entidades.Boletos;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductStore.Controler.Boletos
 {
@@ -38,7 +34,7 @@ namespace ProductStore.Controler.Boletos
 
             SituacaoControler situacaoControler = new SituacaoControler();
 
-            for (int i = 0;i< listParcelaCompraEntidade.Count;i++)
+            for (int i = 0; i < listParcelaCompraEntidade.Count; i++)
             {
                 SituacaoEntidade situacaoEntidade = situacaoControler.BuscarSituacaoPorId(listParcelaCompraEntidade[i].CodSituacao);
 
@@ -48,7 +44,7 @@ namespace ProductStore.Controler.Boletos
                     situacaoEntidade.NomeSituacao,
                     listParcelaCompraEntidade[i].CodCompra);
             }
-            
+
             return dataTable;
         }
 

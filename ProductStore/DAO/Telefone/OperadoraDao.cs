@@ -2,14 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.DAO.Telefone
 {
-    public class OperadoraDao: ConfiguraBD
+    public class OperadoraDao : ConfiguraBD
     {
         public OperadoraDao() { }
 
@@ -17,7 +14,7 @@ namespace ProductStore.DAO.Telefone
         {
             List<OperadoraEntidade> listOperadoraEntidade = null;
 
-            using(SqlConnection conn = new SqlConnection(_stringconnetion))
+            using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
 

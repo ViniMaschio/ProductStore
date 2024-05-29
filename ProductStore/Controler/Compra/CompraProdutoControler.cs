@@ -71,7 +71,7 @@ namespace ProductStore.Controler.Compra
 
         public CompraProdutoEntidade BuscarCompraPorId(int codCompra)
         {
-            CompraProdutoDAO compraProdutoDAO = new CompraProdutoDAO(); 
+            CompraProdutoDAO compraProdutoDAO = new CompraProdutoDAO();
 
             return compraProdutoDAO.BuscarCompraPorId(codCompra);
         }

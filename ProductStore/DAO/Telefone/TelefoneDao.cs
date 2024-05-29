@@ -1,33 +1,28 @@
 ﻿using ProductStore.Entidades.Telefone;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.DAO.Telefone
 {
-    public class TelefoneDao :ConfiguraBD
+    public class TelefoneDao : ConfiguraBD
     {
         public TelefoneDao() { }
 
         public void Add(TelefoneEntidade telefoneEntidade)
         {
-            using(SqlConnection conn = new SqlConnection(_stringconnetion))
+            using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
 
-                using(SqlCommand cmd = conn.CreateCommand())
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "insert into telefone(numero,codoperadora_fk) values(@numero,@codoperadora);";
-                    cmd.Parameters.AddWithValue("@numero",telefoneEntidade.Telefone);
+                    cmd.Parameters.AddWithValue("@numero", telefoneEntidade.Telefone);
                     cmd.Parameters.AddWithValue("@codoperadora", telefoneEntidade.CodOperadora);
 
-                    try { cmd.ExecuteNonQuery(); } 
-                    catch(SqlException ex) { MessageBox.Show(ex.Message); }
+                    try { cmd.ExecuteNonQuery(); }
+                    catch (SqlException ex) { MessageBox.Show(ex.Message); }
 
                 }
 
@@ -37,21 +32,21 @@ namespace ProductStore.DAO.Telefone
 
         public void Update(TelefoneEntidade telefoneEntidade)
         {
-            using(SqlConnection conn = new SqlConnection(_stringconnetion))
+            using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
-                conn.Open ();
+                conn.Open();
 
-                using(SqlCommand cmd = conn.CreateCommand())
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "update telefone set numero = @numero, codoperadora_fk = @codoperadora where codtelefone = @codtelefone;";
                     cmd.Parameters.AddWithValue("@numero", telefoneEntidade.Telefone);
-                    cmd.Parameters.AddWithValue("@codoperadora",telefoneEntidade.CodOperadora);
+                    cmd.Parameters.AddWithValue("@codoperadora", telefoneEntidade.CodOperadora);
                     cmd.Parameters.AddWithValue("@codtelefone", telefoneEntidade.Id);
                     try
                     {
                         cmd.ExecuteNonQuery();
                     }
-                    catch(SqlException ex)
+                    catch (SqlException ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
@@ -87,11 +82,11 @@ namespace ProductStore.DAO.Telefone
         {
             List<TelefoneEntidade> listTelefoneEntidade = new List<TelefoneEntidade>();
 
-            using(SqlConnection conn = new SqlConnection(_stringconnetion))
+            using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
 
-                using(SqlCommand cmd = conn.CreateCommand())
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = " select * from telefone;";
 
@@ -110,7 +105,7 @@ namespace ProductStore.DAO.Telefone
                         }
                     }
 
-                    catch(SqlException ex)
+                    catch (SqlException ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
@@ -127,11 +122,11 @@ namespace ProductStore.DAO.Telefone
         {
             TelefoneEntidade telefoneEntidade = new TelefoneEntidade();
 
-            using(SqlConnection conn = new SqlConnection(_stringconnetion))
+            using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
 
-                using( SqlCommand cmd = conn.CreateCommand())
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select * from telefone where codtelefone = @codtelefone;";
                     cmd.Parameters.AddWithValue("@codtelefone", id);
@@ -141,13 +136,14 @@ namespace ProductStore.DAO.Telefone
 
                         reader.Read();
 
-                        telefoneEntidade = new TelefoneEntidade() {
+                        telefoneEntidade = new TelefoneEntidade()
+                        {
                             Id = (int)reader["codtelefone"],
                             Telefone = (string)reader["numero"],
                             CodOperadora = (int)reader["codoperadora_fk"]
                         };
                     }
-                    catch(SqlException ex)
+                    catch (SqlException ex)
                     {
                         MessageBox.Show(ex.Message);
                     }
@@ -156,7 +152,7 @@ namespace ProductStore.DAO.Telefone
                 conn.Close();
 
             }
-           return telefoneEntidade;
+            return telefoneEntidade;
         }
     }
 }

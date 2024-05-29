@@ -1,12 +1,7 @@
 ﻿using ProductStore.DAO.Login;
 using ProductStore.Entidades.Login;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductStore.Controler.Login
 {
@@ -31,7 +26,7 @@ namespace ProductStore.Controler.Login
 
             for (int i = 0; i < listLogSistemaEntidades.Count && listLogSistemaEntidades != null; i++)
             {
-                dataTable.Rows.Add(listLogSistemaEntidades[i].Id, 
+                dataTable.Rows.Add(listLogSistemaEntidades[i].Id,
                     listLogSistemaEntidades[i].DataLog.Date.ToString("dd:MM:yyyy"),
                     listLogSistemaEntidades[i].Hora.ToString());
             }

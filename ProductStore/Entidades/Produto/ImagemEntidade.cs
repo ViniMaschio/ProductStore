@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
-
-namespace ProductStore.Entidades.Produto
+﻿namespace ProductStore.Entidades.Produto
 {
     public class ImagemEntidade
     {
-        public ImagemEntidade(){}
+        public ImagemEntidade() { }
 
         private int _id;
         private byte[] _image;

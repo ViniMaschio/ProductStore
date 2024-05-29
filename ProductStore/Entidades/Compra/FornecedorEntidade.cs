@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProductStore.Entidades.Compra
+﻿namespace ProductStore.Entidades.Compra
 {
-    public  class FornecedorEntidade
+    public class FornecedorEntidade
     {
-        public FornecedorEntidade () { }
+        public FornecedorEntidade() { }
 
         private int _id;
         private string _nomeFornecedor;

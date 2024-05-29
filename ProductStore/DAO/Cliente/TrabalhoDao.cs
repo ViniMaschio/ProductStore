@@ -1,17 +1,11 @@
 ﻿using ProductStore.Entidades.Cliente;
-using ProductStore.Entidades.Produto;
-using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.DAO.Cliente
 {
-    public class TrabalhoDao :ConfiguraBD
+    public class TrabalhoDao : ConfiguraBD
     {
         public TrabalhoDao() { }
 
@@ -21,7 +15,7 @@ namespace ProductStore.DAO.Cliente
             {
                 conn.Open();
 
-                using(SqlCommand cmd = conn.CreateCommand())
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "insert into trabalho(nometrabalho) values(upper(@codtrabalho));";
                     cmd.Parameters.AddWithValue("@codtrabalho", trabalhoEntidade.NomeTrabalho);
@@ -30,7 +24,7 @@ namespace ProductStore.DAO.Cliente
                     {
                         cmd.ExecuteNonQuery();
                     }
-                    catch(SqlException ex) { MessageBox.Show(ex.Message); }
+                    catch (SqlException ex) { MessageBox.Show(ex.Message); }
                 }
                 conn.Close();
             }
@@ -38,11 +32,11 @@ namespace ProductStore.DAO.Cliente
 
         public void Updade(TrabalhoEntidade trabalhoEntidade)
         {
-            using(SqlConnection conn = new SqlConnection(_stringconnetion)) 
-            { 
+            using (SqlConnection conn = new SqlConnection(_stringconnetion))
+            {
                 conn.Open();
 
-                using(SqlCommand cmd = conn.CreateCommand())
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "update trabalho set nometrabalho = upper(@trabalho) where codtrabalho = @codtrabalho;";
                     cmd.Parameters.AddWithValue("@trabalho", trabalhoEntidade.NomeTrabalho);
@@ -52,7 +46,7 @@ namespace ProductStore.DAO.Cliente
                     {
                         cmd.ExecuteNonQuery();
                     }
-                    catch(SqlException ex) { MessageBox.Show(ex.Message); }
+                    catch (SqlException ex) { MessageBox.Show(ex.Message); }
                 }
                 conn.Close();
             }
@@ -87,18 +81,18 @@ namespace ProductStore.DAO.Cliente
         {
             List<TrabalhoEntidade> listTrabalhoEntidade = new List<TrabalhoEntidade>();
 
-            using(SqlConnection conn = new SqlConnection(_stringconnetion))
+            using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
-                
-                using(SqlCommand cmd = conn.CreateCommand())
+
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select * from trabalho;";
-                    
+
                     try
                     {
                         SqlDataReader reader = cmd.ExecuteReader();
-                       
+
                         while (reader.Read())
                         {
                             listTrabalhoEntidade.Add(new TrabalhoEntidade()
@@ -108,7 +102,7 @@ namespace ProductStore.DAO.Cliente
                             });
                         }
                     }
-                    catch(SqlException ex) { MessageBox.Show(ex.Message); }
+                    catch (SqlException ex) { MessageBox.Show(ex.Message); }
                 }
 
                 conn.Close();
@@ -121,11 +115,11 @@ namespace ProductStore.DAO.Cliente
         {
             TrabalhoEntidade trabalhoEntidade = new TrabalhoEntidade();
 
-            using(SqlConnection conn =new SqlConnection(_stringconnetion))
+            using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
 
-                using( SqlCommand cmd = conn.CreateCommand())
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select * from trabalho where codtrabalho = @codtrabalho";
                     cmd.Parameters.AddWithValue("@codtrabalho", id);
@@ -139,7 +133,7 @@ namespace ProductStore.DAO.Cliente
                         trabalhoEntidade.Id = (int)reader["codtrabalho"];
                         trabalhoEntidade.NomeTrabalho = (string)reader["nometrabalho"];
                     }
-                    catch(SqlException ex) { MessageBox.Show(ex.Message); }
+                    catch (SqlException ex) { MessageBox.Show(ex.Message); }
                 }
 
                 conn.Close();

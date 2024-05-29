@@ -1,10 +1,5 @@
 ﻿using ProductStore.DAO.Login;
 using ProductStore.Entidades.Login;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductStore.Controler.Login
 {
@@ -15,7 +10,7 @@ namespace ProductStore.Controler.Login
         public void AddAcesso(ItensAcessoLoginEntidade itensAcessoLoginEntidade)
         {
             ItensAcessoLoginDAO itensAcessoLoginDAO = new ItensAcessoLoginDAO();
-            
+
             itensAcessoLoginDAO.Add(itensAcessoLoginEntidade);
         }
 

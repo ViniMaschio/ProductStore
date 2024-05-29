@@ -1,11 +1,7 @@
 ﻿using ProductStore.DAO.Funcionario;
 using ProductStore.Entidades.Funcionario;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.Controler.Funcionario
@@ -34,8 +30,8 @@ namespace ProductStore.Controler.Funcionario
         public void DeletarLoja(LojaEntidade lojaEntidade)
         {
             LojaDAO lojaDAO = new LojaDAO();
-            if (MessageBox.Show("Tem certeza que deseja excluir a Loja: \n"+lojaEntidade.Id+" - " + lojaEntidade.NomeLoja,
-                "Excluir Loja",MessageBoxButtons.YesNo,MessageBoxIcon.Question)== DialogResult.Yes)
+            if (MessageBox.Show("Tem certeza que deseja excluir a Loja: \n" + lojaEntidade.Id + " - " + lojaEntidade.NomeLoja,
+                "Excluir Loja", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 lojaDAO.Deletar(lojaEntidade.Id);
                 MessageBox.Show("Loja excluir com sucesso!", "excluir Loja", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -55,18 +51,18 @@ namespace ProductStore.Controler.Funcionario
 
             List<LojaEntidade> listLojaEntidade = lojaDAO.BuscarTodasLojas();
 
-            for (int i = 0; i < listLojaEntidade.Count && listLojaEntidade != null; i++) 
+            for (int i = 0; i < listLojaEntidade.Count && listLojaEntidade != null; i++)
             {
                 dataTable.Rows.Add(listLojaEntidade[i].Id, listLojaEntidade[i].NomeLoja, listLojaEntidade[i].Cnpj,
                     listLojaEntidade[i].NomeFantasia, listLojaEntidade[i].RazaoSocial);
-            } 
+            }
 
             return dataTable;
         }
 
-        public LojaEntidade BuscarLojaPorId(int id) 
-        { 
-            LojaDAO lojaDAO=new LojaDAO();
+        public LojaEntidade BuscarLojaPorId(int id)
+        {
+            LojaDAO lojaDAO = new LojaDAO();
 
             return lojaDAO.BuscarLojaPorId(id);
         }

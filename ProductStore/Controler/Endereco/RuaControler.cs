@@ -1,18 +1,14 @@
 ﻿using ProductStore.DAO.Endereco;
 using ProductStore.Entidades.Endereco;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.Controler.Endereco
 {
     public class RuaControler
     {
-        public RuaControler() { }   
+        public RuaControler() { }
 
         public void NovaRua(RuaEntidade ruaEntidade)
         {
@@ -31,7 +27,8 @@ namespace ProductStore.Controler.Endereco
         public void DeletarRua(RuaEntidade ruaEntidade)
         {
             RuaDAO rauDAO = new RuaDAO();
-            if (MessageBox.Show("Deseja Excluir a rua:\n"+ruaEntidade.Id+" - "+ ruaEntidade.Rua,"Deletar Rua",MessageBoxButtons.YesNo)== DialogResult.Yes) {
+            if (MessageBox.Show("Deseja Excluir a rua:\n" + ruaEntidade.Id + " - " + ruaEntidade.Rua, "Deletar Rua", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
                 rauDAO.Delete(ruaEntidade.Id);
                 MessageBox.Show("Produto Alterado com Sucesso!", "Alterar Produto", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -40,13 +37,13 @@ namespace ProductStore.Controler.Endereco
         public DataTable BuscarTodasRuas()
         {
             DataTable dt = new DataTable();
-            dt.Columns.Add("Id");
-            dt.Columns.Add("Rua");
+            dt.Columns.Add("ID", typeof(int));
+            dt.Columns.Add("Rua", typeof(string));
 
             RuaDAO ruaDAO = new RuaDAO();
             List<RuaEntidade> listRua = ruaDAO.BuscarTodos();
 
-            for(int i = 0; i < listRua.Count && listRua != null; i++)
+            for (int i = 0; i < listRua.Count && listRua != null; i++)
             {
                 dt.Rows.Add(listRua[i].Id, listRua[i].Rua);
             }
@@ -56,7 +53,7 @@ namespace ProductStore.Controler.Endereco
 
         public string BuscarPorId(int id)
         {
-            RuaDAO ruaDAO=new RuaDAO();
+            RuaDAO ruaDAO = new RuaDAO();
 
             return ruaDAO.BuscarPorID(id);
         }

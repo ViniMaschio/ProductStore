@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ProductStore.Entidades.Produto
+﻿namespace ProductStore.Entidades.Produto
 {
     public class MarcaEntidade
     {
-        public MarcaEntidade() { }  
+        public MarcaEntidade() { }
 
         private int _id;
         private string _marca;

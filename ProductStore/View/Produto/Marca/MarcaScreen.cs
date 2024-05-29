@@ -1,13 +1,7 @@
 ﻿using ProductStore.Controler.Produto;
 using ProductStore.Entidades.Produto;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Produto.Marca
@@ -21,7 +15,7 @@ namespace ProductStore.View.Produto.Marca
 
         private void bntNovo_Click(object sender, EventArgs e)
         {
-            MarcaEntidade marcaEntidade = new MarcaEntidade() { Id = 0, Marca = ""};
+            MarcaEntidade marcaEntidade = new MarcaEntidade() { Id = 0, Marca = "" };
 
             MarcaForm marcaForm = new MarcaForm(marcaEntidade);
 
@@ -35,7 +29,8 @@ namespace ProductStore.View.Produto.Marca
         {
             CarregarDataGrid();
         }
-        private void CarregarDataGrid() {
+        private void CarregarDataGrid()
+        {
             MarcaControler marcaControler = new MarcaControler();
             DataTable dataTable = marcaControler.BuscarTodosMarca();
 
@@ -56,15 +51,15 @@ namespace ProductStore.View.Produto.Marca
                 marcaEntidade.Marca = dGVMarca.CurrentRow.Cells[1].Value.ToString();
                 return marcaEntidade;
             }
-                return null;
-            
+            return null;
 
-            
+
+
         }
 
         private void bntEditar_Click(object sender, EventArgs e)
         {
-            
+
 
             MarcaEntidade marcaEntidade = BuscarLinhaDataGrid();
             if (marcaEntidade != null)
@@ -78,7 +73,7 @@ namespace ProductStore.View.Produto.Marca
             }
             else
             {
-                MessageBox.Show("Não tem marca para editar","Erro Marca",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Não tem marca para editar", "Erro Marca", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

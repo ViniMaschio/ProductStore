@@ -163,6 +163,18 @@
     <Compile Include="LoginScreen.Designer.cs">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Cliente\Cliente\ClienteForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cliente\Cliente\ClienteForm.Designer.cs">
+      <DependentUpon>ClienteForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Cliente\Cliente\ClienteScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cliente\Cliente\ClienteScreen.Designer.cs">
+      <DependentUpon>ClienteScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Cliente\Trabalho\TelefoneTrabalhoScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +192,24 @@
     </Compile>
     <Compile Include="View\Cliente\Trabalho\TrabalhoScreen.Designer.cs">
       <DependentUpon>TrabalhoScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Endereco\Bairro\BairroScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Endereco\Bairro\BairroScreen.Designer.cs">
+      <DependentUpon>BairroScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Endereco\Rua\RuaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Endereco\Rua\RuaForm.Designer.cs">
+      <DependentUpon>RuaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Endereco\Rua\RuaScrean.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Endereco\Rua\RuaScrean.Designer.cs">
+      <DependentUpon>RuaScrean.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Produto\Imagem\ImagemScreen.cs">
       <SubType>Form</SubType>
@@ -245,6 +275,12 @@
     <EmbeddedResource Include="LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Cliente\Cliente\ClienteForm.resx">
+      <DependentUpon>ClienteForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Cliente\Cliente\ClienteScreen.resx">
+      <DependentUpon>ClienteScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Cliente\Trabalho\TelefoneTrabalhoScreen.resx">
       <DependentUpon>TelefoneTrabalhoScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,6 +289,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Cliente\Trabalho\TrabalhoScreen.resx">
       <DependentUpon>TrabalhoScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Endereco\Rua\RuaForm.resx">
+      <DependentUpon>RuaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Endereco\Rua\RuaScrean.resx">
+      <DependentUpon>RuaScrean.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Produto\Imagem\ImagemScreen.resx">
       <DependentUpon>ImagemScreen.cs</DependentUpon>

@@ -1,24 +1,20 @@
 ﻿using ProductStore.DAO.Funcionario;
 using ProductStore.Entidades.Funcionario;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.Controler.Funcionario
 {
     public class FuncaoControler
     {
-        public FuncaoControler() { }    
+        public FuncaoControler() { }
 
         public void AdicionarFuncao(FuncaoEntidade funcaoEntidade)
         {
-            FuncaoDAO funcaoDAO = new FuncaoDAO();  
+            FuncaoDAO funcaoDAO = new FuncaoDAO();
             funcaoDAO.Add(funcaoEntidade);
-            MessageBox.Show("Funcao Adicionada com sucesso!", "Adicionar Funcao",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("Funcao Adicionada com sucesso!", "Adicionar Funcao", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
@@ -51,7 +47,7 @@ namespace ProductStore.Controler.Funcionario
 
             List<FuncaoEntidade> listFuncaoEntidade = funcaoDAO.BuscarTodasFuncao();
 
-            for (int i = 0; i < listFuncaoEntidade.Count && listFuncaoEntidade != null; i++) 
+            for (int i = 0; i < listFuncaoEntidade.Count && listFuncaoEntidade != null; i++)
             {
                 dataTable.Rows.Add(listFuncaoEntidade[i].Id, listFuncaoEntidade[i].NomeFuncao);
             }

@@ -1,11 +1,7 @@
 ﻿using ProductStore.DAO.Boletos;
 using ProductStore.Entidades.Boletos;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductStore.Controler.Boletos
 {
@@ -22,7 +18,7 @@ namespace ProductStore.Controler.Boletos
             SituacaoDAO situacaoDAO = new SituacaoDAO();
             List<SituacaoEntidade> listSituacaoEntidade = situacaoDAO.BuscarTodasSituacao();
 
-            for (int i = 0;i< listSituacaoEntidade.Count && listSituacaoEntidade != null; i++)
+            for (int i = 0; i < listSituacaoEntidade.Count && listSituacaoEntidade != null; i++)
             {
                 dataTable.Rows.Add(
                     listSituacaoEntidade[i].Id,

@@ -1,10 +1,6 @@
 ﻿using ProductStore.Entidades.Login;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.DAO.Login
@@ -17,7 +13,7 @@ namespace ProductStore.DAO.Login
         public List<AcessoEntidade> BuscarTodosAcesso()
         {
 
-            List < AcessoEntidade > listAcessoEntidade = null;
+            List<AcessoEntidade> listAcessoEntidade = null;
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -32,7 +28,7 @@ namespace ProductStore.DAO.Login
                     {
                         SqlDataReader reader = cmd.ExecuteReader();
 
-                        while (reader.Read()) 
+                        while (reader.Read())
                         {
                             listAcessoEntidade.Add(new AcessoEntidade()
                             {
@@ -41,7 +37,7 @@ namespace ProductStore.DAO.Login
                             });
                         }
                     }
-                    catch(SqlException ex) { MessageBox.Show(ex.Message); }
+                    catch (SqlException ex) { MessageBox.Show(ex.Message); }
                 }
 
                 conn.Close();
@@ -51,8 +47,8 @@ namespace ProductStore.DAO.Login
         }
 
         public string BuscarAcessoPorId(int id)
-        {   
-            string acesso =  null;
+        {
+            string acesso = null;
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -61,7 +57,7 @@ namespace ProductStore.DAO.Login
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select * from acesso where codacesso = @codacesso";
-                    cmd.Parameters.AddWithValue("@codacesso",id);
+                    cmd.Parameters.AddWithValue("@codacesso", id);
 
 
                     try

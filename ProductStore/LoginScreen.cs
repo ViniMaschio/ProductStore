@@ -1,17 +1,9 @@
 ﻿
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using ProductStore.Controler.Login;
 using ProductStore.Entidades.Login;
+using System;
+using System.Threading;
+using System.Windows.Forms;
 namespace ProductStore.View
 {
     public partial class LoginScreen : Form

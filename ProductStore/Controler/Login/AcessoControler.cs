@@ -1,11 +1,7 @@
 ﻿using ProductStore.DAO.Login;
 using ProductStore.Entidades.Login;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductStore.Controler.Login
 {
@@ -22,7 +18,7 @@ namespace ProductStore.Controler.Login
             AcessoDAO acessoDAO = new AcessoDAO();
             List<AcessoEntidade> listAcessoEntidade = acessoDAO.BuscarTodosAcesso();
 
-            for (int i = 0; i<listAcessoEntidade.Count; i++)
+            for (int i = 0; i < listAcessoEntidade.Count; i++)
             {
                 dataTable.Rows.Add(listAcessoEntidade[i].Id, listAcessoEntidade[i].NomeAcesso);
             }
@@ -32,7 +28,7 @@ namespace ProductStore.Controler.Login
 
         public string BuscarAcessoPorId(int id)
         {
-            AcessoDAO acessoDAO=new AcessoDAO();
+            AcessoDAO acessoDAO = new AcessoDAO();
 
             return acessoDAO.BuscarAcessoPorId(id);
         }

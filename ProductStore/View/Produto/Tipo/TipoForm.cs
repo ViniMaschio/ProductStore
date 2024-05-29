@@ -1,21 +1,13 @@
 ﻿using ProductStore.Controler.Produto;
 using ProductStore.Entidades.Produto;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 
 namespace ProductStore.View.Produto
 {
     public partial class TipoForm : Form
     {
-        
+
         public TipoForm(TipoEntidade tipoEntidade)
         {
             InitializeComponent();
@@ -39,10 +31,11 @@ namespace ProductStore.View.Produto
 
             TipoControler tipoControler = new TipoControler();
 
-            if(TipoEntidade.Id == 0)
+            if (TipoEntidade.Id == 0)
             {
                 tipoControler.Add(TipoEntidade);
-            }else
+            }
+            else
             {
                 tipoControler.AlterarTipo(TipoEntidade);
             }

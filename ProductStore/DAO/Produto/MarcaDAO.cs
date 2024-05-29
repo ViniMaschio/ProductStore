@@ -1,10 +1,6 @@
 ﻿using ProductStore.Entidades.Produto;
-using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProductStore.DAO.Produto
 {
@@ -19,15 +15,16 @@ namespace ProductStore.DAO.Produto
                 conn.Open();
 
 
-                
-                using (SqlCommand cmd = conn.CreateCommand()) {
+
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
 
                     cmd.CommandText = "insert into marca(nomemarca) values(upper(@nomemarca));";
 
                     cmd.Parameters.AddWithValue("@nomemarca", marca);
 
                     cmd.ExecuteNonQuery();
-                    
+
                 }
 
                 conn.Close();
@@ -39,18 +36,18 @@ namespace ProductStore.DAO.Produto
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
-                
+
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "update marca set nomemarca = upper(@marca) where codmarca = @codmarca";
 
-                    cmd.Parameters.AddWithValue("@marca",marca.Marca);
-                    cmd.Parameters.AddWithValue("codmarca",marca.Id);
+                    cmd.Parameters.AddWithValue("@marca", marca.Marca);
+                    cmd.Parameters.AddWithValue("codmarca", marca.Id);
 
 
                     cmd.ExecuteNonQuery();
-                    
+
                 }
 
                 conn.Close();
@@ -64,13 +61,13 @@ namespace ProductStore.DAO.Produto
             {
                 conn.Open();
 
-              
+
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "delete from marca where codmarca = @codmarca";
 
-                    cmd.Parameters.AddWithValue("@codmarca",id);
+                    cmd.Parameters.AddWithValue("@codmarca", id);
 
                     cmd.ExecuteNonQuery();
                     conn.Close();
@@ -118,9 +115,9 @@ namespace ProductStore.DAO.Produto
             {
                 conn.Open();
 
-                
+
                 using (SqlCommand cmd = conn.CreateCommand())
-                {   
+                {
                     cmd.CommandText = "select codmarca, nomemarca from marca where codmarca = @codmarca";
 
                     cmd.Parameters.AddWithValue("@codmarca", id);
@@ -132,7 +129,7 @@ namespace ProductStore.DAO.Produto
                     marca.Id = (int)reader["codmarca"];
                     marca.Marca = (string)reader["nomemarca"];
 
-                    
+
                 }
 
                 conn.Close();
@@ -141,7 +138,7 @@ namespace ProductStore.DAO.Produto
             return marca;
         }
 
-        
 
-     }
+
+    }
 }

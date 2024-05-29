@@ -1,11 +1,7 @@
 ﻿using ProductStore.DAO.Cliente;
 using ProductStore.Entidades.Cliente;
-using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.Controler.Cliente
@@ -18,7 +14,7 @@ namespace ProductStore.Controler.Cliente
         {
             TrabalhoDao trabalhoDao = new TrabalhoDao();
             trabalhoDao.Add(trabalhoEntidade);
-            MessageBox.Show("Trabalho Adicionado com sucesso!","Adicionar Trabalho",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Trabalho Adicionado com sucesso!", "Adicionar Trabalho", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void AlterarTrabalho(TrabalhoEntidade trabalhoEntidade)
@@ -42,7 +38,7 @@ namespace ProductStore.Controler.Cliente
         public DataTable BuscarTodosTrabalho()
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID",typeof(int));
+            dataTable.Columns.Add("ID", typeof(int));
             dataTable.Columns.Add("Trabalho", typeof(string));
 
             TrabalhoDao trabalhoDao = new TrabalhoDao();
@@ -60,8 +56,8 @@ namespace ProductStore.Controler.Cliente
         }
 
         public string BuscarTrabalhoPorId(int id)
-        {   
-            
+        {
+
             TrabalhoDao trabalhoDao = new TrabalhoDao();
             TrabalhoEntidade trabalhoEntidade = trabalhoDao.BuscarTrabalhoPorId(id);
 

@@ -95,10 +95,10 @@ namespace ProductStore.DAO.Venda
             {
                 conn.Open();
 
-                using(SqlCommand cmd = conn.CreateCommand())
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select * from vendaproduto where codvenda = @codvenda;";
-                    cmd.Parameters.AddWithValue("@codvenda",codvenda);
+                    cmd.Parameters.AddWithValue("@codvenda", codvenda);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 

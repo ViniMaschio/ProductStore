@@ -1,18 +1,12 @@
 ﻿
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using ProductStore.View.Cliente.Cliente;
 using ProductStore.View.Cliente.Trabalho;
 using ProductStore.View.Produto;
 using ProductStore.View.Produto.Marca;
 using ProductStore.View.Produto.Produto;
 using ProductStore.View.Usuario;
+using System;
+using System.Windows.Forms;
 
 
 
@@ -61,6 +55,10 @@ namespace ProductStore.View
             trabalhoScreen.ShowDialog();
         }
 
-        
+        private void cadastroClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClienteScreen clienteScreen = new ClienteScreen();
+            clienteScreen.ShowDialog();
+        }
     }
 }

@@ -1,10 +1,5 @@
 ﻿using ProductStore.DAO.Produto;
 using ProductStore.Entidades.Produto;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.Controler.Produto
@@ -19,7 +14,7 @@ namespace ProductStore.Controler.Produto
 
             imagemDao.Add(imagemEntidade);
 
-            MessageBox.Show("Imagem Adicionada com Sucesso!","Adicionar Imagem",MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Imagem Adicionada com Sucesso!", "Adicionar Imagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public void UpdateImagem(ImagemEntidade imagemEntidade)
@@ -35,14 +30,14 @@ namespace ProductStore.Controler.Produto
         {
             ImagemDAo imagemDao = new ImagemDAo();
 
-            if (MessageBox.Show("Tem Certeza que deseja Excluir a imagem do \nproduto"+ imagemEntidade.Id, "Deletar Imagem", MessageBoxButtons.YesNo, MessageBoxIcon.Question)== DialogResult.Yes)
+            if (MessageBox.Show("Tem Certeza que deseja Excluir a imagem do \nproduto" + imagemEntidade.Id, "Deletar Imagem", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 imagemDao.Delete(imagemEntidade.Id);
 
                 MessageBox.Show("Imagem Excluida com Sucesso!", "Deletar Imagem", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
-            
+
         }
 
         public ImagemEntidade BuscarImagemPorProduto(int idProduto)
@@ -53,7 +48,7 @@ namespace ProductStore.Controler.Produto
 
 
 
-            return  imagemEntidade = imagemDao.SeachForProdutc(idProduto);
+            return imagemEntidade = imagemDao.SeachForProdutc(idProduto);
         }
     }
 }

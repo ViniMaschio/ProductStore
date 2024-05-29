@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.DAO.Cliente
@@ -15,15 +12,15 @@ namespace ProductStore.DAO.Cliente
 
         public void Add(ClienteEntidade clienteEntidade)
         {
-            using(SqlConnection conn = new SqlConnection(_stringconnetion))
+            using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
 
-                using(SqlCommand cmd = conn.CreateCommand())
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "insert into cliente(nomecliente,foto,datanasc,codsex_fk,codrua_fk,codbairro_fk,codcep_fk,codcidade_fk,salario,codtrabalho_fk,numerocasa)" +
+                    cmd.CommandText = "insert into cliente(nomecliente,foto,datanasc,codsexo_fk,codrua_fk,codbairro_fk,codcep_fk,codcidade_fk,salario,codtrabalho_fk,numerocasa)" +
                         "values (upper(@nomecliente),@foto,@datanasc,@codsex,@codrua,@codbairro, @codcep, @codcidade,@salario,@codtrabalho,@numerocasa);";
-                   
+
                     cmd.Parameters.AddWithValue("@nomecliente", clienteEntidade.NomeCliente);
                     cmd.Parameters.AddWithValue("@foto", clienteEntidade.Foto);
                     cmd.Parameters.AddWithValue("@datanasc", clienteEntidade.Datanasc);
@@ -40,7 +37,7 @@ namespace ProductStore.DAO.Cliente
                     {
                         cmd.ExecuteNonQuery();
                     }
-                    catch(SqlException ex) { MessageBox.Show(ex.Message); }
+                    catch (SqlException ex) { MessageBox.Show(ex.Message); }
                 }
 
                 conn.Close();
@@ -49,14 +46,14 @@ namespace ProductStore.DAO.Cliente
 
         public void Update(ClienteEntidade clienteEntidade)
         {
-            using(SqlConnection conn = new SqlConnection())
+            using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
-                
-                using(SqlCommand cmd = new SqlCommand())
+
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "update cliente set nomecliente = @nomecliente, foto = @foto, datanasc = @datanasc , codsex_fk = @codsex," +
-                        "codrua_fk = @codrua, codbairro_fk = @codbairro , codcep_fk = @codcep , codcidade_fk = @codcidade , salario = @codsalario," +
+                    cmd.CommandText = "update cliente set nomecliente = @nomecliente, foto = @foto, datanasc = @datanasc , codsexo_fk = @codsex," +
+                        "codrua_fk = @codrua, codbairro_fk = @codbairro , codcep_fk = @codcep , codcidade_fk = @codcidade , salario = @salario," +
                         "codtrabalho_fk = @codtrabalho , numerocasa = @numerocasa where codcliente = @codcliente;";
 
                     cmd.Parameters.AddWithValue("@nomecliente", clienteEntidade.NomeCliente);
@@ -76,7 +73,7 @@ namespace ProductStore.DAO.Cliente
                     {
                         cmd.ExecuteNonQuery();
                     }
-                    catch(Exception ex) {  MessageBox.Show(ex.Message); }
+                    catch (Exception ex) { MessageBox.Show(ex.Message); }
                 }
 
                 conn.Close();
@@ -112,7 +109,7 @@ namespace ProductStore.DAO.Cliente
 
         public List<ClienteEntidade> BuscarTodosCliente()
         {
-            List<ClienteEntidade> listClienteEntidade = null;
+            List<ClienteEntidade> listClienteEntidade = new List<ClienteEntidade>();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -131,8 +128,7 @@ namespace ProductStore.DAO.Cliente
                             listClienteEntidade.Add(new ClienteEntidade()
                             {
                                 Id = (int)reader["codcliente"],
-                                NomeCliente = (string)reader["nomecliente"],
-                                Foto = (byte[])reader["foto"],
+                                NomeCliente = reader["nomecliente"].ToString(),
                                 Datanasc = (DateTime)reader["datanasc"],
                                 CodBairro = (int)reader["codbairro_fk"],
                                 CodCep = (int)reader["codcep_fk"],
@@ -140,14 +136,14 @@ namespace ProductStore.DAO.Cliente
                                 CodRua = (int)reader["codrua_fk"],
                                 CodSexo = (int)reader["codsexo_fk"],
                                 CodTrabalho = (int)reader["codtrabalho_fk"],
-                                NumeroCasa = (string)reader["numerocasa"],
-                                Salario = (double)reader["salario"]
+                                NumeroCasa = reader["numerocasa"].ToString(),
+                                Salario = double.Parse(reader["salario"].ToString())
                             });
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show(ex.Message,"Erro DAO");
                     }
                 }
 
@@ -159,13 +155,13 @@ namespace ProductStore.DAO.Cliente
 
         public ClienteEntidade BuscarClientePorId(int id)
         {
-            ClienteEntidade clienteEntidade = null;
+            ClienteEntidade clienteEntidade = new ClienteEntidade();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
 
-                using(SqlCommand cmd = new SqlCommand())
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select * from cliente where codcliente = @codcliente;";
 
@@ -179,9 +175,9 @@ namespace ProductStore.DAO.Cliente
 
                         clienteEntidade = new ClienteEntidade()
                         {
-                            Id = (int)reader["codcliente"],
-                            NomeCliente = (string)reader["nomecliente"],
                             Foto = (byte[])reader["foto"],
+                            Id = (int)reader["codcliente"],
+                            NomeCliente = reader["nomecliente"].ToString(),
                             Datanasc = (DateTime)reader["datanasc"],
                             CodBairro = (int)reader["codbairro_fk"],
                             CodCep = (int)reader["codcep_fk"],
@@ -189,12 +185,12 @@ namespace ProductStore.DAO.Cliente
                             CodRua = (int)reader["codrua_fk"],
                             CodSexo = (int)reader["codsexo_fk"],
                             CodTrabalho = (int)reader["codtrabalho_fk"],
-                            NumeroCasa = (string)reader["numerocasa"],
-                            Salario = (double)reader["salario"]
+                            NumeroCasa = reader["numerocasa"].ToString(),
+                            Salario = double.Parse(reader["salario"].ToString())
                         };
 
                     }
-                    catch (Exception ex) { MessageBox.Show(ex.Message); }
+                    catch (Exception ex) { MessageBox.Show(ex.Message,"Buscar Por ID"); }
                 }
 
                 conn.Close();
