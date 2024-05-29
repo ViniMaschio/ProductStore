@@ -1,6 +1,9 @@
 ﻿
 using ProductStore.View.Cliente.Cliente;
 using ProductStore.View.Cliente.Trabalho;
+using ProductStore.View.Endereco;
+using ProductStore.View.Endereco.Bairro;
+using ProductStore.View.Endereco.Cep;
 using ProductStore.View.Produto;
 using ProductStore.View.Produto.Marca;
 using ProductStore.View.Produto.Produto;
@@ -59,6 +62,24 @@ namespace ProductStore.View
         {
             ClienteScreen clienteScreen = new ClienteScreen();
             clienteScreen.ShowDialog();
+        }
+
+        private void ruaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RuaScrean ruaScrean = new RuaScrean();
+            ruaScrean.ShowDialog();
+        }
+
+        private void bairroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BairroScreen bairroScreen = new BairroScreen();
+            bairroScreen.ShowDialog();
+        }
+
+        private void cepToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CepScreen cepScreen = new CepScreen();
+            cepScreen.ShowDialog();
         }
     }
 }

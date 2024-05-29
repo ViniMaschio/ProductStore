@@ -193,11 +193,29 @@
     <Compile Include="View\Cliente\Trabalho\TrabalhoScreen.Designer.cs">
       <DependentUpon>TrabalhoScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Endereco\Bairro\BairroForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Endereco\Bairro\BairroForm.Designer.cs">
+      <DependentUpon>BairroForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Endereco\Bairro\BairroScreen.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\Endereco\Bairro\BairroScreen.Designer.cs">
       <DependentUpon>BairroScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Endereco\Cep\CepForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Endereco\Cep\CepForm.Designer.cs">
+      <DependentUpon>CepForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Endereco\Cep\CepScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Endereco\Cep\CepScreen.Designer.cs">
+      <DependentUpon>CepScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Endereco\Rua\RuaForm.cs">
       <SubType>Form</SubType>
@@ -289,6 +307,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Cliente\Trabalho\TrabalhoScreen.resx">
       <DependentUpon>TrabalhoScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Endereco\Bairro\BairroForm.resx">
+      <DependentUpon>BairroForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Endereco\Bairro\BairroScreen.resx">
+      <DependentUpon>BairroScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Endereco\Cep\CepForm.resx">
+      <DependentUpon>CepForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Endereco\Cep\CepScreen.resx">
+      <DependentUpon>CepScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Endereco\Rua\RuaForm.resx">
       <DependentUpon>RuaForm.cs</DependentUpon>

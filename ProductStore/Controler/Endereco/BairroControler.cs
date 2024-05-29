@@ -35,7 +35,7 @@ namespace ProductStore.Controler.Endereco
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
             {
                 bairroDAO.Delete(bairroEntidade.Id);
-                MessageBox.Show("Bairro Alterado com sucesso!", "Alterar Bairro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Bairro Deletado com sucesso!", "Deletar Bairro", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

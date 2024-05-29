@@ -32,7 +32,7 @@ namespace ProductStore.Controler.Endereco
             if (MessageBox.Show("Tem Certeza que deseja apagar o cep:\n" + cepEntidade.Id + " - " + cepEntidade.Cep, "Apagar Cep", MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                cepDAO.Update(cepEntidade);
+                cepDAO.Delete(cepEntidade.Id);
                 MessageBox.Show("Cep Alterado com Sucesso!", "Alterar Cep", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 

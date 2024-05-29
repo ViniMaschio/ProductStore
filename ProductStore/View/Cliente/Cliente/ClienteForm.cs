@@ -2,7 +2,11 @@
 using ProductStore.Controler.Endereco;
 using ProductStore.Entidades.Cliente;
 using ProductStore.Entidades.Endereco;
+using ProductStore.View.Cliente.Trabalho;
 using ProductStore.View.Endereco;
+using ProductStore.View.Endereco.Bairro;
+using ProductStore.View.Endereco.Cep;
+using ProductStore.View.Endereco.Rua;
 using System;
 using System.Drawing;
 using System.IO;
@@ -200,9 +204,29 @@ namespace ProductStore.View.Cliente.Cliente
 
         private void vntNovoRua_Click(object sender, EventArgs e)
         {
-            RuaScrean ruaScrean = new RuaScrean();
-            ruaScrean.ShowDialog();
+            RuaForm ruaForm = new RuaForm(0);
+            ruaForm.ShowDialog();
             CarregarRua();
+        }
+
+        private void bntNovoBairro_Click(object sender, EventArgs e)
+        {
+            BairroForm bairroForm = new BairroForm(0);
+            bairroForm.ShowDialog();
+            CarregarBairro();
+        }
+
+        private void bntNovoCep_Click(object sender, EventArgs e)
+        {
+            CepForm cepForm = new CepForm(0);
+            cepForm.ShowDialog();
+        }
+
+        private void bntNovoTrabalho_Click(object sender, EventArgs e)
+        {
+            TrabalhoForm trabalhoForm = new TrabalhoForm(0);
+            trabalhoForm.ShowDialog();
+            BuscarTrabalho();
         }
     }
 }

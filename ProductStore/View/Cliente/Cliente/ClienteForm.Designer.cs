@@ -361,6 +361,7 @@
             this.bntNovoBairro.TabIndex = 24;
             this.bntNovoBairro.Text = "+";
             this.bntNovoBairro.UseVisualStyleBackColor = true;
+            this.bntNovoBairro.Click += new System.EventHandler(this.bntNovoBairro_Click);
             // 
             // bntNovoCep
             // 
@@ -370,6 +371,7 @@
             this.bntNovoCep.TabIndex = 25;
             this.bntNovoCep.Text = "+";
             this.bntNovoCep.UseVisualStyleBackColor = true;
+            this.bntNovoCep.Click += new System.EventHandler(this.bntNovoCep_Click);
             // 
             // bntNovoTrabalho
             // 
@@ -379,6 +381,7 @@
             this.bntNovoTrabalho.TabIndex = 26;
             this.bntNovoTrabalho.Text = "+";
             this.bntNovoTrabalho.UseVisualStyleBackColor = true;
+            this.bntNovoTrabalho.Click += new System.EventHandler(this.bntNovoTrabalho_Click);
             // 
             // ClienteForm
             // 

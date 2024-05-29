@@ -39,6 +39,10 @@
             this.cadastroClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.enderecoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ruaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bairroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cepToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,7 +94,8 @@
             // 
             this.clienteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.trabalhoToolStripMenuItem,
-            this.cadastroClienteToolStripMenuItem});
+            this.cadastroClienteToolStripMenuItem,
+            this.enderecoToolStripMenuItem});
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
             this.clienteToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.clienteToolStripMenuItem.Text = "Cliente";
@@ -124,6 +129,37 @@
             this.usuarioToolStripMenuItem1.Text = "Usuario";
             this.usuarioToolStripMenuItem1.Click += new System.EventHandler(this.usuarioToolStripMenuItem1_Click);
             // 
+            // enderecoToolStripMenuItem
+            // 
+            this.enderecoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ruaToolStripMenuItem,
+            this.bairroToolStripMenuItem,
+            this.cepToolStripMenuItem});
+            this.enderecoToolStripMenuItem.Name = "enderecoToolStripMenuItem";
+            this.enderecoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.enderecoToolStripMenuItem.Text = "Endereco";
+            // 
+            // ruaToolStripMenuItem
+            // 
+            this.ruaToolStripMenuItem.Name = "ruaToolStripMenuItem";
+            this.ruaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ruaToolStripMenuItem.Text = "Rua";
+            this.ruaToolStripMenuItem.Click += new System.EventHandler(this.ruaToolStripMenuItem_Click);
+            // 
+            // bairroToolStripMenuItem
+            // 
+            this.bairroToolStripMenuItem.Name = "bairroToolStripMenuItem";
+            this.bairroToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.bairroToolStripMenuItem.Text = "Bairro";
+            this.bairroToolStripMenuItem.Click += new System.EventHandler(this.bairroToolStripMenuItem_Click);
+            // 
+            // cepToolStripMenuItem
+            // 
+            this.cepToolStripMenuItem.Name = "cepToolStripMenuItem";
+            this.cepToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cepToolStripMenuItem.Text = "Cep";
+            this.cepToolStripMenuItem.Click += new System.EventHandler(this.cepToolStripMenuItem_Click);
+            // 
             // HomeScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -156,5 +192,9 @@
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem trabalhoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroClienteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem enderecoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ruaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bairroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cepToolStripMenuItem;
     }
 }

@@ -19,7 +19,7 @@ namespace ProductStore.DAO.Endereco
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "insert into bairro(nomebairro) values(upper(@nomebairro);";
+                    cmd.CommandText = "insert into bairro(nomebairro) values(upper(@nomebairro));";
                     cmd.Parameters.AddWithValue("@nomebairro", bairroEntidade.Bairro);
                     try
                     {
@@ -68,7 +68,7 @@ namespace ProductStore.DAO.Endereco
                 {
                     cmd.CommandText = "delete from bairro where codbairro = @codbairro;";
 
-                    cmd.Parameters.AddWithValue("@nomebairro", id);
+                    cmd.Parameters.AddWithValue("@codbairro", id);
 
                     try
                     {
@@ -93,7 +93,7 @@ namespace ProductStore.DAO.Endereco
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "select * from bairro";
+                    cmd.CommandText = "select * from bairro order by codbairro";
 
 
 

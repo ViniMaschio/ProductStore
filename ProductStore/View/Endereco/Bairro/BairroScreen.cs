@@ -10,6 +10,8 @@ namespace ProductStore.View.Endereco.Bairro
         public BairroScreen()
         {
             InitializeComponent();
+
+            CarregarDataGrid();
         }
 
         private void CarregarDataGrid()

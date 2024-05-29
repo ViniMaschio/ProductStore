@@ -1,6 +1,6 @@
-﻿namespace ProductStore.View.Endereco.Bairro
+﻿namespace ProductStore.View.Endereco.Cep
 {
-    partial class BairroScreen
+    partial class CepScreen
     {
         /// <summary>
         /// Required designer variable.
@@ -29,39 +29,39 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.dGVBairro = new System.Windows.Forms.DataGridView();
+            this.dGVcep = new System.Windows.Forms.DataGridView();
             this.bntNovo = new System.Windows.Forms.Button();
             this.bntEditar = new System.Windows.Forms.Button();
             this.bntDeletar = new System.Windows.Forms.Button();
             this.bntSair = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dGVBairro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dGVcep)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(112, 9);
+            this.label1.Location = new System.Drawing.Point(122, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(189, 23);
+            this.label1.Size = new System.Drawing.Size(167, 23);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Cadastro de Bairro";
+            this.label1.Text = "Cadastro de CEP";
             // 
-            // dGVBairro
+            // dGVcep
             // 
-            this.dGVBairro.AllowUserToAddRows = false;
-            this.dGVBairro.AllowUserToDeleteRows = false;
-            this.dGVBairro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGVBairro.Location = new System.Drawing.Point(12, 80);
-            this.dGVBairro.Name = "dGVBairro";
-            this.dGVBairro.ReadOnly = true;
-            this.dGVBairro.Size = new System.Drawing.Size(398, 214);
-            this.dGVBairro.TabIndex = 1;
+            this.dGVcep.AllowUserToAddRows = false;
+            this.dGVcep.AllowUserToDeleteRows = false;
+            this.dGVcep.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dGVcep.Location = new System.Drawing.Point(65, 68);
+            this.dGVcep.Name = "dGVcep";
+            this.dGVcep.ReadOnly = true;
+            this.dGVcep.Size = new System.Drawing.Size(261, 215);
+            this.dGVcep.TabIndex = 1;
             // 
             // bntNovo
             // 
-            this.bntNovo.Location = new System.Drawing.Point(12, 346);
+            this.bntNovo.Location = new System.Drawing.Point(6, 322);
             this.bntNovo.Name = "bntNovo";
-            this.bntNovo.Size = new System.Drawing.Size(92, 31);
+            this.bntNovo.Size = new System.Drawing.Size(95, 32);
             this.bntNovo.TabIndex = 2;
             this.bntNovo.Text = "Novo";
             this.bntNovo.UseVisualStyleBackColor = true;
@@ -69,9 +69,9 @@
             // 
             // bntEditar
             // 
-            this.bntEditar.Location = new System.Drawing.Point(110, 346);
+            this.bntEditar.Location = new System.Drawing.Point(107, 322);
             this.bntEditar.Name = "bntEditar";
-            this.bntEditar.Size = new System.Drawing.Size(92, 31);
+            this.bntEditar.Size = new System.Drawing.Size(95, 32);
             this.bntEditar.TabIndex = 3;
             this.bntEditar.Text = "Editar";
             this.bntEditar.UseVisualStyleBackColor = true;
@@ -79,9 +79,9 @@
             // 
             // bntDeletar
             // 
-            this.bntDeletar.Location = new System.Drawing.Point(208, 346);
+            this.bntDeletar.Location = new System.Drawing.Point(208, 322);
             this.bntDeletar.Name = "bntDeletar";
-            this.bntDeletar.Size = new System.Drawing.Size(92, 31);
+            this.bntDeletar.Size = new System.Drawing.Size(95, 32);
             this.bntDeletar.TabIndex = 4;
             this.bntDeletar.Text = "Deletar";
             this.bntDeletar.UseVisualStyleBackColor = true;
@@ -89,34 +89,31 @@
             // 
             // bntSair
             // 
-            this.bntSair.Location = new System.Drawing.Point(306, 346);
+            this.bntSair.Location = new System.Drawing.Point(309, 322);
             this.bntSair.Name = "bntSair";
-            this.bntSair.Size = new System.Drawing.Size(92, 31);
+            this.bntSair.Size = new System.Drawing.Size(95, 32);
             this.bntSair.TabIndex = 5;
             this.bntSair.Text = "Sair";
             this.bntSair.UseVisualStyleBackColor = true;
             this.bntSair.Click += new System.EventHandler(this.bntSair_Click);
             // 
-            // BairroScreen
+            // CepScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 393);
+            this.ClientSize = new System.Drawing.Size(415, 380);
             this.Controls.Add(this.bntSair);
             this.Controls.Add(this.bntDeletar);
             this.Controls.Add(this.bntEditar);
             this.Controls.Add(this.bntNovo);
-            this.Controls.Add(this.dGVBairro);
+            this.Controls.Add(this.dGVcep);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "BairroScreen";
+            this.Name = "CepScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "BairroScreen";
-            ((System.ComponentModel.ISupportInitialize)(this.dGVBairro)).EndInit();
+            this.Text = "CepScreen";
+            ((System.ComponentModel.ISupportInitialize)(this.dGVcep)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,7 +122,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dGVBairro;
+        private System.Windows.Forms.DataGridView dGVcep;
         private System.Windows.Forms.Button bntNovo;
         private System.Windows.Forms.Button bntEditar;
         private System.Windows.Forms.Button bntDeletar;
