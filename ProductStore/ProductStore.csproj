@@ -175,6 +175,12 @@
     <Compile Include="View\Cliente\Cliente\ClienteScreen.Designer.cs">
       <DependentUpon>ClienteScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Cliente\Cliente\TelefoneClienteScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Cliente\Cliente\TelefoneClienteScreen.Designer.cs">
+      <DependentUpon>TelefoneClienteScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Cliente\Trabalho\TelefoneTrabalhoScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,24 @@
     </Compile>
     <Compile Include="View\Endereco\Rua\RuaScrean.Designer.cs">
       <DependentUpon>RuaScrean.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Funcionario\Loja\LojaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Funcionario\Loja\LojaForm.Designer.cs">
+      <DependentUpon>LojaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Funcionario\Loja\LojaScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Funcionario\Loja\LojaScreen.Designer.cs">
+      <DependentUpon>LojaScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Funcionario\Loja\TelefoneLojaScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Funcionario\Loja\TelefoneLojaScreen.Designer.cs">
+      <DependentUpon>TelefoneLojaScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Produto\Imagem\ImagemScreen.cs">
       <SubType>Form</SubType>
@@ -299,6 +323,9 @@
     <EmbeddedResource Include="View\Cliente\Cliente\ClienteScreen.resx">
       <DependentUpon>ClienteScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="View\Cliente\Cliente\TelefoneClienteScreen.resx">
+      <DependentUpon>TelefoneClienteScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Cliente\Trabalho\TelefoneTrabalhoScreen.resx">
       <DependentUpon>TelefoneTrabalhoScreen.cs</DependentUpon>
     </EmbeddedResource>
@@ -325,6 +352,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Endereco\Rua\RuaScrean.resx">
       <DependentUpon>RuaScrean.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Funcionario\Loja\LojaForm.resx">
+      <DependentUpon>LojaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Funcionario\Loja\LojaScreen.resx">
+      <DependentUpon>LojaScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Funcionario\Loja\TelefoneLojaScreen.resx">
+      <DependentUpon>TelefoneLojaScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Produto\Imagem\ImagemScreen.resx">
       <DependentUpon>ImagemScreen.cs</DependentUpon>

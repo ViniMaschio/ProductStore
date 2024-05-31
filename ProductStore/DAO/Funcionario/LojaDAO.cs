@@ -98,7 +98,7 @@ namespace ProductStore.DAO.Funcionario
 
         public List<LojaEntidade> BuscarTodasLojas()
         {
-            List<LojaEntidade> listLojaEntidade = null;
+            List<LojaEntidade> listLojaEntidade = new List<LojaEntidade>();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {

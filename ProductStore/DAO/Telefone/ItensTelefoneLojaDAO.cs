@@ -15,7 +15,7 @@ namespace ProductStore.DAO.Telefone
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "insert into itenstelefoneloja(codloja_fk,codtelefone_fk) values (@codloja,codtelefone);";
+                    cmd.CommandText = "insert into itenstelefoneloja(codloja_fk,codtelefone_fk) values (@codloja,@codtelefone);";
                     cmd.Parameters.AddWithValue("@codloja", itensTelefoneLojaEntidade.CodLoja);
                     cmd.Parameters.AddWithValue("@codtelefone", itensTelefoneLojaEntidade.CodTelefone);
 
@@ -33,7 +33,7 @@ namespace ProductStore.DAO.Telefone
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "delete from itenstelefoneloja where codloja_fk = @codloja and codtelefone_fk = codtelefone);";
+                    cmd.CommandText = "delete from itenstelefoneloja where codloja_fk = @codloja and codtelefone_fk = @codtelefone;";
                     cmd.Parameters.AddWithValue("@codloja", itensTelefoneLojaEntidade.CodLoja);
                     cmd.Parameters.AddWithValue("@codtelefone", itensTelefoneLojaEntidade.CodTelefone);
 
@@ -46,7 +46,7 @@ namespace ProductStore.DAO.Telefone
         public List<ItensTelefoneLojaEntidade> BuscarTelefonePorLoja(int idLoja)
         {
 
-            List<ItensTelefoneLojaEntidade> listItensTelefoneLojaEntidades = null;
+            List<ItensTelefoneLojaEntidade> listItensTelefoneLojaEntidades = new List<ItensTelefoneLojaEntidade>() ;
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -54,7 +54,7 @@ namespace ProductStore.DAO.Telefone
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "select * from itenstelefoneloja where codloja_fk = @coloja";
+                    cmd.CommandText = "select * from itenstelefoneloja where codloja_fk = @codloja";
                     cmd.Parameters.AddWithValue("@codloja", idLoja);
 
                     SqlDataReader reader = cmd.ExecuteReader();

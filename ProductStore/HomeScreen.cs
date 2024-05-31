@@ -4,6 +4,7 @@ using ProductStore.View.Cliente.Trabalho;
 using ProductStore.View.Endereco;
 using ProductStore.View.Endereco.Bairro;
 using ProductStore.View.Endereco.Cep;
+using ProductStore.View.Funcionario.Loja;
 using ProductStore.View.Produto;
 using ProductStore.View.Produto.Marca;
 using ProductStore.View.Produto.Produto;
@@ -80,6 +81,12 @@ namespace ProductStore.View
         {
             CepScreen cepScreen = new CepScreen();
             cepScreen.ShowDialog();
+        }
+
+        private void lojaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LojaScreen lojaScreen = new LojaScreen();
+            lojaScreen.ShowDialog();
         }
     }
 }

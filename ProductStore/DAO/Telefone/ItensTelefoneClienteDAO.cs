@@ -64,7 +64,7 @@ namespace ProductStore.DAO.Telefone
 
         public List<ItensTelefoneClienteEntidade> BuscarClienteTelefonePorCliente(int id)
         {
-            List<ItensTelefoneClienteEntidade> listaItensTelefoneClienteEntidade = null;
+            List<ItensTelefoneClienteEntidade> listaItensTelefoneClienteEntidade = new List<ItensTelefoneClienteEntidade>();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {

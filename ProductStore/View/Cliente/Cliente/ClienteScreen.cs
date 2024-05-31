@@ -43,6 +43,10 @@ namespace ProductStore.View.Cliente.Cliente
                 clienteEntidade.Id = (int)dGVCliente.CurrentRow.Cells[0].Value;
                 clienteEntidade.NomeCliente = (string)dGVCliente.CurrentRow.Cells[1].Value;
             }
+            else
+            {
+                MessageBox.Show("Selecione um cliente!", "Cadastro cliente");
+            }
             return clienteEntidade;
 
         }
@@ -69,7 +73,13 @@ namespace ProductStore.View.Cliente.Cliente
 
         private void bntTelefone_Click(object sender, EventArgs e)
         {
-
+            ClienteEntidade clienteEntidade = BuscarLinhaDataGrid();
+            if (clienteEntidade.Id != 0)
+            {
+                TelefoneClienteScreen telefoneClienteScreen = new TelefoneClienteScreen(clienteEntidade.Id);
+                telefoneClienteScreen.ShowDialog();
+            }
+            
         }
 
         private void bntSair_Click(object sender, EventArgs e)

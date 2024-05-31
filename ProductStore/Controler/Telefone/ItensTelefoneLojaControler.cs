@@ -1,6 +1,7 @@
 ﻿using ProductStore.DAO.Telefone;
 using ProductStore.Entidades.Telefone;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace ProductStore.Controler.Telefone
@@ -18,22 +19,30 @@ namespace ProductStore.Controler.Telefone
         public void DeletarTelefone(ItensTelefoneLojaEntidade itensTelefoneLojaEntidade)
         {
             ItensTelefoneLojaDAO itensTelefoneLojaDAO = new ItensTelefoneLojaDAO();
-            if (MessageBox.Show("Tem certeza que deseja retirar o telefone?", "Retirar Telefone", MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                itensTelefoneLojaDAO.Deletar(itensTelefoneLojaEntidade);
-            }
+
+            itensTelefoneLojaDAO.Deletar(itensTelefoneLojaEntidade);
+
         }
 
-        public List<ItensTelefoneLojaEntidade> BuscarTodosTelfonePorLoja(int idLoja)
+        public DataTable BuscarTodosTelfonePorLoja(int idLoja)
         {
-
-
             ItensTelefoneLojaDAO itensTelefoneLojaDAO = new ItensTelefoneLojaDAO();
 
+            List<ItensTelefoneLojaEntidade> listItensTelefoneLojaEntidade = itensTelefoneLojaDAO.BuscarTelefonePorLoja(idLoja);
+            TelefoneControler telefoneControler = new TelefoneControler();
 
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("ID",typeof(int));
+            dataTable.Columns.Add("Telfone",typeof(string));
 
-            return itensTelefoneLojaDAO.BuscarTelefonePorLoja(idLoja);
+            for (int i = 0;i< listItensTelefoneLojaEntidade.Count;i++)
+            {
+                TelefoneEntidade telefoneEntidade = telefoneControler.BuscarTelefonePorID(listItensTelefoneLojaEntidade[i].CodTelefone);
+
+                dataTable.Rows.Add(telefoneEntidade.Id, telefoneEntidade.Telefone);
+            }
+
+            return dataTable;
         }
     }
 }

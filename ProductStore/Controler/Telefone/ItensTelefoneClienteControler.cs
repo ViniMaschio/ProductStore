@@ -1,6 +1,7 @@
 ﻿using ProductStore.DAO.Telefone;
 using ProductStore.Entidades.Telefone;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace ProductStore.Controler.Telefone
@@ -26,11 +27,26 @@ namespace ProductStore.Controler.Telefone
             }
         }
 
-        public List<ItensTelefoneClienteEntidade> BuscarTodosTelefonePorCliente(int id)
-        {
-            ItensTelefoneClienteDAO itensTelefoneClienteDAO = new ItensTelefoneClienteDAO();
+        public DataTable BuscarTodosTelefonePorCliente(int id)
+        {   
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("ID", typeof(int));
+            dataTable.Columns.Add("Telefone", typeof(string));
 
-            return itensTelefoneClienteDAO.BuscarClienteTelefonePorCliente(id);
+            ItensTelefoneClienteDAO itensTelefoneClienteDAO = new ItensTelefoneClienteDAO();
+            List<ItensTelefoneClienteEntidade> listItensTelefoneEntidade = itensTelefoneClienteDAO.BuscarClienteTelefonePorCliente(id);
+
+            TelefoneControler telefoneControler = new TelefoneControler();
+
+            for (int i = 0; i< listItensTelefoneEntidade.Count; i++)
+            {
+                TelefoneEntidade telefoneEntidade = telefoneControler.BuscarTelefonePorID(listItensTelefoneEntidade[i].CodTelefone);
+
+                dataTable.Rows.Add(listItensTelefoneEntidade[i].CodTelefone, telefoneEntidade.Telefone);
+            }
+
+
+            return dataTable;
         }
 
     }
