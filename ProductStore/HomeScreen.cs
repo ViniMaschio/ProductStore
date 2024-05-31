@@ -4,6 +4,8 @@ using ProductStore.View.Cliente.Trabalho;
 using ProductStore.View.Endereco;
 using ProductStore.View.Endereco.Bairro;
 using ProductStore.View.Endereco.Cep;
+using ProductStore.View.Funcionario.Funcao;
+using ProductStore.View.Funcionario.Funcionario;
 using ProductStore.View.Funcionario.Loja;
 using ProductStore.View.Produto;
 using ProductStore.View.Produto.Marca;
@@ -87,6 +89,18 @@ namespace ProductStore.View
         {
             LojaScreen lojaScreen = new LojaScreen();
             lojaScreen.ShowDialog();
+        }
+
+        private void cadastroFuncionarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FuncionarioScreen funcionarioScreen = new FuncionarioScreen();
+            funcionarioScreen.ShowDialog();
+        }
+
+        private void funçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FuncaoScreen funcaoScreen = new FuncaoScreen();
+            funcaoScreen.ShowDialog();
         }
     }
 }

@@ -29,6 +29,7 @@ namespace ProductStore.DAO.Funcionario
                     cmd.Parameters.AddWithValue("@codfuncao", funcionarioEntidade.CodFuncao);
                     cmd.Parameters.AddWithValue("@salario", funcionarioEntidade.Salario);
                     cmd.Parameters.AddWithValue("@codloja", funcionarioEntidade.CodLoja);
+                    cmd.Parameters.AddWithValue("@codcep", funcionarioEntidade.CodCep);
 
                     try
                     {
@@ -50,7 +51,7 @@ namespace ProductStore.DAO.Funcionario
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "update funcionario set nomefuncionario = @numerofuncionario, numerocasa = @numerocasa ,codrua_fk = @codrua,codbairro_fk = @codbairro, " +
+                    cmd.CommandText = "update funcionario set nomefuncionario = upper(@nomefuncionario), numerocasa = @numerocasa ,codrua_fk = @codrua,codbairro_fk = @codbairro, " +
                         "codcep_fk = @codcep ,codcidade_fk = @codcidade ,codfuncao_fk = @codfuncao ,salario = @salario ,codloja_fk = @codloja where codfuncionario = @codfuncionario;";
 
                     cmd.Parameters.AddWithValue("@nomefuncionario", funcionarioEntidade.NomeFuncionario);
@@ -62,7 +63,7 @@ namespace ProductStore.DAO.Funcionario
                     cmd.Parameters.AddWithValue("@salario", funcionarioEntidade.Salario);
                     cmd.Parameters.AddWithValue("@codloja", funcionarioEntidade.CodLoja);
                     cmd.Parameters.AddWithValue("@codfuncionario", funcionarioEntidade.Id);
-
+                    cmd.Parameters.AddWithValue("@codcep",funcionarioEntidade.CodCep);
                     try
                     {
                         cmd.ExecuteNonQuery();
@@ -104,7 +105,7 @@ namespace ProductStore.DAO.Funcionario
         public List<FuncionarioEntidade> BuscarTodosFuncionarios()
         {
 
-            List<FuncionarioEntidade> listFuncionarioEntidade = null;
+            List<FuncionarioEntidade> listFuncionarioEntidade = new List<FuncionarioEntidade>();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -125,19 +126,19 @@ namespace ProductStore.DAO.Funcionario
                             listFuncionarioEntidade.Add(new FuncionarioEntidade()
                             {
                                 Id = (int)reader["codfuncionario"],
-                                NomeFuncionario = (string)reader["nomefuncionario"],
-                                NumeroCasa = (string)reader["numerocasa"],
+                                NomeFuncionario = reader["nomefuncionario"].ToString(),
+                                NumeroCasa = reader["numerocasa"].ToString(),
                                 CodRua = (int)reader["codrua_fk"],
                                 CodBairro = (int)reader["codbairro_fk"],
                                 CodCep = (int)reader["codcep_fk"],
                                 CodCidade = (int)reader["codcidade_fk"],
                                 CodFuncao = (int)reader["codfuncao_fk"],
                                 CodLoja = (int)reader["codloja_fk"],
-                                Salario = (double)reader["salario"]
+                                Salario = double.Parse(reader["salario"].ToString())
                             });
                         }
                     }
-                    catch (Exception ex) { MessageBox.Show(ex.Message); }
+                    catch (Exception ex) { MessageBox.Show(ex.Message,"Funcionario DAO"); }
                 }
 
                 conn.Close();
@@ -149,7 +150,7 @@ namespace ProductStore.DAO.Funcionario
 
         public FuncionarioEntidade BuscarFuncionarioPorId(int id)
         {
-            FuncionarioEntidade funcionarioEntidade = null;
+            FuncionarioEntidade funcionarioEntidade = new FuncionarioEntidade() ;
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -171,19 +172,19 @@ namespace ProductStore.DAO.Funcionario
                             funcionarioEntidade = new FuncionarioEntidade()
                             {
                                 Id = (int)reader["codfuncionario"],
-                                NomeFuncionario = (string)reader["nomefuncionario"],
-                                NumeroCasa = (string)reader["numerocasa"],
+                                NomeFuncionario = reader["nomefuncionario"].ToString(),
+                                NumeroCasa = reader["numerocasa"].ToString(),
                                 CodRua = (int)reader["codrua_fk"],
                                 CodBairro = (int)reader["codbairro_fk"],
                                 CodCep = (int)reader["codcep_fk"],
                                 CodCidade = (int)reader["codcidade_fk"],
                                 CodFuncao = (int)reader["codfuncao_fk"],
                                 CodLoja = (int)reader["codloja_fk"],
-                                Salario = (double)reader["salario"]
+                                Salario = double.Parse(reader["salario"].ToString())
                             };
                         }
                     }
-                    catch (Exception ex) { MessageBox.Show(ex.Message); }
+                    catch (Exception ex) { MessageBox.Show(ex.Message,"Funcionario Id DAO"); }
                 }
 
                 conn.Close();

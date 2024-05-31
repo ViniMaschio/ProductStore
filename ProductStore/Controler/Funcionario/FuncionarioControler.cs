@@ -36,23 +36,23 @@ namespace ProductStore.Controler.Funcionario
                 "Excluir Funcionario", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 funcionarioDAO.Deletar(funcionarioEntidade.Id);
-                MessageBox.Show("Funcionario Adicionado com sucesso!", "Adicionar Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Funcionario Deletado com sucesso!", "Deletar Funcionario", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         public DataTable BuscarTodosFuncionarios()
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID");
-            dataTable.Columns.Add("Nome Funcionario");
-            dataTable.Columns.Add("Loja");
-            dataTable.Columns.Add("Funcao");
-            dataTable.Columns.Add("Salario");
-            dataTable.Columns.Add("Rua");
-            dataTable.Columns.Add("Numero");
-            dataTable.Columns.Add("Bairro");
-            dataTable.Columns.Add("Cidade");
-            dataTable.Columns.Add("CEP");
+            dataTable.Columns.Add("ID",typeof(int));
+            dataTable.Columns.Add("Nome Funcionario", typeof(string));
+            dataTable.Columns.Add("Loja", typeof(string));
+            dataTable.Columns.Add("Funcao", typeof(string));
+            dataTable.Columns.Add("Salario", typeof(double));
+            dataTable.Columns.Add("Rua", typeof(string));
+            dataTable.Columns.Add("Numero", typeof(string));
+            dataTable.Columns.Add("Bairro", typeof(string));
+            dataTable.Columns.Add("Cidade", typeof(string));
+            dataTable.Columns.Add("CEP", typeof(string));
 
             FuncionarioDAO funcionarioDAO = new FuncionarioDAO();
             LojaControler lojaControler = new LojaControler();
@@ -68,7 +68,7 @@ namespace ProductStore.Controler.Funcionario
 
             List<FuncionarioEntidade> listFuncionarioEntidade = funcionarioDAO.BuscarTodosFuncionarios();
 
-            for (int i = 0; i < listFuncionarioEntidade.Count && listFuncionarioEntidade != null; i++)
+            for (int i = 0; i < listFuncionarioEntidade.Count; i++)
             {
                 lojaEntidade = lojaControler.BuscarLojaPorId(listFuncionarioEntidade[i].CodLoja);
                 cidadeEntidade = cidadeControler.BuscarCidadePorId(listFuncionarioEntidade[i].CodCidade);

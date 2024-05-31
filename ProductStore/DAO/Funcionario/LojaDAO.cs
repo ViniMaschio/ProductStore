@@ -140,7 +140,7 @@ namespace ProductStore.DAO.Funcionario
         public LojaEntidade BuscarLojaPorId(int id)
         {
 
-            LojaEntidade LojaEntidade = null;
+            LojaEntidade LojaEntidade = new LojaEntidade();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -148,8 +148,8 @@ namespace ProductStore.DAO.Funcionario
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "select * from loja;";
-
+                    cmd.CommandText = "select * from loja where codloja = @codloja;";
+                    cmd.Parameters.AddWithValue("@codloja",id);
 
                     try
                     {

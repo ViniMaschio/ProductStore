@@ -40,8 +40,8 @@ namespace ProductStore.Controler.Funcionario
         public DataTable BuscarTodasFuncao()
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID");
-            dataTable.Columns.Add("Funcao");
+            dataTable.Columns.Add("ID",typeof(int));
+            dataTable.Columns.Add("Funcao", typeof(string));
 
             FuncaoDAO funcaoDAO = new FuncaoDAO();
 

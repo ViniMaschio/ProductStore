@@ -83,7 +83,7 @@ namespace ProductStore.DAO.Funcionario
 
         public List<FuncaoEntidade> BuscarTodasFuncao()
         {
-            List<FuncaoEntidade> listFuncaoEntidade = null;
+            List<FuncaoEntidade> listFuncaoEntidade = new List<FuncaoEntidade>();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -126,7 +126,7 @@ namespace ProductStore.DAO.Funcionario
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "select from funcao where codfuncao = @codfuncao;";
+                    cmd.CommandText = "select * from funcao where codfuncao = @codfuncao;";
                     cmd.Parameters.AddWithValue("@codfuncao", id);
 
 
@@ -142,7 +142,7 @@ namespace ProductStore.DAO.Funcionario
                             NomeFuncao = (string)reader["nomefuncao"]
                         };
                     }
-                    catch (Exception ex) { MessageBox.Show(ex.Message); }
+                    catch (Exception ex) { MessageBox.Show(ex.Message,"Funcao DAO"); }
                 }
 
                 conn.Close();

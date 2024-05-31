@@ -1,6 +1,7 @@
 ﻿using ProductStore.DAO.Telefone;
 using ProductStore.Entidades.Telefone;
 using System.Collections.Generic;
+using System.Data;
 
 namespace ProductStore.Controler.Telefone
 {
@@ -18,11 +19,25 @@ namespace ProductStore.Controler.Telefone
             itensTelefoneFuncionarioDAO.Deletar(itensTelefoneFuncionarioEntidade);
         }
 
-        public List<ItensTelefoneFuncionarioEntidade> BuscarTelefonePorFuncionario(int id)
+        public DataTable BuscarTelefonePorFuncionario(int id)
         {
             ItensTelefoneFuncionarioDAO itensTelefoneFuncionarioDAO = new ItensTelefoneFuncionarioDAO();
 
-            return itensTelefoneFuncionarioDAO.BuscarTodosTelefonePorFuncionario(id);
+            List<ItensTelefoneFuncionarioEntidade> listItensTelefoneFuncionario = itensTelefoneFuncionarioDAO.BuscarTodosTelefonePorFuncionario(id);
+
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("ID");
+            dataTable.Columns.Add("Telefone");
+
+            TelefoneControler telefoneControler = new TelefoneControler();
+
+            for (int i = 0;i<listItensTelefoneFuncionario.Count;i++)
+            {
+                TelefoneEntidade telefoneEntidade = telefoneControler.BuscarTelefonePorID(listItensTelefoneFuncionario[i].CodTelefone);
+
+                dataTable.Rows.Add(telefoneEntidade.Id,telefoneEntidade.Telefone);
+            }
+            return dataTable;
         }
     }
 }

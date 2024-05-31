@@ -45,6 +45,8 @@
             this.usuarioToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.funcionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lojaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cadastroFuncionarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.funçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -166,7 +168,9 @@
             // funcionarioToolStripMenuItem
             // 
             this.funcionarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lojaToolStripMenuItem});
+            this.lojaToolStripMenuItem,
+            this.cadastroFuncionarioToolStripMenuItem,
+            this.funçãoToolStripMenuItem});
             this.funcionarioToolStripMenuItem.Name = "funcionarioToolStripMenuItem";
             this.funcionarioToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
             this.funcionarioToolStripMenuItem.Text = "Funcionario";
@@ -174,9 +178,23 @@
             // lojaToolStripMenuItem
             // 
             this.lojaToolStripMenuItem.Name = "lojaToolStripMenuItem";
-            this.lojaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.lojaToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.lojaToolStripMenuItem.Text = "Loja";
             this.lojaToolStripMenuItem.Click += new System.EventHandler(this.lojaToolStripMenuItem_Click);
+            // 
+            // cadastroFuncionarioToolStripMenuItem
+            // 
+            this.cadastroFuncionarioToolStripMenuItem.Name = "cadastroFuncionarioToolStripMenuItem";
+            this.cadastroFuncionarioToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.cadastroFuncionarioToolStripMenuItem.Text = "Cadastro Funcionario";
+            this.cadastroFuncionarioToolStripMenuItem.Click += new System.EventHandler(this.cadastroFuncionarioToolStripMenuItem_Click);
+            // 
+            // funçãoToolStripMenuItem
+            // 
+            this.funçãoToolStripMenuItem.Name = "funçãoToolStripMenuItem";
+            this.funçãoToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.funçãoToolStripMenuItem.Text = "Função";
+            this.funçãoToolStripMenuItem.Click += new System.EventHandler(this.funçãoToolStripMenuItem_Click);
             // 
             // HomeScreen
             // 
@@ -216,5 +234,7 @@
         private System.Windows.Forms.ToolStripMenuItem cepToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem funcionarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lojaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cadastroFuncionarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem funçãoToolStripMenuItem;
     }
 }

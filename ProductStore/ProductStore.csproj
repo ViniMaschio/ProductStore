@@ -235,6 +235,36 @@
     <Compile Include="View\Endereco\Rua\RuaScrean.Designer.cs">
       <DependentUpon>RuaScrean.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Funcionario\Funcao\FuncaoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Funcionario\Funcao\FuncaoForm.Designer.cs">
+      <DependentUpon>FuncaoForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Funcionario\Funcao\FuncaoScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Funcionario\Funcao\FuncaoScreen.Designer.cs">
+      <DependentUpon>FuncaoScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Funcionario\Funcionario\FuncionarioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Funcionario\Funcionario\FuncionarioForm.Designer.cs">
+      <DependentUpon>FuncionarioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Funcionario\Funcionario\FuncionarioScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Funcionario\Funcionario\FuncionarioScreen.Designer.cs">
+      <DependentUpon>FuncionarioScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Funcionario\Funcionario\TelefoneFuncionarioScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Funcionario\Funcionario\TelefoneFuncionarioScreen.Designer.cs">
+      <DependentUpon>TelefoneFuncionarioScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Funcionario\Loja\LojaForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -352,6 +382,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Endereco\Rua\RuaScrean.resx">
       <DependentUpon>RuaScrean.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Funcionario\Funcao\FuncaoForm.resx">
+      <DependentUpon>FuncaoForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Funcionario\Funcao\FuncaoScreen.resx">
+      <DependentUpon>FuncaoScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Funcionario\Funcionario\FuncionarioForm.resx">
+      <DependentUpon>FuncionarioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Funcionario\Funcionario\FuncionarioScreen.resx">
+      <DependentUpon>FuncionarioScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Funcionario\Funcionario\TelefoneFuncionarioScreen.resx">
+      <DependentUpon>TelefoneFuncionarioScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Funcionario\Loja\LojaForm.resx">
       <DependentUpon>LojaForm.cs</DependentUpon>
