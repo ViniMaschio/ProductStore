@@ -235,6 +235,24 @@
     <Compile Include="View\Endereco\Rua\RuaScrean.Designer.cs">
       <DependentUpon>RuaScrean.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Fornecedor\FornecedorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Fornecedor\FornecedorForm.Designer.cs">
+      <DependentUpon>FornecedorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Fornecedor\FornecedorScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Fornecedor\FornecedorScreen.Designer.cs">
+      <DependentUpon>FornecedorScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Fornecedor\TelefoneFornecedorScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Fornecedor\TelefoneFornecedorScreen.Designer.cs">
+      <DependentUpon>TelefoneFornecedorScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Funcionario\Funcao\FuncaoForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -382,6 +400,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Endereco\Rua\RuaScrean.resx">
       <DependentUpon>RuaScrean.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Fornecedor\FornecedorForm.resx">
+      <DependentUpon>FornecedorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Fornecedor\FornecedorScreen.resx">
+      <DependentUpon>FornecedorScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Fornecedor\TelefoneFornecedorScreen.resx">
+      <DependentUpon>TelefoneFornecedorScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Funcionario\Funcao\FuncaoForm.resx">
       <DependentUpon>FuncaoForm.cs</DependentUpon>

@@ -228,5 +228,7 @@ namespace ProductStore.View.Cliente.Cliente
             trabalhoForm.ShowDialog();
             BuscarTrabalho();
         }
+
+
     }
 }

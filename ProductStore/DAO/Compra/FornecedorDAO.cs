@@ -16,7 +16,7 @@ namespace ProductStore.DAO.Compra
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "insert into fornecedor(nomefornecedor,numerocasa,codrua_fk,cobairro_fk,cocep_fk,codcidade_fk) values(upper(@nomefornecedor),@numerocasa," +
+                    cmd.CommandText = "insert into fornecedor(nomefornecedor,numerocasa,codrua_fk,codbairro_fk,codcep_fk,codcidade_fk) values(upper(@nomefornecedor),@numerocasa," +
                         "@codrua, @codbairro, @codcep,@codcidade);";
                     cmd.Parameters.AddWithValue("@nomefornecedor", fornecedorEntidade.NomeFornecedor);
                     cmd.Parameters.AddWithValue("@numerocasa", fornecedorEntidade.NumeroCasa);
@@ -39,8 +39,8 @@ namespace ProductStore.DAO.Compra
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "update fornecedor set nomefornecedor = upper(@nomefornecedor),numerocasa = @numerocasa,codrua_fk = @codrua ,cobairro_fk = @codbairro," +
-                        "cocep_fk = @codcep,codciddade = @codcidade where codfornecedor = @codfornecedor;";
+                    cmd.CommandText = "update fornecedor set nomefornecedor = upper(@nomefornecedor),numerocasa = @numerocasa,codrua_fk = @codrua ,codbairro_fk = @codbairro," +
+                        "codcep_fk = @codcep,codcidade_fk = @codcidade where codfornecedor = @codfornecedor;";
 
                     cmd.Parameters.AddWithValue("@nomefornecedor", fornecedorEntidade.NomeFornecedor);
                     cmd.Parameters.AddWithValue("@numerocasa", fornecedorEntidade.NumeroCasa);
@@ -66,7 +66,7 @@ namespace ProductStore.DAO.Compra
                 {
                     cmd.CommandText = "delete from fornecedor where codfornecedor = @codfornecedor;";
 
-                    cmd.Parameters.AddWithValue("@nomefornecedor", codFornecedor);
+                    cmd.Parameters.AddWithValue("@codfornecedor", codFornecedor);
 
 
                     cmd.ExecuteNonQuery();
@@ -79,7 +79,7 @@ namespace ProductStore.DAO.Compra
         public List<FornecedorEntidade> BuscarTodosFornecedor()
         {
 
-            List<FornecedorEntidade> listFornecedorEntidade = null;
+            List<FornecedorEntidade> listFornecedorEntidade = new List<FornecedorEntidade>();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -95,8 +95,8 @@ namespace ProductStore.DAO.Compra
                         listFornecedorEntidade.Add(new FornecedorEntidade()
                         {
                             Id = (int)reader["codfornecedor"],
-                            NomeFornecedor = (string)reader["nomefornecedor"],
-                            NumeroCasa = (string)reader["numerocasa"],
+                            NomeFornecedor = reader["nomefornecedor"].ToString(),
+                            NumeroCasa = reader["numerocasa"].ToString(),
                             CodBairro = (int)reader["codbairro_fk"],
                             CodCep = (int)reader["codcep_fk"],
                             CodCidade = (int)reader["codcidade_fk"],
@@ -131,8 +131,8 @@ namespace ProductStore.DAO.Compra
                         fornecedorEntidade = new FornecedorEntidade()
                         {
                             Id = (int)reader["codfornecedor"],
-                            NomeFornecedor = (string)reader["nomefornecedor"],
-                            NumeroCasa = (string)reader["numerocasa"],
+                            NomeFornecedor = reader["nomefornecedor"].ToString(),
+                            NumeroCasa = reader["numerocasa"].ToString(),
                             CodBairro = (int)reader["codbairro_fk"],
                             CodCep = (int)reader["codcep_fk"],
                             CodCidade = (int)reader["codcidade_fk"],

@@ -32,7 +32,7 @@ namespace ProductStore.Controler.Compra
             if (MessageBox.Show("Tem certeza que deseja remover o fornecedor: \n" + fornecedorEntidade.Id + " - " + fornecedorEntidade.NomeFornecedor, "Reniver Fornecedor",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                fornecedorDAO.Add(fornecedorEntidade);
+                fornecedorDAO.Deletar(fornecedorEntidade.Id);
                 MessageBox.Show("Fornecedor Removido com sucesso!", "Reniver Fornecedor", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -40,13 +40,13 @@ namespace ProductStore.Controler.Compra
         public DataTable BuscarTodosFornecedor()
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID");
-            dataTable.Columns.Add("Nome Fornecedor");
-            dataTable.Columns.Add("Numero Casa");
-            dataTable.Columns.Add("Rua");
-            dataTable.Columns.Add("Bairro");
-            dataTable.Columns.Add("Cidade");
-            dataTable.Columns.Add("CEP");
+            dataTable.Columns.Add("ID",typeof(int));
+            dataTable.Columns.Add("Nome Fornecedor",typeof(string));
+            dataTable.Columns.Add("Numero", typeof(string));
+            dataTable.Columns.Add("Rua", typeof(string));
+            dataTable.Columns.Add("Bairro", typeof(string));
+            dataTable.Columns.Add("Cidade", typeof(string));
+            dataTable.Columns.Add("CEP", typeof(string));
 
             FornecedorDAO fornecedorDAO = new FornecedorDAO();
             RuaControler ruaControler = new RuaControler();
@@ -72,7 +72,7 @@ namespace ProductStore.Controler.Compra
             return dataTable;
         }
 
-        public FornecedorEntidade BuscarFornecedorPorIf(int codFornecedor)
+        public FornecedorEntidade BuscarFornecedorPorId(int codFornecedor)
         {
             FornecedorDAO fornecedorDAO = new FornecedorDAO();
 

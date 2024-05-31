@@ -4,6 +4,7 @@ using ProductStore.View.Cliente.Trabalho;
 using ProductStore.View.Endereco;
 using ProductStore.View.Endereco.Bairro;
 using ProductStore.View.Endereco.Cep;
+using ProductStore.View.Fornecedor;
 using ProductStore.View.Funcionario.Funcao;
 using ProductStore.View.Funcionario.Funcionario;
 using ProductStore.View.Funcionario.Loja;
@@ -101,6 +102,48 @@ namespace ProductStore.View
         {
             FuncaoScreen funcaoScreen = new FuncaoScreen();
             funcaoScreen.ShowDialog();
+        }
+
+        private void cadastroFornecedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FornecedorScreen fornecedorScreen = new FornecedorScreen();
+            fornecedorScreen.ShowDialog();
+        }
+
+        private void ruaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            RuaScrean ruaScrean = new RuaScrean();
+            ruaScrean.ShowDialog();
+        }
+
+        private void bairroToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            BairroScreen bairroScreen = new BairroScreen();
+            bairroScreen.ShowDialog();
+        }
+
+        private void cepToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CepScreen cepScreen = new CepScreen();  
+            cepScreen.ShowDialog();
+        }
+
+        private void ruaToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            RuaScrean ruaScrean = new RuaScrean();
+            ruaScrean.ShowDialog();
+        }
+
+        private void bairroToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            BairroScreen bairroScreen = new BairroScreen();
+            bairroScreen.ShowDialog();
+        }
+
+        private void cepToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            CepScreen cepScreen = new CepScreen();
+            cepScreen.ShowDialog();
         }
     }
 }

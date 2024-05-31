@@ -48,7 +48,7 @@ namespace ProductStore.DAO.Telefone
         public List<ItensTelefoneFornecedorEntidade> BuscarTodosTelefonePorFornecedor(int codFornecedor)
         {
 
-            List<ItensTelefoneFornecedorEntidade> listItensTelefoneFornecedorEntidade = null;
+            List<ItensTelefoneFornecedorEntidade> listItensTelefoneFornecedorEntidade = new List<ItensTelefoneFornecedorEntidade>();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {

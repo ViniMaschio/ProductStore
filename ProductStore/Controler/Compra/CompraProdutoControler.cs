@@ -55,7 +55,7 @@ namespace ProductStore.Controler.Compra
 
             for (int i = 0; i < listCompraProdutoEntidade.Count && listCompraProdutoEntidade != null; i++)
             {
-                FornecedorEntidade fornecedorEntidade = fornecedorControler.BuscarFornecedorPorIf(listCompraProdutoEntidade[i].CodFornecedor);
+                FornecedorEntidade fornecedorEntidade = fornecedorControler.BuscarFornecedorPorId(listCompraProdutoEntidade[i].CodFornecedor);
                 FuncionarioEntidade funcionarioEntidade = funcionarioControler.BuscarFuncionarioPorId(listCompraProdutoEntidade[i].CodFuncionario);
 
                 dateTable.Rows.Add(listCompraProdutoEntidade[i].Id,
