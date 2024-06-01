@@ -199,6 +199,30 @@
     <Compile Include="View\Cliente\Trabalho\TrabalhoScreen.Designer.cs">
       <DependentUpon>TrabalhoScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Compra\BoletosCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Compra\BoletosCompra.Designer.cs">
+      <DependentUpon>BoletosCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Compra\CompraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Compra\CompraForm.Designer.cs">
+      <DependentUpon>CompraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Compra\CompraScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Compra\CompraScreen.Designer.cs">
+      <DependentUpon>CompraScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Compra\ProdutosCompraScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Compra\ProdutosCompraScreen.Designer.cs">
+      <DependentUpon>ProdutosCompraScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Endereco\Bairro\BairroForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -382,6 +406,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Cliente\Trabalho\TrabalhoScreen.resx">
       <DependentUpon>TrabalhoScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Compra\BoletosCompra.resx">
+      <DependentUpon>BoletosCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Compra\CompraForm.resx">
+      <DependentUpon>CompraForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Compra\CompraScreen.resx">
+      <DependentUpon>CompraScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Compra\ProdutosCompraScreen.resx">
+      <DependentUpon>ProdutosCompraScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Endereco\Bairro\BairroForm.resx">
       <DependentUpon>BairroForm.cs</DependentUpon>

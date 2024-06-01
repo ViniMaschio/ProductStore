@@ -1,6 +1,7 @@
 ﻿
 using ProductStore.View.Cliente.Cliente;
 using ProductStore.View.Cliente.Trabalho;
+using ProductStore.View.Compra;
 using ProductStore.View.Endereco;
 using ProductStore.View.Endereco.Bairro;
 using ProductStore.View.Endereco.Cep;
@@ -144,6 +145,12 @@ namespace ProductStore.View
         {
             CepScreen cepScreen = new CepScreen();
             cepScreen.ShowDialog();
+        }
+
+        private void entradaDeProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CompraScreen compraScreen = new CompraScreen();
+            compraScreen.ShowDialog();  
         }
     }
 }

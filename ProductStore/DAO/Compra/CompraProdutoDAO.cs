@@ -19,14 +19,14 @@ namespace ProductStore.DAO.Compra
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "insert into compraproduto(datacompra,codfornecedor_fk,codfuncionario_fk) values (@datacompra,@codfornecedor,codfuncionario) SELECT SCOPE_IDENTITY();";
-                    cmd.Parameters.AddWithValue("@datacompra", compraProduto.DataCompra.ToString("dd:MM:yyyy"));
+                    cmd.CommandText = "insert into compraproduto(datacompra,codfornecedor_fk,codfuncionario_fk) values (@datacompra,@codfornecedor,@codfuncionario) SELECT SCOPE_IDENTITY() as codcompra;";
+                    cmd.Parameters.AddWithValue("@datacompra", compraProduto.DataCompra);
                     cmd.Parameters.AddWithValue("@codfornecedor", compraProduto.CodFornecedor);
                     cmd.Parameters.AddWithValue("@codfuncionario", compraProduto.CodFornecedor);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     reader.Read();
-                    codCompra = (int)reader["codcompra"];
+                    codCompra = int.Parse(reader["codcompra"].ToString());
                 }
 
                 conn.Close();
@@ -78,7 +78,7 @@ namespace ProductStore.DAO.Compra
         public List<CompraProdutoEntidade> BuscarTodasCompras()
         {
 
-            List<CompraProdutoEntidade> listCompraProdutoEntidade = null;
+            List<CompraProdutoEntidade> listCompraProdutoEntidade = new List<CompraProdutoEntidade>();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {

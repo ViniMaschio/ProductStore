@@ -15,15 +15,15 @@ namespace ProductStore.DAO.Boletos
             {
                 conn.Open();
 
-                using (SqlCommand cmd = conn.CreateCommand())
+                for (int i = 0; i < parcelaCompraEntidade.Count; i++)
                 {
-                    cmd.CommandText = "insert into parcelacompra(codparcelacompra,datavencimento,valor,codsituacao_fk,codcompra_fk) " +
-                        "values(@codparcelacompra,@datavencimento,@valor,@codsituacao,@codcompra);";
-
-                    for (int i = 0; i < parcelaCompraEntidade.Count; i++)
+                    using (SqlCommand cmd = conn.CreateCommand())
                     {
+                        cmd.CommandText = "insert into parcelacompra(datavencimento,valor,codsituacao_fk,codcompra_fk,codparcelacompra) " +
+                        "values(@datavencimento,@valor,@codsituacao,@codcompra,@codparcelacompra);";
+
                         cmd.Parameters.AddWithValue("@codparcelacompra", parcelaCompraEntidade[i].CodParcela);
-                        cmd.Parameters.AddWithValue("@datavencimento", parcelaCompraEntidade[i].Date.ToString("dd:MM:yyyy"));
+                        cmd.Parameters.AddWithValue("@datavencimento", parcelaCompraEntidade[i].Date);
                         cmd.Parameters.AddWithValue("@valor", parcelaCompraEntidade[i].Valor);
                         cmd.Parameters.AddWithValue("@codsituacao", parcelaCompraEntidade[i].CodSituacao);
                         cmd.Parameters.AddWithValue("@codcompra", parcelaCompraEntidade[i].CodCompra);
@@ -57,7 +57,7 @@ namespace ProductStore.DAO.Boletos
 
         public List<ParcelaCompraEntidade> BuscarParcelaEmAberto()
         {
-            List<ParcelaCompraEntidade> listParcelaCompraEntidade = null;
+            List<ParcelaCompraEntidade> listParcelaCompraEntidade = new List<ParcelaCompraEntidade>();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -90,7 +90,7 @@ namespace ProductStore.DAO.Boletos
 
         public List<ParcelaCompraEntidade> BuscarParcelaPagas()
         {
-            List<ParcelaCompraEntidade> listParcelaCompraEntidade = null;
+            List<ParcelaCompraEntidade> listParcelaCompraEntidade = new List<ParcelaCompraEntidade>();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -123,7 +123,7 @@ namespace ProductStore.DAO.Boletos
 
         public List<ParcelaCompraEntidade> BuscarTodasParcelas()
         {
-            List<ParcelaCompraEntidade> listParcelaCompraEntidade = null;
+            List<ParcelaCompraEntidade> listParcelaCompraEntidade = new List<ParcelaCompraEntidade>();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {

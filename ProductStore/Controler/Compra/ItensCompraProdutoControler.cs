@@ -17,23 +17,29 @@ namespace ProductStore.Controler.Compra
             itensCompraProdutoDAO.Add(listItensCompraProdutoEntidade);
         }
 
-        public void DeletarProdutos(List<ItensCompraProdutoEntidade> listItensCompraProdutoEntidade)
+        public void DeletarProdutos(int codCompra)
         {
             ItensCompraProdutoDAO itensCompraProdutoDAO = new ItensCompraProdutoDAO();
+
+            List<ItensCompraProdutoEntidade> listItensCompraProdutoEntidade = itensCompraProdutoDAO.BuscarTodosProdutoPorCompra(codCompra);
+            
             itensCompraProdutoDAO.Delete(listItensCompraProdutoEntidade);
         }
 
-        public DataTable BuscarTodosProdutosPorVenda(int codVenda)
+        
+
+        public DataTable BuscarTodosProdutosPorCompra(int codCompra)
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("Cod");
-            dataTable.Columns.Add("Produto");
-            dataTable.Columns.Add("Quantidade");
-            dataTable.Columns.Add("Valor Unitario");
+            dataTable.Columns.Add("Cod",typeof(int));
+            dataTable.Columns.Add("Produto",typeof(string));
+            dataTable.Columns.Add("Quant.",typeof(double));
+            dataTable.Columns.Add("Valor Uni.",typeof(double));
+            dataTable.Columns.Add("Valor Total", typeof(double));
 
             ItensCompraProdutoDAO itensCompraProdutoDAO = new ItensCompraProdutoDAO();
 
-            List<ItensCompraProdutoEntidade> listItensCompraProdutoEntidade = itensCompraProdutoDAO.BuscarTodosProdutoPorCompra(codVenda);
+            List<ItensCompraProdutoEntidade> listItensCompraProdutoEntidade = itensCompraProdutoDAO.BuscarTodosProdutoPorCompra(codCompra);
 
             ProdutoControler produtoControler = new ProdutoControler();
 
@@ -45,11 +51,19 @@ namespace ProductStore.Controler.Compra
                     listItensCompraProdutoEntidade[i].CodProduto,
                     produtoEntidade.Nomeproduto,
                     listItensCompraProdutoEntidade[i].Quantidade,
-                    listItensCompraProdutoEntidade[i].Valorc
+                    listItensCompraProdutoEntidade[i].Valorc,
+                    listItensCompraProdutoEntidade[i].Quantidade * listItensCompraProdutoEntidade[i].Valorc
                     );
             }
 
             return dataTable;
+        }
+
+        public double BuscarValorTotalPorCompra(int codCompra)
+        {
+            ItensCompraProdutoDAO itensCompraProdutoDAO = new ItensCompraProdutoDAO();
+
+            return itensCompraProdutoDAO.BuscarTotalCompraPorId(codCompra);
         }
     }
 }

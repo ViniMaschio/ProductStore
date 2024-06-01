@@ -30,8 +30,7 @@ namespace ProductStore.Controler.Produto
 
             MessageBox.Show("Produto Alterado com Sucesso!", "Alterar Produto",
               MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //MessageBox.Show(produtoEntidade.Id + "\n" + produtoEntidade.Nomeproduto + "\n" + produtoEntidade.Valor +
-            //"\n" + produtoEntidade.Quantidade + "\n"+ produtoEntidade.Codigomarca+"\n"+ produtoEntidade.Codigotipo);
+            
 
         }
 
