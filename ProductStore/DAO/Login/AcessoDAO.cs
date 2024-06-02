@@ -13,7 +13,7 @@ namespace ProductStore.DAO.Login
         public List<AcessoEntidade> BuscarTodosAcesso()
         {
 
-            List<AcessoEntidade> listAcessoEntidade = null;
+            List<AcessoEntidade> listAcessoEntidade = new List<AcessoEntidade>();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {

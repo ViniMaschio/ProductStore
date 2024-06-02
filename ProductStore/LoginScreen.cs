@@ -13,13 +13,15 @@ namespace ProductStore.View
             InitializeComponent();
         }
 
-        Thread newThread;
+        private Thread newThread;
+
+        private LoginEntidade loginEntidade;
         private void bntEntrar_Click(object sender, EventArgs e)
         {
 
             LoginControler loginControler = new LoginControler();
 
-            LoginEntidade loginEntidade = loginControler.VerificarLogin(txtUser.Text, txtPass.Text);
+            loginEntidade = loginControler.VerificarLogin(txtUser.Text, txtPass.Text);
 
             if (loginEntidade == null)
             {
@@ -38,20 +40,18 @@ namespace ProductStore.View
             }
         }
 
-        void AbrirNovaJanela()
+        private void AbrirNovaJanela()
         {
-            HomeScreen homeScreen = new HomeScreen();
+            HomeScreen homeScreen = new HomeScreen(loginEntidade);
             homeScreen.ShowDialog();
 
         }
 
-        void SalvarLogin(int LoginId)
+        private void SalvarLogin(int LoginId)
         {
             ControleLogSistemaControler controleLogSistemaControler = new ControleLogSistemaControler();
             controleLogSistemaControler.NovoLogin(LoginId);
         }
-
-
 
         private void button1_Click(object sender, EventArgs e)
         {

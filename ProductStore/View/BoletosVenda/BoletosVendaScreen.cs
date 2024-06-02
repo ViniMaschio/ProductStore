@@ -1,13 +1,6 @@
 ﻿using ProductStore.Controler.Boletos;
 using ProductStore.Entidades.Boletos;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.BoletosVenda
@@ -59,9 +52,9 @@ namespace ProductStore.View.BoletosVenda
 
         private ParcelaVendaEntidade BuscarLinhadaDataGird()
         {
-            ParcelaVendaEntidade parcelaVendaEntidade = new ParcelaVendaEntidade() { CodParcela = 0,CodVenda = 0};
+            ParcelaVendaEntidade parcelaVendaEntidade = new ParcelaVendaEntidade() { CodParcela = 0, CodVenda = 0 };
 
-            if(dGVBoletoFornecedor.Rows.Count > 0)
+            if (dGVBoletoFornecedor.Rows.Count > 0)
             {
                 parcelaVendaEntidade.CodParcela = (int)dGVBoletoFornecedor.CurrentRow.Cells[0].Value;
                 parcelaVendaEntidade.CodVenda = (int)dGVBoletoFornecedor.CurrentRow.Cells[1].Value;
@@ -89,7 +82,7 @@ namespace ProductStore.View.BoletosVenda
         {
             ParcelaVendaEntidade parcelaVendaEntidade = BuscarLinhadaDataGird();
 
-            if(parcelaVendaEntidade.CodVenda != 0)
+            if (parcelaVendaEntidade.CodVenda != 0)
             {
                 ParcelaVendaControler parcelaVendaControler = new ParcelaVendaControler();
                 parcelaVendaControler.Pagar(parcelaVendaEntidade);

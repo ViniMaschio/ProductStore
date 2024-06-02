@@ -1,4 +1,7 @@
-﻿
+﻿using ProductStore.Controler.Funcionario;
+using ProductStore.Controler.Login;
+using ProductStore.Entidades.Funcionario;
+using ProductStore.Entidades.Login;
 using ProductStore.View.BoletosCompra;
 using ProductStore.View.BoletosVenda;
 using ProductStore.View.Cliente.Cliente;
@@ -20,19 +23,57 @@ using System;
 using System.Windows.Forms;
 
 
-
 namespace ProductStore.View
 {
     public partial class HomeScreen : Form
     {
-        public HomeScreen()
+        public HomeScreen(LoginEntidade loginEntidade)
         {
             InitializeComponent();
+            CarregarInformacao(loginEntidade);
+            CarregarMenus(loginEntidade);
         }
 
-        private void HomeScreen_Load(object sender, EventArgs e)
+        private void CarregarInformacao(LoginEntidade loginEntidade)
         {
+            FuncionarioControler funcionarioControler = new FuncionarioControler();
+            FuncionarioEntidade funcionarioEntidade = funcionarioControler.BuscarFuncionarioPorId(loginEntidade.Funcionario);
+            stripUsuario.Text = funcionarioEntidade.NomeFuncionario;
+        }
 
+        private void CarregarMenus(LoginEntidade loginEntidade)
+        {
+            ItensAcessoLoginControler itensAcessoLoginControler =  new ItensAcessoLoginControler();
+            int acesso = itensAcessoLoginControler.BuscarAcessoPorLogin(loginEntidade.Id);
+
+            switch (acesso)
+            {
+                case 1:
+                    
+                    break;
+                case 2:
+                    mnuCliente.Visible = false;
+                    mnuProduto.Visible = false;
+                    mnuVenda.Visible = false;
+                    mnuCompra.Visible = false;
+                    mnuFornecedor.Visible = false;
+                    mnuFuncionario.Visible = false;
+                    mnuUsuairo.Visible = false;
+                    break;
+                case 3:
+                   
+                    mnuCompra.Visible = false;
+                    mnuFornecedor.Visible = false;
+                    mnuFuncionario.Visible = false;
+                    mnuUsuairo.Visible = false;
+                    break;
+                case 4:
+                    mnuCliente.Visible = false;
+                    mnuVenda.Visible = false;
+                    mnuFuncionario.Visible = false;
+                    mnuUsuairo.Visible = false;
+                    break;
+            }
         }
 
         private void menuStripTipo_Click(object sender, EventArgs e)
@@ -165,7 +206,7 @@ namespace ProductStore.View
         private void boletosParaPagarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             BoletosCompraScreen boletosCompraScreen = new BoletosCompraScreen();
-            boletosCompraScreen.ShowDialog();   
+            boletosCompraScreen.ShowDialog();
 
         }
 
@@ -173,6 +214,11 @@ namespace ProductStore.View
         {
             BoletosVendaScreen boletosVendaScreen = new BoletosVendaScreen();
             boletosVendaScreen.ShowDialog();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            stripHora.Text = DateTime.Now.ToString();
         }
     }
 }

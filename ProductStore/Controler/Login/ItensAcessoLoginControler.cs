@@ -14,12 +14,19 @@ namespace ProductStore.Controler.Login
             itensAcessoLoginDAO.Add(itensAcessoLoginEntidade);
         }
 
+        public void AlterarAcesso(ItensAcessoLoginEntidade itensAcessoLoginEntidade)
+        {
+            ItensAcessoLoginDAO itensAcessoLoginDAO = new ItensAcessoLoginDAO();
+            itensAcessoLoginDAO.Alterar(itensAcessoLoginEntidade);
+        }
+
         public void DeletarAcesso(ItensAcessoLoginEntidade itensAcessoLoginEntidade)
         {
             ItensAcessoLoginDAO itensAcessoLoginDAO = new ItensAcessoLoginDAO();
 
             itensAcessoLoginDAO.Delete(itensAcessoLoginEntidade);
         }
+
         public int BuscarAcessoPorLogin(int idLogin)
         {
             ItensAcessoLoginDAO itensAcessoLoginDAO = new ItensAcessoLoginDAO();

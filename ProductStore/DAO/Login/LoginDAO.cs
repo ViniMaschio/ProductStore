@@ -9,28 +9,34 @@ namespace ProductStore.DAO.Login
         public LoginDAO() { }
 
 
-
-
-        public void Add(LoginEntidade loginEntidade)
+        public int Add(LoginEntidade loginEntidade)
         {
+            int codLogin = 0;
+
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
-                string querry = "inset into login(usuario,senha,codfuncionario_fk) values " +
-                "('" + loginEntidade.Usuario + "','" + loginEntidade.Senha + "'," + loginEntidade.Funcionario + "); ";
+                
+                using(SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "insert into login(usuario,senha,codfuncionario_fk) values(@usuario,@senha,@codfuncionario)SELECT SCOPE_IDENTITY() as codLogin;";
+                    cmd.Parameters.AddWithValue("@usuario",loginEntidade.Usuario);
+                    cmd.Parameters.AddWithValue("@senha",loginEntidade.Senha);
+                    cmd.Parameters.AddWithValue("@codfuncionario",loginEntidade.Funcionario);
 
-                //string querry = "insert into login(usuario,senha,codfuncionario_fk) values('@usuario','@senha', @codfuncionario);";
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-                SqlCommand cmd = new SqlCommand(querry, conn);
+                    while (reader.Read())
+                    {
+                        codLogin = int.Parse(reader["codLogin"].ToString());
+                    }
+                }
 
-                //cmd.Parameters["@usuario"].Value = loginEntidade.Usuario;
-                // cmd.Parameters["@senha"].Value = loginEntidade.Senha;
-                // cmd.Parameters["@codfuncionario"].Value = loginEntidade.Funcionario;
-
-                cmd.ExecuteNonQuery();
                 conn.Close();
 
             }
+
+            return codLogin;
         }
 
         public void Alterar(LoginEntidade loginEntidade)
@@ -38,15 +44,18 @@ namespace ProductStore.DAO.Login
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
-                string query = "update login usuario = '" + loginEntidade.Usuario + "', senha = '" + loginEntidade.Senha + "', codfuncionario_fk = " + loginEntidade.Funcionario + " where codlogin = " + loginEntidade.Id + ";";
+               
+                using(SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "update login set  usuario = @usuario, senha = @senha, codfuncionario_fk = @funcionario where codlogin = @codlogin;";
+                    cmd.Parameters.AddWithValue("@usuario", loginEntidade.Usuario);
+                    cmd.Parameters.AddWithValue("@senha",loginEntidade.Senha);
+                    cmd.Parameters.AddWithValue("@funcionario", loginEntidade.Funcionario);
+                    cmd.Parameters.AddWithValue("@codlogin", loginEntidade.Id);
 
-                //string querry = "update login usuario = '@usuario', senha = '@senha', codfuncionario_fk = @funcionario where codlogin = @codlogin;";
+                    cmd.ExecuteNonQuery();
+                }
 
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-
-
-                cmd.ExecuteNonQuery();
                 conn.Close();
             }
         }
@@ -56,15 +65,14 @@ namespace ProductStore.DAO.Login
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
-                string query = "delete from login where codlogin = " + id + ";";
 
+                using(SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "delete from login where codlogin = @codlogin; ";
+                    cmd.Parameters.AddWithValue("@codlogin", id);
 
-
-                SqlCommand cmd = new SqlCommand(query, conn);
-
-
-
-                cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
+                }
                 conn.Close();
             }
 
@@ -73,25 +81,28 @@ namespace ProductStore.DAO.Login
         public List<LoginEntidade> PesquisarTodos()
         {
             List<LoginEntidade> listaLogin = new List<LoginEntidade>();
-            SqlDataReader reader;
-
+ 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
-                string query = "select * from login;";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    listaLogin.Add(new LoginEntidade()
-                    {
-                        Id = (int)reader["codlogin"],
-                        Usuario = (string)reader["usuario"],
-                        Senha = (string)reader["senha"],
-                        Funcionario = (int)reader["codfuncionario_fk"]
-                    });
-                }
 
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "select * from login;";
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        listaLogin.Add(new LoginEntidade()
+                        {
+                            Id = (int)reader["codlogin"],
+                            Usuario = reader["usuario"].ToString(),
+                            Senha = reader["senha"].ToString(),
+                            Funcionario = (int)reader["codfuncionario_fk"]
+                        });
+                    }
+                }
             }
 
             return listaLogin;
@@ -100,34 +111,63 @@ namespace ProductStore.DAO.Login
         public LoginEntidade PesquisarUsuarioSenha(string usuario, string senha)
         {
             LoginEntidade loginEntidade = new LoginEntidade();
-            SqlDataReader reader;
+            
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 string query = "select codlogin, usuario , codfuncionario_fk from login where usuario = '" + usuario + "' and senha = '" + senha + "';";
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(query, conn);
 
-                // cmd.Parameters["@usuario"].Value = usuario;
-                // cmd.Parameters["@senha"].Value = senha;
-
-                reader = cmd.ExecuteReader();
-                if (!reader.HasRows)
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    return null;
-                }
-                while (reader.Read())
-                {
-                    loginEntidade.Id = (int)reader["codlogin"];
-                    loginEntidade.Senha = null;
-                    loginEntidade.Usuario = (string)reader["usuario"];
-                    loginEntidade.Funcionario = (int)reader["codfuncionario_fk"];
+                    cmd.CommandText = "select * from login where usuario = @usuario and senha = @senha";
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+                    cmd.Parameters.AddWithValue("@senha", senha);
 
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        loginEntidade.Id = (int)reader["codlogin"];
+                        loginEntidade.Senha = reader["senha"].ToString();
+                        loginEntidade.Usuario = reader["usuario"].ToString();
+                        loginEntidade.Funcionario = (int)reader["codfuncionario_fk"];
+                    }
                 }
+
                 conn.Close();
             }
 
             return loginEntidade;
+        }
+
+        public LoginEntidade BuscarLoginPorId(int codLogin)
+        {
+            LoginEntidade loginEntidade = new LoginEntidade();
+
+            using(SqlConnection conn = new SqlConnection(_stringconnetion))
+            {
+                conn.Open();
+
+                using(SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "select * from login where codlogin = @codlogin;";
+                    cmd.Parameters.AddWithValue("@codlogin",codLogin);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        loginEntidade.Id = (int)reader["codlogin"];
+                        loginEntidade.Senha = reader["senha"].ToString();
+                        loginEntidade.Funcionario = (int)reader["codfuncionario_fk"] ;
+                        loginEntidade.Usuario = reader["usuario"].ToString() ;
+
+                    }
+                }
+                conn.Close();
+            }
+
+            return loginEntidade ;
         }
     }
 }

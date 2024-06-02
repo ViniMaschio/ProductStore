@@ -35,7 +35,7 @@ namespace ProductStore.DAO.Login
 
         public List<ControleLogSistemaEntidade> BuscarLogPorLogin(int id)
         {
-            List<ControleLogSistemaEntidade> listControleLogSistemaEntidade = null;
+            List<ControleLogSistemaEntidade> listControleLogSistemaEntidade = new List<ControleLogSistemaEntidade>();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {

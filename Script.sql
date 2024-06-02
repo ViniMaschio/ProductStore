@@ -5813,7 +5813,7 @@ create table acesso(
 	nomeacesso varchar(80) not null unique
 );
 
-insert into acesso(nomeacesso) values (upper('Super aceso')); 
+insert into acesso(nomeacesso) values (upper('Gerente')); 
 insert into acesso(nomeacesso) values (upper('Financeiro'));
 insert into acesso(nomeacesso) values (upper('venda'));
 insert into acesso(nomeacesso) values (upper('Compra'));
@@ -5944,7 +5944,7 @@ create table parcelacompra (
 create table vendaproduto(
 	codvenda INT NOT NULL IDENTITY PRIMARY KEY,
 	datavenda date not null,
-	codcliente_fk integer not null references cliente(codcliente) ON DELETE NO ACTION ON UPDATE NO ACTION,
+		 integer not null references cliente(codcliente) ON DELETE NO ACTION ON UPDATE NO ACTION,
 	codfuncionario_fk integer not null references funcionario(codfuncionario) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 

@@ -25,6 +25,23 @@ namespace ProductStore.DAO.Login
             }
         }
 
+        public void Alterar(ItensAcessoLoginEntidade itensAcessoLoginEntidade)
+        {
+            using (SqlConnection conn = new SqlConnection(_stringconnetion))
+            { 
+                conn.Open(); 
+
+                using(SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "update itensacessologin set codacesso_fk = @codacesso where codlogin_fk = @codlogin;";
+                    cmd.Parameters.AddWithValue("@codacesso", itensAcessoLoginEntidade.CodAcesso);
+                    cmd.Parameters.AddWithValue("@codlogin", itensAcessoLoginEntidade.CodLogin);
+                    cmd.ExecuteNonQuery();
+                }
+                conn.Close();
+            }
+        }
+
         public void Delete(ItensAcessoLoginEntidade itensAcessoLoginEntidade)
         {
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
@@ -45,7 +62,7 @@ namespace ProductStore.DAO.Login
 
         public ItensAcessoLoginEntidade BuscarAcessoPorLogin(int idLogin)
         {
-            ItensAcessoLoginEntidade itensAcessoLoginEntidade = null;
+            ItensAcessoLoginEntidade itensAcessoLoginEntidade = new ItensAcessoLoginEntidade();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -54,18 +71,20 @@ namespace ProductStore.DAO.Login
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select * from itensacessologin where codlogin_fk = @codlogin;";
-                    cmd.Parameters.AddWithValue("@codlogin", itensAcessoLoginEntidade.CodLogin);
+                    cmd.Parameters.AddWithValue("@codlogin", idLogin);
 
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
-                    reader.Read();
-
-                    itensAcessoLoginEntidade = new ItensAcessoLoginEntidade()
+                    while (reader.Read())
                     {
-                        CodAcesso = (int)reader["codacesso_fk"],
-                        CodLogin = (int)reader["codlogin_fk"]
-                    };
+
+                        itensAcessoLoginEntidade = new ItensAcessoLoginEntidade()
+                        {
+                            CodAcesso = (int)reader["codacesso_fk"],
+                            CodLogin = (int)reader["codlogin_fk"]
+                        };
+                    }
                 }
                 conn.Close();
             }

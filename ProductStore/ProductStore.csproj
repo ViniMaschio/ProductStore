@@ -379,6 +379,18 @@
     <Compile Include="View\Produto\Tipo\TipoScreen.Designer.cs">
       <DependentUpon>TipoScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Usuario\HistoricoLoginScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Usuario\HistoricoLoginScreen.Designer.cs">
+      <DependentUpon>HistoricoLoginScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Usuario\LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Usuario\LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Usuario\UsuarioScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -532,6 +544,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Produto\Tipo\TipoScreen.resx">
       <DependentUpon>TipoScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Usuario\HistoricoLoginScreen.resx">
+      <DependentUpon>HistoricoLoginScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Usuario\LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Usuario\UsuarioScreen.resx">
       <DependentUpon>UsuarioScreen.cs</DependentUpon>
