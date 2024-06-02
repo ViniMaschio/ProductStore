@@ -1,6 +1,6 @@
 ﻿namespace ProductStore.View.Compra
 {
-    partial class BoletosCompra
+    partial class PagamentoCompraScreen
     {
         /// <summary>
         /// Required designer variable.

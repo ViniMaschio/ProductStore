@@ -9,18 +9,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProductStore.View.Compra
+namespace ProductStore.View.Venda
 {
-    public partial class BoletosCompra : Form
+    public partial class PagamentoVendaScreen : Form
     {
-        public BoletosCompra(double ValorTotal)
+        public PagamentoVendaScreen(double ValorTotal)
         {
             InitializeComponent();
+
             _valorTotal = ValorTotal;
             CarregarDataGrid();
         }
 
-        public List<ParcelaCompraEntidade> _listParcelaCompraEntidade = new List<ParcelaCompraEntidade>();
+        public List<ParcelaVendaEntidade> listParcelaVendaEntidade = new List<ParcelaVendaEntidade> ();
 
         private double _valorTotal = 0;
 
@@ -38,31 +39,31 @@ namespace ProductStore.View.Compra
             }
         }
 
-        private void txtQuantidadeParcela_TextChanged(object sender, EventArgs e)
-        {
-            CarregarDataGrid();
-        }
-
         private void bntCancelar_Click(object sender, EventArgs e)
-        {
+        {   
+            
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
         private void bntSalvar_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i<dGVBoletos.Rows.Count; i++)
+            for (int i = 0; i < dGVBoletos.Rows.Count; i++)
             {
-                _listParcelaCompraEntidade.Add(new ParcelaCompraEntidade()
+                listParcelaVendaEntidade.Add(new ParcelaVendaEntidade()
                 {
                     CodParcela = (int)dGVBoletos.Rows[i].Cells[0].Value,
                     CodSituacao = 1,
                     Valor = double.Parse(dGVBoletos.Rows[i].Cells[2].Value.ToString()),
-                    Date = DateTime.Parse(dGVBoletos.Rows[i].Cells[3].Value.ToString())
+                    DataVencimento = DateTime.Parse(dGVBoletos.Rows[i].Cells[3].Value.ToString())
                 });
             }
-            this.DialogResult = DialogResult.Yes;
-            this.Close();
+            this.DialogResult= DialogResult.Yes;
+        }
+
+        private void txtQuantidadeParcela_TextChanged(object sender, EventArgs e)
+        {
+            CarregarDataGrid();
         }
     }
 }

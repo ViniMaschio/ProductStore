@@ -1,7 +1,9 @@
 ﻿using ProductStore.DAO.Boletos;
 using ProductStore.Entidades.Boletos;
+using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Windows.Forms;
 
 namespace ProductStore.Controler.Boletos
 {
@@ -22,11 +24,11 @@ namespace ProductStore.Controler.Boletos
         public DataTable BuscarTodasParcelas()
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("Parcela");
-            dataTable.Columns.Add("Vencimento");
-            dataTable.Columns.Add("Valor");
-            dataTable.Columns.Add("Situacao");
-            dataTable.Columns.Add("Compra");
+            dataTable.Columns.Add("Parcela", typeof(int));
+            dataTable.Columns.Add("Compra", typeof(int));
+            dataTable.Columns.Add("Vencimento", typeof(DateTime));
+            dataTable.Columns.Add("Valor", typeof(double));
+            dataTable.Columns.Add("Situacao", typeof(string));
 
             ParcelaCompraDAO parcelaCompraDAO = new ParcelaCompraDAO();
 
@@ -39,10 +41,11 @@ namespace ProductStore.Controler.Boletos
                 SituacaoEntidade situacaoEntidade = situacaoControler.BuscarSituacaoPorId(listParcelaCompraEntidade[i].CodSituacao);
 
                 dataTable.Rows.Add(listParcelaCompraEntidade[i].CodParcela,
-                    listParcelaCompraEntidade[i].Date.ToString("dd:MM:yyyu"),
+                    listParcelaCompraEntidade[i].CodCompra,
+                    listParcelaCompraEntidade[i].Date,
                     listParcelaCompraEntidade[i].Valor,
-                    situacaoEntidade.NomeSituacao,
-                    listParcelaCompraEntidade[i].CodCompra);
+                    situacaoEntidade.NomeSituacao
+                    );
             }
 
             return dataTable;
@@ -51,11 +54,12 @@ namespace ProductStore.Controler.Boletos
         public DataTable BuscarTodasParcelasEmAberto()
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("Parcela");
-            dataTable.Columns.Add("Vencimento");
-            dataTable.Columns.Add("Valor");
-            dataTable.Columns.Add("Situacao");
-            dataTable.Columns.Add("Compra");
+            dataTable.Columns.Add("Parcela", typeof(int));
+            dataTable.Columns.Add("Compra", typeof(int));
+            dataTable.Columns.Add("Vencimento", typeof(DateTime));
+            dataTable.Columns.Add("Valor", typeof(double));
+            dataTable.Columns.Add("Situacao", typeof(string));
+            
 
             ParcelaCompraDAO parcelaCompraDAO = new ParcelaCompraDAO();
 
@@ -68,10 +72,11 @@ namespace ProductStore.Controler.Boletos
                 SituacaoEntidade situacaoEntidade = situacaoControler.BuscarSituacaoPorId(listParcelaCompraEntidade[i].CodSituacao);
 
                 dataTable.Rows.Add(listParcelaCompraEntidade[i].CodParcela,
-                    listParcelaCompraEntidade[i].Date.ToString("dd:MM:yyyu"),
+                    listParcelaCompraEntidade[i].CodCompra,
+                    listParcelaCompraEntidade[i].Date,
                     listParcelaCompraEntidade[i].Valor,
-                    situacaoEntidade.NomeSituacao,
-                    listParcelaCompraEntidade[i].CodCompra);
+                    situacaoEntidade.NomeSituacao
+                    );
             }
 
             return dataTable;
@@ -80,11 +85,11 @@ namespace ProductStore.Controler.Boletos
         public DataTable BuscarTodasParcelasPagas()
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("Parcela");
-            dataTable.Columns.Add("Vencimento");
-            dataTable.Columns.Add("Valor");
-            dataTable.Columns.Add("Situacao");
-            dataTable.Columns.Add("Compra");
+            dataTable.Columns.Add("Parcela", typeof(int));
+            dataTable.Columns.Add("Compra", typeof(int));
+            dataTable.Columns.Add("Vencimento", typeof(DateTime));
+            dataTable.Columns.Add("Valor", typeof(double));
+            dataTable.Columns.Add("Situacao", typeof(string));
 
             ParcelaCompraDAO parcelaCompraDAO = new ParcelaCompraDAO();
 
@@ -97,10 +102,11 @@ namespace ProductStore.Controler.Boletos
                 SituacaoEntidade situacaoEntidade = situacaoControler.BuscarSituacaoPorId(listParcelaCompraEntidade[i].CodSituacao);
 
                 dataTable.Rows.Add(listParcelaCompraEntidade[i].CodParcela,
-                    listParcelaCompraEntidade[i].Date.ToString("dd:MM:yyyu"),
+                    listParcelaCompraEntidade[i].CodCompra,
+                    listParcelaCompraEntidade[i].Date,
                     listParcelaCompraEntidade[i].Valor,
-                    situacaoEntidade.NomeSituacao,
-                    listParcelaCompraEntidade[i].CodCompra);
+                    situacaoEntidade.NomeSituacao
+                    );
             }
 
             return dataTable;
@@ -110,7 +116,10 @@ namespace ProductStore.Controler.Boletos
         {
             ParcelaCompraDAO parcelaCompraDAO = new ParcelaCompraDAO();
 
-            parcelaCompraDAO.Pagar(parcelaCompraEntidade);
+            if (MessageBox.Show("Tem certeza que desejar Pagar?", "Pagar Boleto", MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                parcelaCompraDAO.Pagar(parcelaCompraEntidade);
+            }
         }
     }
 }

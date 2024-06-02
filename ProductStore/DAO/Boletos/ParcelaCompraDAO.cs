@@ -73,11 +73,11 @@ namespace ProductStore.DAO.Boletos
                     {
                         listParcelaCompraEntidade.Add(new ParcelaCompraEntidade()
                         {
-                            CodCompra = (int)reader["codcompra_fk"],
-                            CodParcela = (int)reader["codparcelacompra"],
-                            CodSituacao = (int)reader["codsituacao_fk"],
-                            Date = (DateTime)reader["datavencimento"],
-                            Valor = (double)reader["valor"]
+                            CodCompra = int.Parse(reader["codcompra_fk"].ToString()),
+                            CodParcela = int.Parse(reader["codparcelacompra"].ToString()),
+                            CodSituacao = int.Parse(reader["codsituacao_fk"].ToString()),
+                            Date = DateTime.Parse(reader["datavencimento"].ToString()),
+                            Valor = double.Parse(reader["valor"].ToString()),
                         });
                     }
                 }
@@ -106,11 +106,11 @@ namespace ProductStore.DAO.Boletos
                     {
                         listParcelaCompraEntidade.Add(new ParcelaCompraEntidade()
                         {
-                            CodCompra = (int)reader["codcompra_fk"],
-                            CodParcela = (int)reader["codparcelacompra"],
-                            CodSituacao = (int)reader["codsituacao_fk"],
-                            Date = (DateTime)reader["datavencimento"],
-                            Valor = (double)reader["valor"]
+                            CodCompra = int.Parse(reader["codcompra_fk"].ToString()),
+                            CodParcela = int.Parse(reader["codparcelacompra"].ToString()),
+                            CodSituacao = int.Parse(reader["codsituacao_fk"].ToString()),
+                            Date = DateTime.Parse(reader["datavencimento"].ToString()),
+                            Valor = double.Parse(reader["valor"].ToString()),
                         });
                     }
                 }
@@ -139,11 +139,11 @@ namespace ProductStore.DAO.Boletos
                     {
                         listParcelaCompraEntidade.Add(new ParcelaCompraEntidade()
                         {
-                            CodCompra = (int)reader["codcompra_fk"],
-                            CodParcela = (int)reader["codparcelacompra"],
-                            CodSituacao = (int)reader["codsituacao_fk"],
-                            Date = (DateTime)reader["datavencimento"],
-                            Valor = (double)reader["valor"]
+                            CodCompra = int.Parse(reader["codcompra_fk"].ToString()),
+                            CodParcela = int.Parse(reader["codparcelacompra"].ToString()),
+                            CodSituacao = int.Parse(reader["codsituacao_fk"].ToString()),
+                            Date = DateTime.Parse(reader["datavencimento"].ToString()),
+                            Valor = double.Parse(reader["valor"].ToString()),
                         });
                     }
                 }

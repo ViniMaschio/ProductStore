@@ -19,14 +19,17 @@ namespace ProductStore.DAO.Venda
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "insert into vendaproduto(datavenda,codcliente_fk,codfuncionario_fk) values(@datavenda,@codcliente,@codfuncionario) SELECT SCOPE_IDENTITY();";
-                    cmd.Parameters.AddWithValue("datavenda", vendaProdutoEntidade.DataVenda.ToString("dd:MM:yyyy"));
-                    cmd.Parameters.AddWithValue("codcliente", vendaProdutoEntidade.CodCliente);
-                    cmd.Parameters.AddWithValue("codfuncionario", vendaProdutoEntidade.CodFuncionario);
+                    cmd.CommandText = "insert into vendaproduto(datavenda,codcliente_fk,codfuncionario_fk) values(@datavenda,@codcliente,@codfuncionario) SELECT SCOPE_IDENTITY() as codvenda;";
+                    cmd.Parameters.AddWithValue("@datavenda", vendaProdutoEntidade.DataVenda);
+                    cmd.Parameters.AddWithValue("@codcliente", vendaProdutoEntidade.CodCliente);
+                    cmd.Parameters.AddWithValue("@codfuncionario", vendaProdutoEntidade.CodFuncionario);
 
                     SqlDataReader reader = cmd.ExecuteReader();
-                    reader.Read();
-                    codVenda = (int)reader["codcompra"];
+                    
+                    while (reader.Read())
+                    {
+                        codVenda = int.Parse(reader["codvenda"].ToString());
+                    }
                 }
             }
 
@@ -55,7 +58,7 @@ namespace ProductStore.DAO.Venda
         public List<VendaProdutoEntidade> BuscarTodasVendas()
         {
 
-            List<VendaProdutoEntidade> listVendaProdutoEntidade = null;
+            List<VendaProdutoEntidade> listVendaProdutoEntidade = new List<VendaProdutoEntidade>();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -63,7 +66,7 @@ namespace ProductStore.DAO.Venda
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "select * from compraproduto;";
+                    cmd.CommandText = "select * from vendaproduto;";
 
                     SqlDataReader reader = cmd.ExecuteReader();
 

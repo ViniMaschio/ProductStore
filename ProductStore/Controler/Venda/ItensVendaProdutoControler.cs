@@ -17,19 +17,23 @@ namespace ProductStore.Controler.Venda
             itensVendaProdutoDAO.Add(listItensVendaProdutoEntidade);
         }
 
-        public void DeletarProduto(List<ItensVendaProdutoEntidade> listItensVendaProdutoEntidade)
+        public void DeletarProduto(int codVenda)
         {
             ItensVendaProdutoDAO itensVendaProdutoDAO = new ItensVendaProdutoDAO();
+
+            List<ItensVendaProdutoEntidade> listItensVendaProdutoEntidade = itensVendaProdutoDAO.BuscarTodosProdutoPorVenda(codVenda);
+
             itensVendaProdutoDAO.Deletar(listItensVendaProdutoEntidade);
         }
 
         public DataTable BuscarVendaProdutosPorVenda(int codVenda)
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("Cod");
-            dataTable.Columns.Add("Produto");
-            dataTable.Columns.Add("Quantidade");
-            dataTable.Columns.Add("Valor Unitario");
+            dataTable.Columns.Add("Cod",typeof(int));
+            dataTable.Columns.Add("Produto", typeof(string));
+            dataTable.Columns.Add("Quant", typeof(double));
+            dataTable.Columns.Add("Valor Unit", typeof(double));
+            dataTable.Columns.Add("Total", typeof(double));
 
             ItensVendaProdutoDAO itensVendaProdutoDAO = new ItensVendaProdutoDAO();
 
@@ -44,11 +48,19 @@ namespace ProductStore.Controler.Venda
                 dataTable.Rows.Add(listItensVendaProdutoEntidade[i].CodProduto,
                     produtoEntidade.Nomeproduto,
                     listItensVendaProdutoEntidade[i].Quantidade,
-                    listItensVendaProdutoEntidade[i].Valor
+                    listItensVendaProdutoEntidade[i].Valor,
+                    (listItensVendaProdutoEntidade[i].Quantidade * listItensVendaProdutoEntidade[i].Valor)
                     );
             }
 
             return dataTable;
+        }
+
+        public double BuscarTotalPorVenda(int codVenda)
+        {
+            ItensVendaProdutoDAO itensVendaProdutoDAO = new ItensVendaProdutoDAO();
+
+            return itensVendaProdutoDAO.BuscarTotalVenda(codVenda);
         }
     }
 }

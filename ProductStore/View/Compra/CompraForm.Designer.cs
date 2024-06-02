@@ -56,6 +56,9 @@
             this.dataCompra = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCod = new System.Windows.Forms.TextBox();
+            this.bntNovoFuncionario = new System.Windows.Forms.Button();
+            this.bntNovoFornecedor = new System.Windows.Forms.Button();
+            this.bntNovoProduto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGVItensCompra)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +73,7 @@
             // 
             // bntSalvar
             // 
-            this.bntSalvar.Location = new System.Drawing.Point(498, 551);
+            this.bntSalvar.Location = new System.Drawing.Point(463, 553);
             this.bntSalvar.Name = "bntSalvar";
             this.bntSalvar.Size = new System.Drawing.Size(107, 36);
             this.bntSalvar.TabIndex = 1;
@@ -80,7 +83,7 @@
             // 
             // bntSair
             // 
-            this.bntSair.Location = new System.Drawing.Point(611, 551);
+            this.bntSair.Location = new System.Drawing.Point(576, 553);
             this.bntSair.Name = "bntSair";
             this.bntSair.Size = new System.Drawing.Size(107, 36);
             this.bntSair.TabIndex = 2;
@@ -314,11 +317,44 @@
             this.txtCod.Size = new System.Drawing.Size(68, 31);
             this.txtCod.TabIndex = 22;
             // 
+            // bntNovoFuncionario
+            // 
+            this.bntNovoFuncionario.Location = new System.Drawing.Point(300, 63);
+            this.bntNovoFuncionario.Name = "bntNovoFuncionario";
+            this.bntNovoFuncionario.Size = new System.Drawing.Size(24, 30);
+            this.bntNovoFuncionario.TabIndex = 24;
+            this.bntNovoFuncionario.Text = "+";
+            this.bntNovoFuncionario.UseVisualStyleBackColor = true;
+            this.bntNovoFuncionario.Click += new System.EventHandler(this.bntNovoFuncionario_Click);
+            // 
+            // bntNovoFornecedor
+            // 
+            this.bntNovoFornecedor.Location = new System.Drawing.Point(709, 63);
+            this.bntNovoFornecedor.Name = "bntNovoFornecedor";
+            this.bntNovoFornecedor.Size = new System.Drawing.Size(24, 30);
+            this.bntNovoFornecedor.TabIndex = 25;
+            this.bntNovoFornecedor.Text = "+";
+            this.bntNovoFornecedor.UseVisualStyleBackColor = true;
+            this.bntNovoFornecedor.Click += new System.EventHandler(this.bntNovoFornecedor_Click);
+            // 
+            // bntNovoProduto
+            // 
+            this.bntNovoProduto.Location = new System.Drawing.Point(859, 165);
+            this.bntNovoProduto.Name = "bntNovoProduto";
+            this.bntNovoProduto.Size = new System.Drawing.Size(24, 30);
+            this.bntNovoProduto.TabIndex = 26;
+            this.bntNovoProduto.Text = "+";
+            this.bntNovoProduto.UseVisualStyleBackColor = true;
+            this.bntNovoProduto.Click += new System.EventHandler(this.bntNovoProduto_Click);
+            // 
             // bntAdicionar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1199, 617);
+            this.Controls.Add(this.bntNovoProduto);
+            this.Controls.Add(this.bntNovoFornecedor);
+            this.Controls.Add(this.bntNovoFuncionario);
             this.Controls.Add(this.txtCod);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.dataCompra);
@@ -386,5 +422,8 @@
         private System.Windows.Forms.DateTimePicker dataCompra;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txtCod;
+        private System.Windows.Forms.Button bntNovoFuncionario;
+        private System.Windows.Forms.Button bntNovoFornecedor;
+        private System.Windows.Forms.Button bntNovoProduto;
     }
 }

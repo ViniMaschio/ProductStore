@@ -1,4 +1,6 @@
 ﻿
+using ProductStore.View.BoletosCompra;
+using ProductStore.View.BoletosVenda;
 using ProductStore.View.Cliente.Cliente;
 using ProductStore.View.Cliente.Trabalho;
 using ProductStore.View.Compra;
@@ -13,6 +15,7 @@ using ProductStore.View.Produto;
 using ProductStore.View.Produto.Marca;
 using ProductStore.View.Produto.Produto;
 using ProductStore.View.Usuario;
+using ProductStore.View.Venda;
 using System;
 using System.Windows.Forms;
 
@@ -125,7 +128,7 @@ namespace ProductStore.View
 
         private void cepToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            CepScreen cepScreen = new CepScreen();  
+            CepScreen cepScreen = new CepScreen();
             cepScreen.ShowDialog();
         }
 
@@ -150,7 +153,26 @@ namespace ProductStore.View
         private void entradaDeProdutoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CompraScreen compraScreen = new CompraScreen();
-            compraScreen.ShowDialog();  
+            compraScreen.ShowDialog();
+        }
+
+        private void vendaDeProdutoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VendaScreen vendaScreen = new VendaScreen();
+            vendaScreen.ShowDialog();
+        }
+
+        private void boletosParaPagarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BoletosCompraScreen boletosCompraScreen = new BoletosCompraScreen();
+            boletosCompraScreen.ShowDialog();   
+
+        }
+
+        private void boletosParaReceberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BoletosVendaScreen boletosVendaScreen = new BoletosVendaScreen();
+            boletosVendaScreen.ShowDialog();
         }
     }
 }

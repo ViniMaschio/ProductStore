@@ -1,27 +1,27 @@
-﻿using ProductStore.Controler.Compra;
+﻿using ProductStore.Controler.Cliente;
 using ProductStore.Controler.Funcionario;
 using ProductStore.Controler.Produto;
+using ProductStore.Controler.Venda;
 using ProductStore.Entidades.Boletos;
-using ProductStore.Entidades.Compra;
 using ProductStore.Entidades.Produto;
-using ProductStore.View.Fornecedor;
+using ProductStore.Entidades.Venda;
+using ProductStore.View.Cliente.Cliente;
 using ProductStore.View.Funcionario.Funcionario;
 using ProductStore.View.Produto.Produto;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace ProductStore.View.Compra
+namespace ProductStore.View.Venda
 {
-    public partial class bntAdicionar : Form
+    public partial class VendaForm : Form
     {
-        public bntAdicionar(int CodCompra)
+        public VendaForm(int codVenda)
         {
             InitializeComponent();
 
-            txtCod.Text = CodCompra.ToString();
-
-            CarregarFornecedor();
+            txtCod.Text = codVenda.ToString();
+            CarregarCliente();
             CarregarFuncionario();
             CarregarProduto();
             CarregarValorProduto();
@@ -29,13 +29,13 @@ namespace ProductStore.View.Compra
 
         private double _ValorTotal = 0;
 
-        private void CarregarFornecedor()
+        private void CarregarCliente()
         {
-            FornecedorControler fornecedorControler = new FornecedorControler();
-            cBoxFornecedor.DataSource = fornecedorControler.BuscarTodosFornecedor();
-            cBoxFornecedor.ValueMember = "ID";
-            cBoxFornecedor.DisplayMember = "Nome Fornecedor";
-            cBoxFornecedor.DropDownWidth = 200;
+            ClienteControler clienteControler = new ClienteControler();
+            cBoxCliente.DataSource = clienteControler.BuscarTodosCliente();
+            cBoxCliente.DisplayMember = "Nome";
+            cBoxCliente.ValueMember = "ID";
+            cBoxCliente.DropDownWidth = 200;
         }
 
         private void CarregarFuncionario()
@@ -76,24 +76,24 @@ namespace ProductStore.View.Compra
 
             _ValorTotal += quantidade * valor;
 
-            txtTotalCompra.Text = _ValorTotal.ToString();
+            txtTotalVenda.Text = _ValorTotal.ToString();
 
             bool ProdutoAdicionado = true;
 
-            for (int i = 0; i < dGVItensCompra.Rows.Count; i++)
+            for (int i = 0; i < dGVItensVenda.Rows.Count; i++)
             {
-                int _id = (int)dGVItensCompra.Rows[i].Cells[0].Value;
+                int _id = (int)dGVItensVenda.Rows[i].Cells[0].Value;
                 if (_id == id)
                 {
                     ProdutoAdicionado = false;
-                    quantidade += double.Parse(dGVItensCompra.Rows[i].Cells[2].Value.ToString());
-                    dGVItensCompra.Rows[i].Cells[2].Value = quantidade;
-                    dGVItensCompra.Rows[i].Cells[4].Value = valor * quantidade;
+                    quantidade += double.Parse(dGVItensVenda.Rows[i].Cells[2].Value.ToString());
+                    dGVItensVenda.Rows[i].Cells[2].Value = quantidade;
+                    dGVItensVenda.Rows[i].Cells[4].Value = valor * quantidade;
                 }
             }
             if (ProdutoAdicionado)
             {
-                dGVItensCompra.Rows.Add(id, cBoxProdutos.Text, quantidade, valor, (quantidade * valor));
+                dGVItensVenda.Rows.Add(id, cBoxProdutos.Text, quantidade, valor, (quantidade * valor));
             }
             txtQuantidade.Text = "1";
         }
@@ -101,9 +101,9 @@ namespace ProductStore.View.Compra
         private void bntRemover_Click(object sender, EventArgs e)
         {
 
-            if (dGVItensCompra.Rows.Count > 0)
+            if (dGVItensVenda.Rows.Count > 0)
             {
-                dGVItensCompra.Rows.Remove(dGVItensCompra.CurrentRow);
+                dGVItensVenda.Rows.Remove(dGVItensVenda.CurrentRow);
             }
         }
 
@@ -114,38 +114,40 @@ namespace ProductStore.View.Compra
 
         private void bntSalvar_Click(object sender, EventArgs e)
         {
-            PagamentoCompraScreen boletosCompra = new PagamentoCompraScreen(_ValorTotal);
-            boletosCompra.ShowDialog();
+            PagamentoVendaScreen boletosVendaScreen = new PagamentoVendaScreen(_ValorTotal);
+            boletosVendaScreen.ShowDialog();
 
-            if (boletosCompra.DialogResult == DialogResult.Yes)
+            if (boletosVendaScreen.DialogResult == DialogResult.Yes)
             {
-                CompraProdutoEntidade compraProdutoEntidade = new CompraProdutoEntidade()
+                VendaProdutoEntidade vendaProdutoEntidade = new VendaProdutoEntidade()
                 {
-                    CodFornecedor = (int)cBoxFornecedor.SelectedValue,
+                    CodCliente = (int)cBoxCliente.SelectedValue,
                     CodFuncionario = (int)cBoxFuncionario.SelectedValue,
                     Id = int.Parse(txtCod.Text),
-                    DataCompra = dataCompra.Value
+                    DataVenda = dataVenda.Value
                 };
 
-                List<ItensCompraProdutoEntidade> itensCompraProdutoEntidades = new List<ItensCompraProdutoEntidade>();
+                List<ItensVendaProdutoEntidade> listItensVendaProdutoEntidade = new List<ItensVendaProdutoEntidade>();
 
-                for (int i = 0; i < dGVItensCompra.Rows.Count; i++)
+                for (int i = 0; i < dGVItensVenda.Rows.Count; i++)
                 {
-                    itensCompraProdutoEntidades.Add(new ItensCompraProdutoEntidade()
+                    listItensVendaProdutoEntidade.Add(new ItensVendaProdutoEntidade()
                     {
-                        CodProduto = (int)dGVItensCompra.Rows[i].Cells[0].Value,
-                        Valorc = double.Parse(dGVItensCompra.Rows[i].Cells[3].Value.ToString()),
-                        Quantidade = double.Parse(dGVItensCompra.Rows[i].Cells[2].Value.ToString())
+                        CodProduto = int.Parse(dGVItensVenda.Rows[i].Cells[0].Value.ToString()),
+                        Quantidade = double.Parse(dGVItensVenda.Rows[i].Cells[2].Value.ToString()),
+                        Valor = double.Parse(dGVItensVenda.Rows[i].Cells[3].Value.ToString())
                     });
                 }
-                CompraProdutoControler compraProdutoControler = new CompraProdutoControler();
 
-                List<ParcelaCompraEntidade> listparcelacompra = boletosCompra._listParcelaCompraEntidade;
+                VendaProdutoControler vendaProdutoControler = new VendaProdutoControler();
 
-                compraProdutoControler.AddCompra(compraProdutoEntidade, itensCompraProdutoEntidades, listparcelacompra);
+                List<ParcelaVendaEntidade> listParcelaVendaEntidades = boletosVendaScreen.listParcelaVendaEntidade;
+
+                vendaProdutoControler.AddVenda(vendaProdutoEntidade, listItensVendaProdutoEntidade, listParcelaVendaEntidades);
 
                 this.Close();
             }
+
         }
 
         private void bntNovoFuncionario_Click(object sender, EventArgs e)
@@ -157,9 +159,9 @@ namespace ProductStore.View.Compra
 
         private void bntNovoFornecedor_Click(object sender, EventArgs e)
         {
-            FornecedorForm fornecedorForm = new FornecedorForm(0);
-            fornecedorForm.ShowDialog();
-            CarregarFornecedor();
+           ClienteForm clienteForm = new ClienteForm(0);
+            clienteForm.ShowDialog();
+            CarregarCliente();
         }
 
         private void bntNovoProduto_Click(object sender, EventArgs e)

@@ -163,6 +163,18 @@
     <Compile Include="LoginScreen.Designer.cs">
       <DependentUpon>LoginScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\BoletosCompra\BoletosCompraScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BoletosCompra\BoletosCompraScreen.Designer.cs">
+      <DependentUpon>BoletosCompraScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\BoletosVenda\BoletosVendaScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\BoletosVenda\BoletosVendaScreen.Designer.cs">
+      <DependentUpon>BoletosVendaScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Cliente\Cliente\ClienteForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,11 +211,11 @@
     <Compile Include="View\Cliente\Trabalho\TrabalhoScreen.Designer.cs">
       <DependentUpon>TrabalhoScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Compra\BoletosCompra.cs">
+    <Compile Include="View\Compra\PagamentoCompraScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Compra\BoletosCompra.Designer.cs">
-      <DependentUpon>BoletosCompra.cs</DependentUpon>
+    <Compile Include="View\Compra\PagamentoCompraScreen.Designer.cs">
+      <DependentUpon>PagamentoCompraScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Compra\CompraForm.cs">
       <SubType>Form</SubType>
@@ -373,6 +385,30 @@
     <Compile Include="View\Usuario\UsuarioScreen.Designer.cs">
       <DependentUpon>UsuarioScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Venda\PagamentoVendaScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Venda\PagamentoVendaScreen.Designer.cs">
+      <DependentUpon>PagamentoVendaScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Venda\ItensVendaScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Venda\ItensVendaScreen.Designer.cs">
+      <DependentUpon>ItensVendaScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Venda\VendaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Venda\VendaForm.Designer.cs">
+      <DependentUpon>VendaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Venda\VendaScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Venda\VendaScreen.Designer.cs">
+      <DependentUpon>VendaScreen.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -388,6 +424,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginScreen.resx">
       <DependentUpon>LoginScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BoletosCompra\BoletosCompraScreen.resx">
+      <DependentUpon>BoletosCompraScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\BoletosVenda\BoletosVendaScreen.resx">
+      <DependentUpon>BoletosVendaScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Cliente\Cliente\ClienteForm.resx">
       <DependentUpon>ClienteForm.cs</DependentUpon>
@@ -407,8 +449,8 @@
     <EmbeddedResource Include="View\Cliente\Trabalho\TrabalhoScreen.resx">
       <DependentUpon>TrabalhoScreen.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Compra\BoletosCompra.resx">
-      <DependentUpon>BoletosCompra.cs</DependentUpon>
+    <EmbeddedResource Include="View\Compra\PagamentoCompraScreen.resx">
+      <DependentUpon>PagamentoCompraScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Compra\CompraForm.resx">
       <DependentUpon>CompraForm.cs</DependentUpon>
@@ -493,6 +535,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Usuario\UsuarioScreen.resx">
       <DependentUpon>UsuarioScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Venda\PagamentoVendaScreen.resx">
+      <DependentUpon>PagamentoVendaScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Venda\ItensVendaScreen.resx">
+      <DependentUpon>ItensVendaScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Venda\VendaForm.resx">
+      <DependentUpon>VendaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Venda\VendaScreen.resx">
+      <DependentUpon>VendaScreen.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

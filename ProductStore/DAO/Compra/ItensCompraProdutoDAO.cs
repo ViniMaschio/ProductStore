@@ -30,7 +30,7 @@ namespace ProductStore.DAO.Compra
                         cmd.ExecuteNonQuery();
                     }
                 }
-                
+
                 conn.Close();
             }
         }
@@ -43,7 +43,7 @@ namespace ProductStore.DAO.Compra
 
                 for (int i = 0; i < listItensCompraProdutoEntidade.Count; i++)
                 {
-                    
+
                     using (SqlCommand cmd = conn.CreateCommand())
                     {
 
@@ -93,20 +93,23 @@ namespace ProductStore.DAO.Compra
         }
 
         public double BuscarTotalCompraPorId(int codCompra)
-        {   
+        {
             double totalCompra = 0;
-            using(SqlConnection conn = new SqlConnection(_stringconnetion))
+            using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
-                conn.Open ();
+                conn.Open();
 
-                using(SqlCommand cmd = conn.CreateCommand())
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "select sum(quantidade * valorc) as total from itenscompraproduto where codcompra_fk = @codcompra;";
-                    cmd.Parameters.AddWithValue("@codcompra",codCompra);
+                    cmd.CommandText = "select sum(quantidade * valorc) as total, COUNT(codproduto_fk) as quantidade from itenscompraproduto where codcompra_fk = @codcompra;";
+                    cmd.Parameters.AddWithValue("@codcompra", codCompra);
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
                     {
-                        totalCompra = double.Parse(reader["total"].ToString());
+                        if ((int)reader["quantidade"] > 0)
+                        {
+                            totalCompra = double.Parse(reader["total"].ToString());
+                        }
                     }
                 }
                 conn.Close();

@@ -59,7 +59,7 @@ namespace ProductStore.View.Produto.Produto
             ProdutoEntidade produtoEntidade = new ProdutoEntidade() { Id = 0 };
 
 
-            ProdutoFormulario produtoFormulario = new ProdutoFormulario(produtoEntidade);
+            ProdutoFormulario produtoFormulario = new ProdutoFormulario(produtoEntidade.Id);
             produtoFormulario.ShowDialog();
             CarregarDadosDataGrid();
 
@@ -70,7 +70,7 @@ namespace ProductStore.View.Produto.Produto
             ProdutoEntidade produtoEntidade = BuscarIdLinhaDataGrid();
             if (produtoEntidade.Id != 0)
             {
-                ProdutoFormulario produtoFormulario = new ProdutoFormulario(produtoEntidade);
+                ProdutoFormulario produtoFormulario = new ProdutoFormulario(produtoEntidade.Id);
                 produtoFormulario.ShowDialog();
                 CarregarDadosDataGrid();
             }

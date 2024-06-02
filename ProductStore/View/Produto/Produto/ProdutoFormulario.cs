@@ -10,22 +10,22 @@ namespace ProductStore.View.Produto.Produto
     public partial class ProdutoFormulario : Form
     {
 
-        public ProdutoFormulario(ProdutoEntidade produtoEntidade)
+        public ProdutoFormulario(int codProduto)
         {
             InitializeComponent();
 
             CarregarMarca();
             CarregarTipo();
 
-            if (produtoEntidade.Id == 0)
+            if (codProduto == 0)
             {
-                txtCodigo.Text = produtoEntidade.Id.ToString();
+                txtCodigo.Text = codProduto.ToString();
             }
             else
             {
                 ProdutoControler produtoControler = new ProdutoControler();
 
-                produtoEntidade = produtoControler.BuscarPorId(produtoEntidade.Id);
+                ProdutoEntidade produtoEntidade = produtoControler.BuscarPorId(codProduto);
 
                 txtCodigo.Text = produtoEntidade.Id.ToString();
                 txtProduto.Text = produtoEntidade.Nomeproduto.ToString();
