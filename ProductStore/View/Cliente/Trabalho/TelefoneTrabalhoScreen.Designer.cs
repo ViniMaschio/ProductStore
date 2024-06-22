@@ -35,6 +35,7 @@
             this.cbBoxTelefone = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.bntSair = new System.Windows.Forms.Button();
+            this.bntNovoTelefone = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dGvTelefone)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,11 +108,22 @@
             this.bntSair.UseVisualStyleBackColor = true;
             this.bntSair.Click += new System.EventHandler(this.bntSair_Click);
             // 
+            // bntNovoTelefone
+            // 
+            this.bntNovoTelefone.Location = new System.Drawing.Point(422, 136);
+            this.bntNovoTelefone.Name = "bntNovoTelefone";
+            this.bntNovoTelefone.Size = new System.Drawing.Size(27, 29);
+            this.bntNovoTelefone.TabIndex = 7;
+            this.bntNovoTelefone.Text = "+";
+            this.bntNovoTelefone.UseVisualStyleBackColor = true;
+            this.bntNovoTelefone.Click += new System.EventHandler(this.bntNovoTelefone_Click);
+            // 
             // TelefoneTrabalhoScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(550, 419);
+            this.Controls.Add(this.bntNovoTelefone);
             this.Controls.Add(this.bntSair);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbBoxTelefone);
@@ -141,5 +153,6 @@
         private System.Windows.Forms.ComboBox cbBoxTelefone;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button bntSair;
+        private System.Windows.Forms.Button bntNovoTelefone;
     }
 }

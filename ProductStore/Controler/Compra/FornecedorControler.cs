@@ -40,8 +40,8 @@ namespace ProductStore.Controler.Compra
         public DataTable BuscarTodosFornecedor()
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID",typeof(int));
-            dataTable.Columns.Add("Nome Fornecedor",typeof(string));
+            dataTable.Columns.Add("ID", typeof(int));
+            dataTable.Columns.Add("Nome Fornecedor", typeof(string));
             dataTable.Columns.Add("Numero", typeof(string));
             dataTable.Columns.Add("Rua", typeof(string));
             dataTable.Columns.Add("Bairro", typeof(string));

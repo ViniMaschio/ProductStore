@@ -57,15 +57,15 @@ namespace ProductStore.DAO.Boletos
 
         public void Pagar(ParcelaVendaEntidade parcelaVendaEntidade)
         {
-            using(SqlConnection conn = new SqlConnection(_stringconnetion))
+            using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
                 conn.Open();
 
-                using(SqlCommand cmd = conn.CreateCommand())
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "update parcelavenda set codsituacao_fk = 2 where codparcela = @codparcela and codvenda_fk = @codvenda; ";
-                    cmd.Parameters.AddWithValue("@codparcela",parcelaVendaEntidade.CodParcela);
-                    cmd.Parameters.AddWithValue("@codvenda",parcelaVendaEntidade.CodVenda);
+                    cmd.Parameters.AddWithValue("@codparcela", parcelaVendaEntidade.CodParcela);
+                    cmd.Parameters.AddWithValue("@codvenda", parcelaVendaEntidade.CodVenda);
 
                     cmd.ExecuteNonQuery();
                 }

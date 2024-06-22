@@ -159,7 +159,7 @@ namespace ProductStore.View.Venda
 
         private void bntNovoFornecedor_Click(object sender, EventArgs e)
         {
-           ClienteForm clienteForm = new ClienteForm(0);
+            ClienteForm clienteForm = new ClienteForm(0);
             clienteForm.ShowDialog();
             CarregarCliente();
         }

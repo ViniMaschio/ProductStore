@@ -1,5 +1,6 @@
 ﻿using ProductStore.Controler.Telefone;
 using ProductStore.Entidades.Telefone;
+using ProductStore.View.Telefone;
 using System;
 using System.Windows.Forms;
 
@@ -67,6 +68,13 @@ namespace ProductStore.View.Cliente.Trabalho
             cbBoxTelefone.DataSource = telefoneControler.BuscarTodosTelefone();
             cbBoxTelefone.DisplayMember = "Telefone";
             cbBoxTelefone.ValueMember = "ID";
+        }
+
+        private void bntNovoTelefone_Click(object sender, EventArgs e)
+        {
+            TelefoneScreen telefoneScreen = new TelefoneScreen();
+            telefoneScreen.ShowDialog();
+            CarregarTelefones();
         }
     }
 }

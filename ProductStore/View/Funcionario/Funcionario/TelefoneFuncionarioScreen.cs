@@ -1,13 +1,7 @@
 ﻿using ProductStore.Controler.Telefone;
 using ProductStore.Entidades.Telefone;
+using ProductStore.View.Telefone;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Funcionario.Funcionario
@@ -34,7 +28,7 @@ namespace ProductStore.View.Funcionario.Funcionario
 
         private void CarregarDataGrid()
         {
-            ItensTelefoneFuncionarioControler itensTelefoneFuncionarioControler =  new ItensTelefoneFuncionarioControler();
+            ItensTelefoneFuncionarioControler itensTelefoneFuncionarioControler = new ItensTelefoneFuncionarioControler();
 
             dGVTelefoneFuncionario.DataSource = itensTelefoneFuncionarioControler.BuscarTelefonePorFuncionario(_codFuncionario);
             dGVTelefoneFuncionario.Columns[0].Width = 50;
@@ -69,6 +63,13 @@ namespace ProductStore.View.Funcionario.Funcionario
         private void bntSair_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void bntNovoTelefone_Click(object sender, EventArgs e)
+        {
+            TelefoneScreen telefoneScreen = new TelefoneScreen();
+            telefoneScreen.ShowDialog();
+            CarregarTelefone();
         }
     }
 }

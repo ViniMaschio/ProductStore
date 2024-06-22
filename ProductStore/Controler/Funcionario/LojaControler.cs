@@ -41,7 +41,7 @@ namespace ProductStore.Controler.Funcionario
         public DataTable BuscarTodasLojas()
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID",typeof(int));
+            dataTable.Columns.Add("ID", typeof(int));
             dataTable.Columns.Add("Nome Loja", typeof(string));
             dataTable.Columns.Add("CNPJ", typeof(string));
             dataTable.Columns.Add("Nome Fantasia", typeof(string));

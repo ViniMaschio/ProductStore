@@ -10,7 +10,7 @@ namespace ProductStore.View.Endereco.Rua
         public RuaForm(int codRua)
         {
             InitializeComponent();
-            if (codRua ==0) 
+            if (codRua == 0)
             {
                 txtCodRua.Text = "0";
             }
@@ -23,7 +23,7 @@ namespace ProductStore.View.Endereco.Rua
         private void CarregarRua(int codRua)
         {
             RuaControler ruaControler = new RuaControler();
-            txtCodRua.Text = codRua.ToString(); 
+            txtCodRua.Text = codRua.ToString();
             txtNomeRua.Text = ruaControler.BuscarPorId(codRua);
         }
 

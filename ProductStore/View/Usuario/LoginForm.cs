@@ -2,13 +2,6 @@
 using ProductStore.Controler.Login;
 using ProductStore.Entidades.Login;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Usuario
@@ -22,7 +15,7 @@ namespace ProductStore.View.Usuario
             CarregarFuncionario();
             CarregarAcesso();
             txtCod.Text = codLogin.ToString();
-            if(codLogin != 0)
+            if (codLogin != 0)
             {
                 CarregarLogin(codLogin);
             }
@@ -54,7 +47,7 @@ namespace ProductStore.View.Usuario
             LoginEntidade loginEntidade = loginControler.BuscarLoginPorId(codLogin);
 
             ItensAcessoLoginControler itensAcessoLoginControler = new ItensAcessoLoginControler();
-         
+
             txtUsuario.Text = loginEntidade.Usuario;
             txtSenha.Text = loginEntidade.Senha;
             cBoxFuncionario.SelectedValue = loginEntidade.Funcionario;
@@ -81,12 +74,12 @@ namespace ProductStore.View.Usuario
 
             if (loginEntidade.Id == 0)
             {
-                
+
                 loginControler.AdicionarLogin(loginEntidade, int.Parse(cBoxAcesso.SelectedValue.ToString()));
             }
             else
             {
-                loginControler.AlterarLogin(loginEntidade,int.Parse(cBoxAcesso.SelectedValue.ToString()));
+                loginControler.AlterarLogin(loginEntidade, int.Parse(cBoxAcesso.SelectedValue.ToString()));
             }
             this.Close();
         }

@@ -15,10 +15,10 @@ namespace ProductStore.Controler.Login
         public void AdicionarLogin(LoginEntidade loginEntidade, int codAcesso)
         {
             LoginDAO loginDAO = new LoginDAO();
-            
-            int codLogin =  loginDAO.Add(loginEntidade);
 
-            ItensAcessoLoginEntidade itensAcessoLoginEntidade = new ItensAcessoLoginEntidade() { CodAcesso = codAcesso,CodLogin = codLogin};
+            int codLogin = loginDAO.Add(loginEntidade);
+
+            ItensAcessoLoginEntidade itensAcessoLoginEntidade = new ItensAcessoLoginEntidade() { CodAcesso = codAcesso, CodLogin = codLogin };
 
             ItensAcessoLoginControler itensAcessoLoginControler = new ItensAcessoLoginControler();
             itensAcessoLoginControler.AddAcesso(itensAcessoLoginEntidade);
@@ -27,11 +27,11 @@ namespace ProductStore.Controler.Login
 
         }
 
-        public void AlterarLogin(LoginEntidade loginEntidade , int codAcesso)
+        public void AlterarLogin(LoginEntidade loginEntidade, int codAcesso)
         {
             LoginDAO loginDAO = new LoginDAO();
 
-             loginDAO.Alterar(loginEntidade);
+            loginDAO.Alterar(loginEntidade);
 
             ItensAcessoLoginEntidade itensAcessoLoginEntidade = new ItensAcessoLoginEntidade() { CodAcesso = codAcesso, CodLogin = loginEntidade.Id };
 
@@ -85,7 +85,7 @@ namespace ProductStore.Controler.Login
 
         public LoginEntidade BuscarLoginPorId(int codLogin)
         {
-            LoginDAO loginDAO = new LoginDAO(); 
+            LoginDAO loginDAO = new LoginDAO();
             return loginDAO.BuscarLoginPorId(codLogin);
         }
     }

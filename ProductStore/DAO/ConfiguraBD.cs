@@ -4,6 +4,7 @@
     {
         public ConfiguraBD() { }
 
-        public string _stringconnetion = "Data Source=DESKTOP-1DE3GD8\\SQLEXPRESS;Initial Catalog=StoryProdut;Integrated Security=True;";
+
+        public string _stringconnetion = @"Data Source=localhost\SQLEXPRESS;Initial Catalog=StoryProdut;Integrated Security=True;";
     }
 }

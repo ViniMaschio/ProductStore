@@ -28,7 +28,7 @@ namespace ProductStore.Controler.Telefone
         }
 
         public DataTable BuscarTodosTelefonePorCliente(int id)
-        {   
+        {
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("ID", typeof(int));
             dataTable.Columns.Add("Telefone", typeof(string));
@@ -38,7 +38,7 @@ namespace ProductStore.Controler.Telefone
 
             TelefoneControler telefoneControler = new TelefoneControler();
 
-            for (int i = 0; i< listItensTelefoneEntidade.Count; i++)
+            for (int i = 0; i < listItensTelefoneEntidade.Count; i++)
             {
                 TelefoneEntidade telefoneEntidade = telefoneControler.BuscarTelefonePorID(listItensTelefoneEntidade[i].CodTelefone);
 

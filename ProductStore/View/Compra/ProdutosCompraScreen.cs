@@ -1,12 +1,5 @@
 ﻿using ProductStore.Controler.Compra;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Compra
@@ -21,7 +14,7 @@ namespace ProductStore.View.Compra
 
         private void CarregarDataGrid(int codCompra)
         {
-            ItensCompraProdutoControler itensCompraProdutoControler =  new ItensCompraProdutoControler();
+            ItensCompraProdutoControler itensCompraProdutoControler = new ItensCompraProdutoControler();
             dGVProdutosCompra.DataSource = itensCompraProdutoControler.BuscarTodosProdutosPorCompra(codCompra);
             dGVProdutosCompra.Columns[0].Width = 50;
             dGVProdutosCompra.Columns[1].Width = 250;

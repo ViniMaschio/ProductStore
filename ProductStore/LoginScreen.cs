@@ -53,12 +53,5 @@ namespace ProductStore.View
             controleLogSistemaControler.NovoLogin(LoginId);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            newThread = new Thread(AbrirNovaJanela);
-            newThread.SetApartmentState(ApartmentState.STA);
-            newThread.Start();
-        }
     }
 }

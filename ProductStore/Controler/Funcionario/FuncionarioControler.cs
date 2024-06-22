@@ -43,7 +43,7 @@ namespace ProductStore.Controler.Funcionario
         public DataTable BuscarTodosFuncionarios()
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID",typeof(int));
+            dataTable.Columns.Add("ID", typeof(int));
             dataTable.Columns.Add("Nome Funcionario", typeof(string));
             dataTable.Columns.Add("Loja", typeof(string));
             dataTable.Columns.Add("Funcao", typeof(string));

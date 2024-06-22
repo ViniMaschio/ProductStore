@@ -3,7 +3,6 @@ using ProductStore.Controler.Endereco;
 using ProductStore.Entidades.Cliente;
 using ProductStore.Entidades.Endereco;
 using ProductStore.View.Cliente.Trabalho;
-using ProductStore.View.Endereco;
 using ProductStore.View.Endereco.Bairro;
 using ProductStore.View.Endereco.Cep;
 using ProductStore.View.Endereco.Rua;
@@ -170,7 +169,8 @@ namespace ProductStore.View.Cliente.Cliente
                 Salario = double.Parse(txtSalario.Text),
                 Datanasc = DataNascimento.Value
             };
-            if (clienteEntidade.Id == 0) {
+            if (clienteEntidade.Id == 0)
+            {
                 clienteControler.AddCliente(clienteEntidade);
             }
             else

@@ -52,7 +52,7 @@ namespace ProductStore.DAO.Cliente
 
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "update cliente set nomecliente = @nomecliente, foto = @foto, datanasc = @datanasc , codsexo_fk = @codsex," +
+                    cmd.CommandText = "update cliente set nomecliente = upper(@nomecliente), foto = @foto, datanasc = @datanasc , codsexo_fk = @codsex," +
                         "codrua_fk = @codrua, codbairro_fk = @codbairro , codcep_fk = @codcep , codcidade_fk = @codcidade , salario = @salario," +
                         "codtrabalho_fk = @codtrabalho , numerocasa = @numerocasa where codcliente = @codcliente;";
 
@@ -143,7 +143,7 @@ namespace ProductStore.DAO.Cliente
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message,"Erro DAO");
+                        MessageBox.Show(ex.Message, "Erro DAO");
                     }
                 }
 
@@ -190,7 +190,7 @@ namespace ProductStore.DAO.Cliente
                         };
 
                     }
-                    catch (Exception ex) { MessageBox.Show(ex.Message,"Buscar Por ID"); }
+                    catch (Exception ex) { MessageBox.Show(ex.Message, "Buscar Por ID"); }
                 }
 
                 conn.Close();

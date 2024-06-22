@@ -2,7 +2,6 @@
 using ProductStore.DAO.Cliente;
 using ProductStore.Entidades.Cliente;
 using ProductStore.Entidades.Endereco;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Windows.Forms;

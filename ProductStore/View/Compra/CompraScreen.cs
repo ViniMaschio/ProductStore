@@ -1,13 +1,5 @@
 ﻿using ProductStore.Controler.Compra;
-using ProductStore.Entidades.Compra;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Compra
@@ -37,10 +29,10 @@ namespace ProductStore.View.Compra
         {
             int codCompra = 0;
 
-            if(dGVCompraProduto.Rows.Count > 0)
+            if (dGVCompraProduto.Rows.Count > 0)
             {
                 codCompra = (int)dGVCompraProduto.CurrentRow.Cells[0].Value;
-                
+
             }
             return codCompra;
         }
@@ -57,13 +49,9 @@ namespace ProductStore.View.Compra
             int codCompra = BuscarLinhaDataGrid();
             ProdutosCompraScreen produtosCompraScreen = new ProdutosCompraScreen(codCompra);
             produtosCompraScreen.ShowDialog();
-            
-        }
-
-        private void bntEditar_Click(object sender, EventArgs e)
-        {
 
         }
+
 
         private void Deletar_Click(object sender, EventArgs e)
         {
@@ -77,5 +65,6 @@ namespace ProductStore.View.Compra
         {
             this.Close();
         }
+
     }
 }

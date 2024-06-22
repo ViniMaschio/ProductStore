@@ -379,6 +379,18 @@
     <Compile Include="View\Produto\Tipo\TipoScreen.Designer.cs">
       <DependentUpon>TipoScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Telefone\TelefoneForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Telefone\TelefoneForm.Designer.cs">
+      <DependentUpon>TelefoneForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Telefone\TelefoneScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Telefone\TelefoneScreen.Designer.cs">
+      <DependentUpon>TelefoneScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Usuario\HistoricoLoginScreen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -544,6 +556,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Produto\Tipo\TipoScreen.resx">
       <DependentUpon>TipoScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Telefone\TelefoneForm.resx">
+      <DependentUpon>TelefoneForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Telefone\TelefoneScreen.resx">
+      <DependentUpon>TelefoneScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Usuario\HistoricoLoginScreen.resx">
       <DependentUpon>HistoricoLoginScreen.cs</DependentUpon>

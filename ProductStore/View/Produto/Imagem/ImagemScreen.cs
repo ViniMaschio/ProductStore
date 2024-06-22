@@ -68,6 +68,7 @@ namespace ProductStore.View.Produto.Imagem
         private void CarregarImagem(int idProduto)
         {
             txtCodProduto.Text = idProduto.ToString();
+            txtCodImagem.Text = "0";
 
             ImagemControler imagemControler = new ImagemControler();
             ImagemEntidade imagemEntidade = imagemControler.BuscarImagemPorProduto(idProduto);

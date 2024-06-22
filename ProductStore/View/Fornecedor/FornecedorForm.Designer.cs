@@ -60,6 +60,7 @@
             this.bntNovoCep.TabIndex = 56;
             this.bntNovoCep.Text = "+";
             this.bntNovoCep.UseVisualStyleBackColor = true;
+            this.bntNovoCep.Click += new System.EventHandler(this.bntNovoCep_Click);
             // 
             // bntNovoBairro
             // 
@@ -69,6 +70,7 @@
             this.bntNovoBairro.TabIndex = 55;
             this.bntNovoBairro.Text = "+";
             this.bntNovoBairro.UseVisualStyleBackColor = true;
+            this.bntNovoBairro.Click += new System.EventHandler(this.bntNovoBairro_Click);
             // 
             // vntNovoRua
             // 
@@ -78,6 +80,7 @@
             this.vntNovoRua.TabIndex = 54;
             this.vntNovoRua.Text = "+";
             this.vntNovoRua.UseVisualStyleBackColor = true;
+            this.vntNovoRua.Click += new System.EventHandler(this.vntNovoRua_Click);
             // 
             // bntSair
             // 

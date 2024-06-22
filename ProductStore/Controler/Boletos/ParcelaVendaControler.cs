@@ -24,7 +24,7 @@ namespace ProductStore.Controler.Boletos
 
         public void Pagar(ParcelaVendaEntidade parcelaVendaEntidade)
         {
-            ParcelaVendaDAO parcelaVendaDAO=new ParcelaVendaDAO();
+            ParcelaVendaDAO parcelaVendaDAO = new ParcelaVendaDAO();
             parcelaVendaDAO.Pagar(parcelaVendaEntidade);
         }
 

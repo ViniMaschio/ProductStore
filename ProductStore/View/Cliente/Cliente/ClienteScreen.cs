@@ -1,4 +1,5 @@
 ﻿using ProductStore.Controler.Cliente;
+using ProductStore.DAO.Cliente;
 using ProductStore.Entidades.Cliente;
 using System;
 using System.Data;
@@ -30,7 +31,7 @@ namespace ProductStore.View.Cliente.Cliente
             dGVCliente.Columns[8].Width = 120;
             dGVCliente.Columns[9].Width = 100;
             dGVCliente.Columns[10].Width = 220;
-            
+
 
         }
 
@@ -59,7 +60,7 @@ namespace ProductStore.View.Cliente.Cliente
         }
 
         private void bntEditar_Click(object sender, EventArgs e)
-        {   
+        {
             ClienteEntidade clienteEntidade = BuscarLinhaDataGrid();
             ClienteForm clienteForm = new ClienteForm(clienteEntidade.Id);
             clienteForm.ShowDialog();
@@ -68,7 +69,10 @@ namespace ProductStore.View.Cliente.Cliente
 
         private void bntDeletar_Click(object sender, EventArgs e)
         {
-
+            ClienteEntidade clienteEntidade = BuscarLinhaDataGrid();
+            ClienteControler clienteControler = new ClienteControler();
+            clienteControler.RemoverCliente(clienteEntidade);
+            CarregarDataGrid();
         }
 
         private void bntTelefone_Click(object sender, EventArgs e)
@@ -79,7 +83,7 @@ namespace ProductStore.View.Cliente.Cliente
                 TelefoneClienteScreen telefoneClienteScreen = new TelefoneClienteScreen(clienteEntidade.Id);
                 telefoneClienteScreen.ShowDialog();
             }
-            
+
         }
 
         private void bntSair_Click(object sender, EventArgs e)

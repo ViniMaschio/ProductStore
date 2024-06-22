@@ -1,13 +1,6 @@
 ﻿using ProductStore.Controler.Funcionario;
 using ProductStore.Entidades.Funcionario;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Funcionario.Funcionario
@@ -39,8 +32,8 @@ namespace ProductStore.View.Funcionario.Funcionario
         private FuncionarioEntidade BuscarLinhaDataGird()
         {
             FuncionarioEntidade funcionarioEntidade = new FuncionarioEntidade() { Id = 0 };
-            
-            if(dGVFuncionario.Rows.Count > 0 )
+
+            if (dGVFuncionario.Rows.Count > 0)
             {
                 funcionarioEntidade.Id = int.Parse(dGVFuncionario.CurrentRow.Cells[0].Value.ToString());
                 funcionarioEntidade.NomeFuncionario = dGVFuncionario.CurrentRow.Cells[1].Value.ToString();
@@ -50,7 +43,7 @@ namespace ProductStore.View.Funcionario.Funcionario
 
         private void bntNovo_Click(object sender, EventArgs e)
         {
-           
+
             FuncionarioForm funcionarioForm = new FuncionarioForm(0);
             funcionarioForm.ShowDialog();
             CarregarDataGird();

@@ -25,7 +25,7 @@ namespace ProductStore.DAO.Venda
                     cmd.Parameters.AddWithValue("@codfuncionario", vendaProdutoEntidade.CodFuncionario);
 
                     SqlDataReader reader = cmd.ExecuteReader();
-                    
+
                     while (reader.Read())
                     {
                         codVenda = int.Parse(reader["codvenda"].ToString());

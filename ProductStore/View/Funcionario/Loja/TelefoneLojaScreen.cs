@@ -1,13 +1,7 @@
 ﻿using ProductStore.Controler.Telefone;
 using ProductStore.Entidades.Telefone;
+using ProductStore.View.Telefone;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Funcionario.Loja
@@ -55,7 +49,7 @@ namespace ProductStore.View.Funcionario.Loja
             itensTelefoneLojaControler.AddTelefone(itensTelefoneLojaEntidade);
 
             CarregarDataGird();
-            
+
         }
 
         private void bntRemover_Click(object sender, EventArgs e)
@@ -74,6 +68,13 @@ namespace ProductStore.View.Funcionario.Loja
         private void bntSair_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TelefoneScreen telefoneScreen = new TelefoneScreen();
+            telefoneScreen.ShowDialog();
+            CarregarTodosTelefone();
         }
     }
 }

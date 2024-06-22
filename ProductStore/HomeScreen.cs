@@ -43,13 +43,13 @@ namespace ProductStore.View
 
         private void CarregarMenus(LoginEntidade loginEntidade)
         {
-            ItensAcessoLoginControler itensAcessoLoginControler =  new ItensAcessoLoginControler();
+            ItensAcessoLoginControler itensAcessoLoginControler = new ItensAcessoLoginControler();
             int acesso = itensAcessoLoginControler.BuscarAcessoPorLogin(loginEntidade.Id);
 
             switch (acesso)
             {
                 case 1:
-                    
+
                     break;
                 case 2:
                     mnuCliente.Visible = false;
@@ -61,17 +61,19 @@ namespace ProductStore.View
                     mnuUsuairo.Visible = false;
                     break;
                 case 3:
-                   
+
                     mnuCompra.Visible = false;
                     mnuFornecedor.Visible = false;
                     mnuFuncionario.Visible = false;
                     mnuUsuairo.Visible = false;
+                    mnuFinanceiro.Visible = false;
                     break;
                 case 4:
                     mnuCliente.Visible = false;
                     mnuVenda.Visible = false;
                     mnuFuncionario.Visible = false;
                     mnuUsuairo.Visible = false;
+                    mnuFinanceiro.Visible = false;
                     break;
             }
         }

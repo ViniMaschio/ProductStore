@@ -100,21 +100,21 @@ namespace ProductStore.DAO.Venda
             {
                 conn.Open();
 
-                using(SqlCommand cmd = conn.CreateCommand())
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "Select sum(quantidade * valor ) as total , COUNT(codproduto_fk) as quantidade from itensvendaproduto where codvenda_fk = @codvenda;";
-                    cmd.Parameters.AddWithValue("@codvenda",codVenda);
+                    cmd.Parameters.AddWithValue("@codvenda", codVenda);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     while (reader.Read())
-                    {   
-                        if ((int)reader["quantidade"] >0)
+                    {
+                        if ((int)reader["quantidade"] > 0)
                         {
                             valorTotal = double.Parse(reader["total"].ToString());
                         }
                     }
                 }
-                conn.Close(); 
+                conn.Close();
             }
             return valorTotal;
         }

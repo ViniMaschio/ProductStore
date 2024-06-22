@@ -2,7 +2,6 @@
 using ProductStore.Entidades.Telefone;
 using System.Collections.Generic;
 using System.Data;
-using System.Windows.Forms;
 
 namespace ProductStore.Controler.Telefone
 {
@@ -32,10 +31,10 @@ namespace ProductStore.Controler.Telefone
             TelefoneControler telefoneControler = new TelefoneControler();
 
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID",typeof(int));
-            dataTable.Columns.Add("Telfone",typeof(string));
+            dataTable.Columns.Add("ID", typeof(int));
+            dataTable.Columns.Add("Telfone", typeof(string));
 
-            for (int i = 0;i< listItensTelefoneLojaEntidade.Count;i++)
+            for (int i = 0; i < listItensTelefoneLojaEntidade.Count; i++)
             {
                 TelefoneEntidade telefoneEntidade = telefoneControler.BuscarTelefonePorID(listItensTelefoneLojaEntidade[i].CodTelefone);
 

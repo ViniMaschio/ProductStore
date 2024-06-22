@@ -59,7 +59,7 @@ namespace ProductStore.Controler.Boletos
             dataTable.Columns.Add("Vencimento", typeof(DateTime));
             dataTable.Columns.Add("Valor", typeof(double));
             dataTable.Columns.Add("Situacao", typeof(string));
-            
+
 
             ParcelaCompraDAO parcelaCompraDAO = new ParcelaCompraDAO();
 
@@ -116,7 +116,7 @@ namespace ProductStore.Controler.Boletos
         {
             ParcelaCompraDAO parcelaCompraDAO = new ParcelaCompraDAO();
 
-            if (MessageBox.Show("Tem certeza que desejar Pagar?", "Pagar Boleto", MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Tem certeza que desejar Pagar?", "Pagar Boleto", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 parcelaCompraDAO.Pagar(parcelaCompraEntidade);
             }

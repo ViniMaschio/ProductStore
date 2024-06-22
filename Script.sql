@@ -47,39 +47,42 @@ create table uf (
     sigla char(2) not null unique
 );
 
-insert into uf(nomeuf,sigla) values(upper('Acre'), upper('AC'));
-insert into uf(nomeuf,sigla) values(upper('Alagoas'), upper('AL'));
-insert into uf(nomeuf,sigla) values(upper('Amapá'), upper('AP'));
-insert into uf(nomeuf,sigla) values(upper('Amazonas'), upper('AM'));
-insert into uf(nomeuf,sigla) values(upper('Bahia'), upper('BA'));
-insert into uf(nomeuf,sigla) values(upper('Ceará'), upper('CE'));
-insert into uf(nomeuf,sigla) values(upper('Distrito Federal'),upper ('DF'));
-insert into uf(nomeuf,sigla) values(upper('Espírito Santo'), upper('ES'));
-insert into uf(nomeuf,sigla) values(upper('Goiás'), upper('GO'));
-insert into uf(nomeuf,sigla) values(upper('Maranhão'), upper('MA'));
-insert into uf(nomeuf,sigla) values(upper('Mato Grosso'), upper('MT'));
-insert into uf(nomeuf,sigla) values(upper('Mato Grosso do Sul'), upper('MS'));
-insert into uf(nomeuf,sigla) values(upper('Minas Gerais'), upper('MG'));
-insert into uf(nomeuf,sigla) values(upper('Pará'), upper('PA'));
-insert into uf(nomeuf,sigla) values(upper('Paraíba'), upper('PB'));
-insert into uf(nomeuf,sigla) values(upper('Paraná'), upper('PR'));
-insert into uf(nomeuf,sigla) values(upper('Pernambuco'), upper('PE'));
-insert into uf(nomeuf,sigla) values(upper('Piauí'), upper('PI'));
-insert into uf(nomeuf,sigla) values(upper('Rio de Janeiro'), upper('RJ'));
-insert into uf(nomeuf,sigla) values(upper('Rio Grande do Norte'), upper('RN'));
-insert into uf(nomeuf,sigla) values(upper('Rio Grande do Sul'), upper('RS'));
-insert into uf(nomeuf,sigla) values(upper('Rondônia'), upper('RO'));
-insert into uf(nomeuf,sigla) values(upper('Roraima'), upper('RR'));
-insert into uf(nomeuf,sigla) values(upper('Santa Catarina'), upper('SC'));
-insert into uf(nomeuf,sigla) values(upper('São Paulo'), upper('sp')); 
-insert into uf(nomeuf,sigla) values(upper('Sergipe'), upper('SE'));
-insert into uf(nomeuf,sigla) values(upper('Tocantins'), upper('TO'));
+insert into uf(nomeuf,sigla) values
+('Acre', 'AC'),
+('Alagoas', 'AL'),
+('Amazonas', 'AM'),
+('Amapá', 'AP'),
+('Bahia', 'BA'),
+('Ceará', 'CE'),
+('Distrito Federal', 'DF'),
+('Espírito Santo', 'ES'),
+('Goiás', 'GO'),
+('Maranhão', 'MA'),
+('Minas Gerais', 'MG'),
+('Mato Grosso do Sul', 'MS'),
+('Mato Grosso', 'MT'),
+('Pará', 'PA'),
+('Paraíba', 'PB'),
+('Pernambuco', 'PE'),
+('Piauí', 'PI'),
+('Paraná', 'PR'),
+('Rio de Janeiro', 'RJ'),
+('Rio Grande do Norte', 'RN'),
+('Rondônia', 'RO'),
+('Roraima', 'RR'),
+('Rio Grande do Sul', 'RS'),
+('Santa Catarina', 'SC'),
+('Sergipe', 'SE'),
+('São Paulo', 'SP'),
+('Tocantins', 'TO');
+
+update uf set nomeuf = upper(nomeuf) , sigla = upper(sigla);
 
 
 --CIDADE = {CODCIDADE, NOMECIDADE, CODUF}
 create table cidade(
 	codcidade INT NOT NULL IDENTITY PRIMARY KEY,
-    nomecidade varchar(80) not null unique,
+    nomecidade varchar(80) not null,
     coduf_fk integer not null references uf(coduf) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
@@ -5663,6 +5666,8 @@ INSERT INTO cidade(nomecidade, coduf_fk) VALUES
 ('Wanderlândia', 27),
 ('Xambioá', 27);
 
+update cidade set nomecidade = upper(nomecidade);
+
 
 
 
@@ -5771,7 +5776,7 @@ create table funcionario(
 );
 
 insert into funcionario(nomefuncionario,numerocasa,codrua_fk,codbairro_fk,codcep_fk,codcidade_fk,codfuncao_fk,salario,codloja_fk)
-values (upper('super user'), 653,1,1,1,--1--,1,1,1); -- tem que arrumar a cidade santa fe do sul 
+values (upper('Gerente'), 653,1,1,1,5229,1,1,1); 
  
 
 --ITENSTELEFONEFUNCIONARIO = {CODFUNCIONARIOFK, CODTELEFONEFK}
@@ -5792,7 +5797,7 @@ create table login (
 	codfuncionario_fk integer not null references funcionario(codfuncionario) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-insert into login(usuario,senha,codfuncionario_fk) values ('SuperUser','123', 1);
+insert into login(usuario,senha,codfuncionario_fk) values ('Adm','123', 1);
 
 
 
@@ -5817,7 +5822,7 @@ insert into acesso(nomeacesso) values (upper('Gerente'));
 insert into acesso(nomeacesso) values (upper('Financeiro'));
 insert into acesso(nomeacesso) values (upper('venda'));
 insert into acesso(nomeacesso) values (upper('Compra'));
-insert into acesso(nomeacesso) values (upper('gerencia'));
+
 
 
 --ITENSACESSOLOGIN = {CODACESSOFK, CODLOGINFK}
@@ -5926,7 +5931,7 @@ create table situacao (
 
 insert into situacao(nomesituacao) values (upper('em aberto'));
 
-insert into situacao(nomesituacao) values (upper('pago')); -- esse vai vim do banco
+insert into situacao(nomesituacao) values (upper('pago')); 
 
 
 --PARCELACOMPRA = {CODPARCELACOMPRA, DATAVENCIMENTO, VALOR,CODSITUACAOFK, CODCOMPRAFK}
@@ -5944,7 +5949,7 @@ create table parcelacompra (
 create table vendaproduto(
 	codvenda INT NOT NULL IDENTITY PRIMARY KEY,
 	datavenda date not null,
-		 integer not null references cliente(codcliente) ON DELETE NO ACTION ON UPDATE NO ACTION,
+	codcliente_fk integer not null references cliente(codcliente) ON DELETE NO ACTION ON UPDATE NO ACTION,
 	codfuncionario_fk integer not null references funcionario(codfuncionario) ON DELETE NO ACTION ON UPDATE NO ACTION
 );
 

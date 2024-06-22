@@ -63,7 +63,7 @@ namespace ProductStore.DAO.Funcionario
                     cmd.Parameters.AddWithValue("@salario", funcionarioEntidade.Salario);
                     cmd.Parameters.AddWithValue("@codloja", funcionarioEntidade.CodLoja);
                     cmd.Parameters.AddWithValue("@codfuncionario", funcionarioEntidade.Id);
-                    cmd.Parameters.AddWithValue("@codcep",funcionarioEntidade.CodCep);
+                    cmd.Parameters.AddWithValue("@codcep", funcionarioEntidade.CodCep);
                     try
                     {
                         cmd.ExecuteNonQuery();
@@ -138,7 +138,7 @@ namespace ProductStore.DAO.Funcionario
                             });
                         }
                     }
-                    catch (Exception ex) { MessageBox.Show(ex.Message,"Funcionario DAO"); }
+                    catch (Exception ex) { MessageBox.Show(ex.Message, "Funcionario DAO"); }
                 }
 
                 conn.Close();
@@ -150,7 +150,7 @@ namespace ProductStore.DAO.Funcionario
 
         public FuncionarioEntidade BuscarFuncionarioPorId(int id)
         {
-            FuncionarioEntidade funcionarioEntidade = new FuncionarioEntidade() ;
+            FuncionarioEntidade funcionarioEntidade = new FuncionarioEntidade();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {
@@ -184,7 +184,7 @@ namespace ProductStore.DAO.Funcionario
                             };
                         }
                     }
-                    catch (Exception ex) { MessageBox.Show(ex.Message,"Funcionario Id DAO"); }
+                    catch (Exception ex) { MessageBox.Show(ex.Message, "Funcionario Id DAO"); }
                 }
 
                 conn.Close();

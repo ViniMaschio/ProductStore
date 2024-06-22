@@ -28,10 +28,10 @@ namespace ProductStore.DAO.Login
         public void Alterar(ItensAcessoLoginEntidade itensAcessoLoginEntidade)
         {
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
-            { 
-                conn.Open(); 
+            {
+                conn.Open();
 
-                using(SqlCommand cmd = conn.CreateCommand())
+                using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "update itensacessologin set codacesso_fk = @codacesso where codlogin_fk = @codlogin;";
                     cmd.Parameters.AddWithValue("@codacesso", itensAcessoLoginEntidade.CodAcesso);

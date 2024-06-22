@@ -23,7 +23,7 @@ namespace ProductStore.Controler.Venda
 
             int idVenda = vendaProdutoDAO.Add(vendaProdutoEntidade);
 
-            for(int i = 0; i< listItensVendaProdutoEntidade.Count; i++)
+            for (int i = 0; i < listItensVendaProdutoEntidade.Count; i++)
             {
                 listItensVendaProdutoEntidade[i].CodVenda = idVenda;
             }
@@ -62,11 +62,11 @@ namespace ProductStore.Controler.Venda
         public DataTable BuscarTodasVendas()
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID",typeof(int));
+            dataTable.Columns.Add("ID", typeof(int));
             dataTable.Columns.Add("Cliente", typeof(string));
             dataTable.Columns.Add("Funcionario", typeof(string));
             dataTable.Columns.Add("Data Venda", typeof(DateTime));
-            dataTable.Columns.Add("Valor Total",typeof(double));
+            dataTable.Columns.Add("Valor Total", typeof(double));
 
             VendaProdutoDAO vendaProdutoDAO = new VendaProdutoDAO();
             List<VendaProdutoEntidade> vendaProdutoEntidades = vendaProdutoDAO.BuscarTodasVendas();

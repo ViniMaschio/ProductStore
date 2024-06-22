@@ -1,17 +1,11 @@
-﻿using ProductStore.Controler.Cliente;
-using ProductStore.Controler.Compra;
+﻿using ProductStore.Controler.Compra;
 using ProductStore.Controler.Endereco;
-using ProductStore.Entidades.Cliente;
 using ProductStore.Entidades.Compra;
 using ProductStore.Entidades.Endereco;
+using ProductStore.View.Endereco.Bairro;
+using ProductStore.View.Endereco.Cep;
+using ProductStore.View.Endereco.Rua;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Fornecedor
@@ -30,7 +24,7 @@ namespace ProductStore.View.Fornecedor
 
             txtCodigo.Text = codFornecedor.ToString();
 
-            if(codFornecedor != 0)
+            if (codFornecedor != 0)
             {
                 CarregarFornecedor(codFornecedor);
             }
@@ -104,6 +98,8 @@ namespace ProductStore.View.Fornecedor
         private void cBoxEstado_SelectedIndexChanged(object sender, EventArgs e)
         {
             BuscarCidade(int.Parse(cBoxEstado.SelectedValue.ToString()));
+
+
         }
 
         private void bntSalvar_Click(object sender, EventArgs e)
@@ -121,7 +117,7 @@ namespace ProductStore.View.Fornecedor
 
             FornecedorControler fornecedorControler = new FornecedorControler();
 
-            if(fornecedorEntidade.Id == 0)
+            if (fornecedorEntidade.Id == 0)
             {
                 fornecedorControler.AddFornecedor(fornecedorEntidade);
             }
@@ -135,6 +131,27 @@ namespace ProductStore.View.Fornecedor
         private void bntSair_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void vntNovoRua_Click(object sender, EventArgs e)
+        {
+            RuaForm ruaForm =  new RuaForm(0);
+            ruaForm.ShowDialog();
+            CarregarRua();
+        }
+
+        private void bntNovoBairro_Click(object sender, EventArgs e)
+        {
+            BairroForm bairroForm = new BairroForm(0);
+            bairroForm.ShowDialog();
+            CarregarBairro();
+        }
+
+        private void bntNovoCep_Click(object sender, EventArgs e)
+        {
+            CepForm cepForm = new CepForm(0);
+            cepForm.ShowDialog();
+            BuscarCep();
         }
     }
 }

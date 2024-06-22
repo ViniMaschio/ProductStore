@@ -1,13 +1,6 @@
 ﻿using ProductStore.Controler.Endereco;
 using ProductStore.Entidades.Endereco;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Endereco.Bairro
@@ -20,7 +13,7 @@ namespace ProductStore.View.Endereco.Bairro
 
             txtCod.Text = codBairro.ToString();
 
-            if(codBairro != 0)
+            if (codBairro != 0)
             {
                 BairroControler bairroControler = new BairroControler();
                 txtBairro.Text = bairroControler.BuscarPorId(codBairro);
@@ -38,7 +31,7 @@ namespace ProductStore.View.Endereco.Bairro
 
             if (txtCod.Text == "0")
             {
-               
+
                 BairroControler bairroControler = new BairroControler();
                 bairroControler.AddBairro(bairroEntidade);
             }

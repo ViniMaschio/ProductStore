@@ -31,11 +31,11 @@ namespace ProductStore.Controler.Telefone
 
             TelefoneControler telefoneControler = new TelefoneControler();
 
-            for (int i = 0;i<listItensTelefoneFuncionario.Count;i++)
+            for (int i = 0; i < listItensTelefoneFuncionario.Count; i++)
             {
                 TelefoneEntidade telefoneEntidade = telefoneControler.BuscarTelefonePorID(listItensTelefoneFuncionario[i].CodTelefone);
 
-                dataTable.Rows.Add(telefoneEntidade.Id,telefoneEntidade.Telefone);
+                dataTable.Rows.Add(telefoneEntidade.Id, telefoneEntidade.Telefone);
             }
             return dataTable;
         }

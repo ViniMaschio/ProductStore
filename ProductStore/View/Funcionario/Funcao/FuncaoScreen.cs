@@ -1,13 +1,6 @@
 ﻿using ProductStore.Controler.Funcionario;
 using ProductStore.Entidades.Funcionario;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Funcionario.Funcao
@@ -32,7 +25,7 @@ namespace ProductStore.View.Funcionario.Funcao
         {
             FuncaoEntidade funcaoEntidade = new FuncaoEntidade() { Id = 0 };
 
-            if(dGVFuncao.Rows.Count > 0)
+            if (dGVFuncao.Rows.Count > 0)
             {
                 funcaoEntidade.Id = (int)dGVFuncao.CurrentRow.Cells[0].Value;
                 funcaoEntidade.NomeFuncao = dGVFuncao.CurrentRow.Cells[1].Value.ToString();
@@ -51,7 +44,7 @@ namespace ProductStore.View.Funcionario.Funcao
         {
             FuncaoEntidade funcaoEntidade = BuscarLinhaDataGrid();
 
-            if(funcaoEntidade.Id != 0)
+            if (funcaoEntidade.Id != 0)
             {
                 FuncaoForm funcaoForm = new FuncaoForm(funcaoEntidade.Id);
                 funcaoForm.ShowDialog();

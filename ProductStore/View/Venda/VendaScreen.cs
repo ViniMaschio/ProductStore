@@ -46,7 +46,7 @@ namespace ProductStore.View.Venda
         {
             VendaProdutoEntidade vendaProdutoEntidade = BuscarLinhaDataGrid();
 
-            if(vendaProdutoEntidade.Id != 0)
+            if (vendaProdutoEntidade.Id != 0)
             {
                 ItensVendaScreen itensVendaScreen = new ItensVendaScreen(vendaProdutoEntidade.Id);
                 itensVendaScreen.ShowDialog();

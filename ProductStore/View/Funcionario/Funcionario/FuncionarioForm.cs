@@ -1,6 +1,5 @@
 ﻿using ProductStore.Controler.Endereco;
 using ProductStore.Controler.Funcionario;
-using ProductStore.Entidades.Cliente;
 using ProductStore.Entidades.Endereco;
 using ProductStore.Entidades.Funcionario;
 using ProductStore.View.Endereco.Bairro;
@@ -9,13 +8,6 @@ using ProductStore.View.Endereco.Rua;
 using ProductStore.View.Funcionario.Funcao;
 using ProductStore.View.Funcionario.Loja;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Funcionario.Funcionario
@@ -35,7 +27,7 @@ namespace ProductStore.View.Funcionario.Funcionario
 
             txtCodigo.Text = codFuncionario.ToString();
 
-            if(codFuncionario != 0)
+            if (codFuncionario != 0)
             {
                 CarregarFuncionario(codFuncionario);
             }
@@ -147,7 +139,7 @@ namespace ProductStore.View.Funcionario.Funcionario
 
             FuncionarioControler funcionarioControler = new FuncionarioControler();
 
-            if(funcionarioEntidade.Id == 0)
+            if (funcionarioEntidade.Id == 0)
             {
                 funcionarioControler.AddFuncionario(funcionarioEntidade);
             }

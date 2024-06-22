@@ -1,13 +1,6 @@
 ﻿using ProductStore.Controler.Endereco;
 using ProductStore.Entidades.Endereco;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Endereco.Cep
@@ -34,11 +27,11 @@ namespace ProductStore.View.Endereco.Cep
         {
             CepEntidade cepEntidade = new CepEntidade() { Id = 0 };
 
-            if(dGVcep.RowCount > 0)
+            if (dGVcep.RowCount > 0)
             {
                 cepEntidade.Id = int.Parse(dGVcep.CurrentRow.Cells[0].Value.ToString());
                 cepEntidade.Cep = dGVcep.CurrentRow.Cells[1].Value.ToString();
-            } 
+            }
 
             return cepEntidade;
         }
@@ -54,7 +47,7 @@ namespace ProductStore.View.Endereco.Cep
         {
             CepEntidade cepEntidade = BuscarLinhaDataGrid();
 
-            CepForm cepForm = new CepForm(cepEntidade.Id);  
+            CepForm cepForm = new CepForm(cepEntidade.Id);
             cepForm.ShowDialog();
 
             CarregarDataGrid();

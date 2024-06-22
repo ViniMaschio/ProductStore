@@ -29,7 +29,7 @@ namespace ProductStore.Controler.Venda
         public DataTable BuscarVendaProdutosPorVenda(int codVenda)
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("Cod",typeof(int));
+            dataTable.Columns.Add("Cod", typeof(int));
             dataTable.Columns.Add("Produto", typeof(string));
             dataTable.Columns.Add("Quant", typeof(double));
             dataTable.Columns.Add("Valor Unit", typeof(double));

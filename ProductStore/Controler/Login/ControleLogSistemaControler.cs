@@ -20,9 +20,9 @@ namespace ProductStore.Controler.Login
         public DataTable BuscarTodosLogPorLogin(int login)
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID",typeof(int));
+            dataTable.Columns.Add("ID", typeof(int));
             dataTable.Columns.Add("Funcionario", typeof(string));
-            dataTable.Columns.Add("Data",typeof(DateTime));
+            dataTable.Columns.Add("Data", typeof(DateTime));
             dataTable.Columns.Add("Hora", typeof(TimeSpan));
 
             ControleLogSistemaDAO controleLogSistemaDAO = new ControleLogSistemaDAO();

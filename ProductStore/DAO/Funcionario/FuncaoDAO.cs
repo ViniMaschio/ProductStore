@@ -142,7 +142,7 @@ namespace ProductStore.DAO.Funcionario
                             NomeFuncao = (string)reader["nomefuncao"]
                         };
                     }
-                    catch (Exception ex) { MessageBox.Show(ex.Message,"Funcao DAO"); }
+                    catch (Exception ex) { MessageBox.Show(ex.Message, "Funcao DAO"); }
                 }
 
                 conn.Close();

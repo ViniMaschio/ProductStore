@@ -46,16 +46,19 @@ namespace ProductStore.Controler.Telefone
             DataTable dataTable = new DataTable();
             dataTable.Columns.Add("ID", typeof(int));
             dataTable.Columns.Add("Telefone", typeof(string));
+            dataTable.Columns.Add("Operadora",typeof(string));
 
 
             TelefoneDao telefoneDao = new TelefoneDao();
 
             List<TelefoneEntidade> listTelefoneEntidade = telefoneDao.BuscarTodosTelefone();
+            OperadoraControler operadoraControler = new OperadoraControler();
 
             for (int i = 0; i < listTelefoneEntidade.Count; i++)
             {
                 dataTable.Rows.Add(listTelefoneEntidade[i].Id,
-                    listTelefoneEntidade[i].Telefone
+                    listTelefoneEntidade[i].Telefone,
+                    operadoraControler.BuscarOperaoraPorId(listTelefoneEntidade[i].CodOperadora)
                     );
             }
 

@@ -1,13 +1,6 @@
 ﻿using ProductStore.Controler.Endereco;
 using ProductStore.Entidades.Endereco;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Endereco.Cep
@@ -24,7 +17,7 @@ namespace ProductStore.View.Endereco.Cep
             {
                 CepControler cepControler = new CepControler();
                 txtCep.Text = cepControler.BuscarCepPorId(codCep);
-            } 
+            }
         }
 
         private void bntSalvar_Click(object sender, EventArgs e)
@@ -33,7 +26,7 @@ namespace ProductStore.View.Endereco.Cep
 
             CepControler cepControler = new CepControler();
 
-            if(cepEntidade.Id == 0)
+            if (cepEntidade.Id == 0)
             {
                 cepControler.AddCep(cepEntidade);
             }

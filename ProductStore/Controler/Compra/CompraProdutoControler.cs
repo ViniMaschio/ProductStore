@@ -24,14 +24,14 @@ namespace ProductStore.Controler.Compra
             for (int i = 0; i < listItensCompraProduto.Count; i++)
             {
                 listItensCompraProduto[i].CodCompra = idCompra;
-                
+
             }
             for (int i = 0; i < listparcelacompra.Count; i++)
             {
                 listparcelacompra[i].CodCompra = idCompra;
             }
- 
-            ItensCompraProdutoControler itensCompraProdutoControler =  new ItensCompraProdutoControler();
+
+            ItensCompraProdutoControler itensCompraProdutoControler = new ItensCompraProdutoControler();
             itensCompraProdutoControler.AddProdutos(listItensCompraProduto);
 
             ParcelaCompraControler parcelaCompraControler = new ParcelaCompraControler();
@@ -65,8 +65,8 @@ namespace ProductStore.Controler.Compra
         public DataTable BuscarTodasCompras()
         {
             DataTable dateTable = new DataTable();
-            dateTable.Columns.Add("ID",typeof(int));
-            dateTable.Columns.Add("Fornecedor",typeof(string));
+            dateTable.Columns.Add("ID", typeof(int));
+            dateTable.Columns.Add("Fornecedor", typeof(string));
             dateTable.Columns.Add("Funcionario", typeof(string));
             dateTable.Columns.Add("Data", typeof(DateTime));
             dateTable.Columns.Add("Valor Total", typeof(double));
@@ -81,7 +81,7 @@ namespace ProductStore.Controler.Compra
             {
                 FornecedorEntidade fornecedorEntidade = fornecedorControler.BuscarFornecedorPorId(listCompraProdutoEntidade[i].CodFornecedor);
                 FuncionarioEntidade funcionarioEntidade = funcionarioControler.BuscarFuncionarioPorId(listCompraProdutoEntidade[i].CodFuncionario);
-                
+
                 dateTable.Rows.Add(listCompraProdutoEntidade[i].Id,
                     fornecedorEntidade.NomeFornecedor,
                     funcionarioEntidade.NomeFuncionario,

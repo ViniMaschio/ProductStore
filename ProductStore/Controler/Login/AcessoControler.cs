@@ -12,8 +12,8 @@ namespace ProductStore.Controler.Login
         public DataTable BuscarTodosAcesso()
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ID",typeof(int));
-            dataTable.Columns.Add("Acesso",typeof(string));
+            dataTable.Columns.Add("ID", typeof(int));
+            dataTable.Columns.Add("Acesso", typeof(string));
 
             AcessoDAO acessoDAO = new AcessoDAO();
             List<AcessoEntidade> listAcessoEntidade = acessoDAO.BuscarTodosAcesso();

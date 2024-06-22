@@ -1,13 +1,6 @@
 ﻿using ProductStore.Controler.Funcionario;
 using ProductStore.Entidades.Funcionario;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Funcionario.Funcao
@@ -20,7 +13,7 @@ namespace ProductStore.View.Funcionario.Funcao
 
             txtCod.Text = CodFuncao.ToString();
 
-            if (CodFuncao != 0 )
+            if (CodFuncao != 0)
             {
                 FuncaoControler funcaoControler = new FuncaoControler();
                 txtFuncao.Text = funcaoControler.BuscarFuncaoPorId(CodFuncao);

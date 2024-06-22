@@ -1,7 +1,6 @@
 ﻿using ProductStore.Controler.Login;
 using ProductStore.Entidades.Login;
 using System;
-using System.Data;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Usuario
@@ -53,7 +52,7 @@ namespace ProductStore.View.Usuario
         private void bntDeletar_Click(object sender, EventArgs e)
         {
             LoginEntidade loginEntidade = BuscarLinhaDataGrid();
-            LoginControler loginControler = new LoginControler();   
+            LoginControler loginControler = new LoginControler();
             loginControler.ApagarLogin(loginEntidade);
         }
 

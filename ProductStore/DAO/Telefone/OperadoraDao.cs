@@ -12,7 +12,7 @@ namespace ProductStore.DAO.Telefone
 
         public List<OperadoraEntidade> BuscarTodasOperadora()
         {
-            List<OperadoraEntidade> listOperadoraEntidade = null;
+            List<OperadoraEntidade> listOperadoraEntidade = new List<OperadoraEntidade>();
 
             using (SqlConnection conn = new SqlConnection(_stringconnetion))
             {

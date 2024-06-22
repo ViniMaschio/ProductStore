@@ -1,28 +1,21 @@
 ﻿using ProductStore.Controler.Funcionario;
 using ProductStore.Entidades.Funcionario;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Funcionario.Loja
 {
     public partial class LojaForm : Form
     {
-        
+
 
         public LojaForm(int codLoja)
         {
             InitializeComponent();
-            
+
             txtCod.Text = codLoja.ToString();
 
-            if(codLoja != 0)
+            if (codLoja != 0)
             {
                 LojaControler lojaControler = new LojaControler();
                 LojaEntidade loja = lojaControler.BuscarLojaPorId(codLoja);
@@ -47,7 +40,7 @@ namespace ProductStore.View.Funcionario.Loja
 
             LojaControler lojaControler = new LojaControler();
 
-            if(lojaEntidade.Id == 0)
+            if (lojaEntidade.Id == 0)
             {
                 lojaControler.AdicionarLoja(lojaEntidade);
             }

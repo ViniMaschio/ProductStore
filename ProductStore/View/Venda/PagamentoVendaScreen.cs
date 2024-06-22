@@ -1,12 +1,6 @@
 ﻿using ProductStore.Entidades.Boletos;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ProductStore.View.Venda
@@ -21,7 +15,7 @@ namespace ProductStore.View.Venda
             CarregarDataGrid();
         }
 
-        public List<ParcelaVendaEntidade> listParcelaVendaEntidade = new List<ParcelaVendaEntidade> ();
+        public List<ParcelaVendaEntidade> listParcelaVendaEntidade = new List<ParcelaVendaEntidade>();
 
         private double _valorTotal = 0;
 
@@ -40,8 +34,8 @@ namespace ProductStore.View.Venda
         }
 
         private void bntCancelar_Click(object sender, EventArgs e)
-        {   
-            
+        {
+
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
@@ -58,7 +52,7 @@ namespace ProductStore.View.Venda
                     DataVencimento = DateTime.Parse(dGVBoletos.Rows[i].Cells[3].Value.ToString())
                 });
             }
-            this.DialogResult= DialogResult.Yes;
+            this.DialogResult = DialogResult.Yes;
         }
 
         private void txtQuantidadeParcela_TextChanged(object sender, EventArgs e)

@@ -149,7 +149,7 @@ namespace ProductStore.DAO.Funcionario
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
                     cmd.CommandText = "select * from loja where codloja = @codloja;";
-                    cmd.Parameters.AddWithValue("@codloja",id);
+                    cmd.Parameters.AddWithValue("@codloja", id);
 
                     try
                     {

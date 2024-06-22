@@ -22,19 +22,19 @@ namespace ProductStore.Controler.Compra
             ItensCompraProdutoDAO itensCompraProdutoDAO = new ItensCompraProdutoDAO();
 
             List<ItensCompraProdutoEntidade> listItensCompraProdutoEntidade = itensCompraProdutoDAO.BuscarTodosProdutoPorCompra(codCompra);
-            
+
             itensCompraProdutoDAO.Delete(listItensCompraProdutoEntidade);
         }
 
-        
+
 
         public DataTable BuscarTodosProdutosPorCompra(int codCompra)
         {
             DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("Cod",typeof(int));
-            dataTable.Columns.Add("Produto",typeof(string));
-            dataTable.Columns.Add("Quant.",typeof(double));
-            dataTable.Columns.Add("Valor Uni.",typeof(double));
+            dataTable.Columns.Add("Cod", typeof(int));
+            dataTable.Columns.Add("Produto", typeof(string));
+            dataTable.Columns.Add("Quant.", typeof(double));
+            dataTable.Columns.Add("Valor Uni.", typeof(double));
             dataTable.Columns.Add("Valor Total", typeof(double));
 
             ItensCompraProdutoDAO itensCompraProdutoDAO = new ItensCompraProdutoDAO();

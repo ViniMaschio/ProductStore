@@ -22,7 +22,7 @@ namespace ProductStore.DAO.Compra
                     cmd.CommandText = "insert into compraproduto(datacompra,codfornecedor_fk,codfuncionario_fk) values (@datacompra,@codfornecedor,@codfuncionario) SELECT SCOPE_IDENTITY() as codcompra;";
                     cmd.Parameters.AddWithValue("@datacompra", compraProduto.DataCompra);
                     cmd.Parameters.AddWithValue("@codfornecedor", compraProduto.CodFornecedor);
-                    cmd.Parameters.AddWithValue("@codfuncionario", compraProduto.CodFornecedor);
+                    cmd.Parameters.AddWithValue("@codfuncionario", compraProduto.CodFuncionario);
 
                     SqlDataReader reader = cmd.ExecuteReader();
                     reader.Read();
